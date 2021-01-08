@@ -1,0 +1,130 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Grammar
+
+Rule 0     S' -> args
+Rule 1     args -> ARGS
+Rule 2     readline -> CONSOLE PUNTO WRITELINE PIZQ ID PDER
+Rule 3     boolean -> BOOLEAN
+Rule 4     import -> IMPORTS ( ident ) ; statement
+Rule 5     main -> SUB MAIN PIZQ ARGS AS STRING PIZQ PDER PDER
+Rule 6     constDecl -> DIM id IGUAL id
+Rule 7     constDecl -> empty
+Rule 8     constAssignmentList -> ID IGUAL NUMERO
+Rule 9     constAssignmentList -> constAssignmentList ID IGUAL NUMERO
+Rule 10    varDecl -> DIM identList
+Rule 11    varDecl -> empty
+Rule 12    identList -> ID
+Rule 13    identList -> identList COMMA ID
+Rule 14    procDecl -> procDecl PROCEDURE ID block
+Rule 15    procDecl -> empty
+Rule 16    statement -> ID UPDATE expression
+Rule 17    statement -> ID
+Rule 18    statement -> BEGIN statementList END
+Rule 19    statement -> empty
+Rule 20    statementList -> statement
+Rule 21    statementList -> statementList statement
+Rule 22    condition -> expression
+Rule 23    condition -> expression relation expression
+Rule 24    relation -> IGUAL
+Rule 25    relation -> NOIGUAL
+Rule 26    relation -> MENORQ
+Rule 27    relation -> MAYORQ
+Rule 28    relation -> TRUE
+Rule 29    relation -> FALSE
+Rule 30    expression -> term
+Rule 31    expression -> addingOperator term
+Rule 32    expression -> expression addingOperator term
+Rule 33    expression -> DATETIME PUNTO NOW
+Rule 34    expression -> LLIZQ ID LLDER
+Rule 35    expression -> VBCRLF
+Rule 36    expression -> MODULE PROGRAM
+Rule 37    expression -> END MODULE
+Rule 38    expression -> CONSOLE PUNTO READKEY PIZQ relation PDER
+Rule 39    expression -> DIM id IGUAL CONSOLE PUNTO READLINE PIZQ PDER
+Rule 40    addingOperator -> SUMA
+Rule 41    addingOperator -> RESTA
+Rule 42    addingOperator -> MOD
+Rule 43    term -> factor
+Rule 44    term -> term multiplyingOperator factor
+Rule 45    multiplyingOperator -> MULTI
+Rule 46    multiplyingOperator -> DIV
+Rule 47    factor -> ID
+Rule 48    factor -> NUMERO
+Rule 49    factor -> PIZ expression PDER
+Rule 50    empty -> <empty>
+
+Terminals, with rules where they appear
+
+(                    : 4
+)                    : 4
+;                    : 4
+ARGS                 : 1 5
+AS                   : 5
+BEGIN                : 18
+BOOLEAN              : 3
+CONSOLE              : 2 38 39
+DATETIME             : 33
+DIM                  : 6 10 39
+DIV                  : 46
+END                  : 18 37
+FALSE                : 29
+ID                   : 2 8 9 12 13 14 16 17 34 47
+IGUAL                : 6 8 9 24 39
+IMPORTS              : 4
+LLDER                : 34
+LLIZQ                : 34
+MAIN                 : 5
+MAYORQ               : 27
+MENORQ               : 26
+MOD                  : 42
+MODULE               : 36 37
+MULTI                : 45
+NOIGUAL              : 25
+NOW                  : 33
+NUMERO               : 8 9 48
+PDER                 : 2 5 5 38 39 49
+PIZQ                 : 2 5 5 38 39
+PROGRAM              : 36
+PUNTO                : 2 33 38 39
+READKEY              : 38
+READLINE             : 39
+RESTA                : 41
+STRING               : 5
+SUB                  : 5
+SUMA                 : 40
+TRUE                 : 28
+UPDATE               : 16
+VBCRLF               : 35
+WRITELINE            : 2
+error                : 
+
+Nonterminals, with rules where they appear
+
+COMMA                : 13
+PIZ                  : 49
+PROCEDURE            : 14
+addingOperator       : 31 32
+args                 : 0
+block                : 14
+boolean              : 
+condition            : 
+constAssignmentList  : 9
+constDecl            : 
+empty                : 7 11 15 19
+expression           : 16 22 23 23 32 49
+factor               : 43 44
+id                   : 6 6 39
+ident                : 4
+identList            : 10 13
+import               : 
+main                 : 
+multiplyingOperator  : 44
+procDecl             : 14
+readline             : 
+relation             : 23 38
+statement            : 4 20 21
+statementList        : 18 21
+term                 : 30 31 32 44
+varDecl              : 
+

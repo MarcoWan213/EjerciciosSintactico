@@ -1,0 +1,40 @@
+Module = { Import } SS 
+Import = IMPORT "(" Ident ")" ";" 
+SS = (Var | E) { ";" (Var | E) } [ ";" ] 
+Var = VAR "(" Ident ")" 
+E = Value 
+| E BinOp E 
+| UnOp E 
+| "(" E ")"
+| E "(" [ E { "," E } ] ")" 
+| E "[" E "]" 
+| Ident "=" E 
+| Statement 
+| FieldRef 
+Value = nil | Bool | String | Real | Integer | Sequence 
+Bool = XFTRUE "(" ")" | XFFALSE "(" ")" 
+String = "’" { Char } "’" | ’"’ { Char } ’"’
+Real = Integer [ Fraction ] [ Exponent ]
+Fraction = "." Integer 
+Exponent = ( "e" | "E" ) [ "+" | "-"] Integer 
+Integer = Digit { Digit } 
+Sequence = "[" [ E { "," E } ] "]" 
+BinOp = "+" | "-" | "*" | "/" | DIV | MOD 
+| "<" | "<=" | "==" | "!=" | ">" | ">=" 
+| AND | OR 
+| "|" | "?"
+UnOp = "-" | "+" | "!"
+Statement = WhileStat | IfStat | FunStat | EveryStat | ConcurrentStat | ReturnStat<br>
+WhileStat = WHILE SS DO SS END
+IfStat = IF SS THEN SS [ ElseStat ] END
+ElseStat = ELSE SS | ELSIF SS THEN SS [ ElseStat ]
+FunStat = FUN "(" "(" [ Ident { "," Ident } ] ")" "," SS ")"
+EveryStat = FOREACH Ident IN E DO SS END
+ConcurrentStat = BEGINCONCURRENT SS2 ENDCONCURRENT
+SS2 = (Var | E) { CONC (Var | E) }
+ReturnStat = RETURN [E]
+FieldRef = E "." Ident [ "(" [ E { "," E } ] ")" ]
+Ident = Letter { Letter | Digit }
+229
+Digit = "0" .. "9"
+Letter = "a" .. "z" | "A" .. "Z"

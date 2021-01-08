@@ -26,7 +26,7 @@ precedence = (
 	)
 
 def p_module(p):
-	'module : imports MODULE program constDecl varDecl procDecl statement'	
+	'module : imports MODULE PROGRAM constDecl varDecl procDecl statement'	
 
 def p_program(p):
 	'program : SUB MAIN PIZQ ARGS AS STRING PIZQ PDER PDER'

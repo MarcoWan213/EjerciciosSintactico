@@ -5,8 +5,8 @@ import re
 from analizador import tokens
 from sys import stdin
 
-precedence = (
-	('right','ID','MODULE','NUMERO'),
+precedence = (	
+	('right','ID','MODULE', 'IMPORTS'),
 	#('right','PROCEDURE'),
 	#('right','VAR'),
 	('right','IGUAL'),
@@ -25,30 +25,27 @@ precedence = (
 	#'PIZQ','PDER','LLIZQ','LLDER','PUNTO','UPDATE'
 	)
 
-#def p_module(p):
-#	'module : import'	
+def p_module(p):
+	'module : imports MODULE program constDecl varDecl procDecl statement'	
 
-def p_args(p):
-    'args : ARGS'
+def p_program(p):
+	'program : SUB MAIN PIZQ ARGS AS STRING PIZQ PDER PDER'
 
-def p_readline(p):
-    'readline : CONSOLE PUNTO WRITELINE PIZQ ID PDER'
+#def p_args(p):
+    #'args : ARGS'
 
-def p_boolean(p):
-	'boolean : BOOLEAN'
-
-
-def p_import(p):
+def p_imports(p):
 	#'''block : constDecl varDecl procDecl statement'''
-	'import : IMPORTS "(" ident ")" ";" statement'
+	'imports : IMPORTS ID'
+	#"(" ident ")"
     #print "block"	
 
-def p_main(p):
-	'main : SUB MAIN PIZQ ARGS AS STRING PIZQ PDER PDER'
+#def p_main(p):
+	
 #Sub Main(args As String())
 
 def p_constDecl(p):
-	'''constDecl : DIM id IGUAL id'''
+	'''constDecl : DIM constAssignmentList'''
 	#p[0] = constDecl(p[2])
 	#print "constDecl"
 
@@ -78,11 +75,11 @@ def p_identList1(p):
 	#print "identList 1"
 
 def p_identList2(p):
-	'''identList : identList COMMA ID'''
+	'''identList : identList ID'''
 	#print "identList 2"
 
-def p_procDecl1(p):
-	'''procDecl : procDecl PROCEDURE ID  block '''
+#def p_procDecl1(p):
+	#'''procDecl : procDecl PROCEDURE ID  module '''
 	#print "procDecl 1"
 
 def p_procDeclEmpty(p):
@@ -101,8 +98,8 @@ def p_statement3(p):
 	'''statement : BEGIN statementList END'''
 	#print "statement 3"
 
-#def p_statement4(p):
-	#'''statement : IF condition THEN statement'''
+def p_statement4(p):
+	'''statement : condition'''
 	#print "statement 4"
 
 #def p_statement5(p):
@@ -111,7 +108,7 @@ def p_statement3(p):
 
 def p_statementEmpty(p):
 	'''statement : empty'''
-	#print "nulo"
+	print ("A ve")
 
 def p_statementList1(p):
 	'''statementList : statement'''
@@ -182,10 +179,14 @@ def p_expression8(p):
 	'''expression : END MODULE'''
 
 def p_expression9(p):
-	'''expression : CONSOLE PUNTO READKEY PIZQ relation PDER'''
+	'''expression : CONSOLE PUNTO READKEY PIZQ boolean PDER'''
 
 def p_expression10(p):
-	'''expression : DIM id IGUAL CONSOLE PUNTO READLINE PIZQ PDER'''
+	'''expression : DIM ID IGUAL CONSOLE PUNTO READLINE PIZQ PDER'''
+
+def p_expression11(p):
+	'''expression : CONSOLE PUNTO WRITELINE PIZQ ID PDER'''
+
 
 def p_addingOperator1(p):
 	'''addingOperator : SUMA'''
@@ -223,8 +224,14 @@ def p_factor2(p):
 	#print "factor 1"
 
 def p_factor3(p):
-	'''factor : PIZ expression PDER'''
+	'''factor : PIZQ expression PDER'''
 	#print "factor 1"
+
+#def p_readline(p):
+#    'readline : CONSOLE PUNTO READLINE PIZQ id PDER'
+
+def p_boolean(p):
+	'boolean : BOOLEAN'
 
 def p_empty(p):
 	'''empty :'''

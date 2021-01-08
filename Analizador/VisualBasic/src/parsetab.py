@@ -6,9 +6,9 @@ _tabversion = '3.10'
 
 _lr_method = 'LALR'
 
-_lr_signature = 'rightIDMODULErightIGUALrightUPDATErightNUMEROleftNOIGUALleftMENORQMAYORQleftSUMARESTAleftMULTIDIVrightPUNTOleftPIZQPDERleftLLIZQLLDERARGS AS BOOLEAN CONSOLE DATETIME DIM DIV END FALSE ID IGUAL IMPORTS LLDER LLIZQ MAIN MAYORQ MENORQ MOD MODULE MULTI NOIGUAL NOW NUMERO PDER PIZQ PROGRAM PUNTO READKEY READLINE RESTA STRING SUB SUMA TRUE UPDATE VBCRLF WRITELINEempty : '
+_lr_signature = 'rightIDMODULEIMPORTSrightIGUALrightUPDATErightNUMEROleftNOIGUALleftMENORQMAYORQleftSUMARESTAleftMULTIDIVrightPUNTOleftPIZQPDERleftLLIZQLLDERARGS AS BEGIN BOOLEAN CONSOLE DATETIME DIM DIV END FALSE ID IGUAL IMPORTS LLDER LLIZQ MAIN MAYORQ MENORQ MOD MODULE MULTI NOIGUAL NOW NUMERO PDER PIZQ PROGRAM PUNTO READKEY READLINE RESTA STRING SUB SUMA TRUE UPDATE VBCRLF WRITELINEmodule : imports MODULE program constDecl varDecl procDecl statementprogram : SUB MAIN PIZQ ARGS AS STRING PIZQ PDER PDERimports : IMPORTS IDconstDecl : DIM constAssignmentListconstDecl : emptyconstAssignmentList : ID IGUAL NUMEROconstAssignmentList : constAssignmentList ID IGUAL NUMEROvarDecl : DIM identListvarDecl : emptyidentList : IDidentList : identList IDprocDecl : emptystatement : ID UPDATE expressionstatement : IDstatement : BEGIN statementList ENDstatement : conditionstatement : emptystatementList : statementstatementList : statementList statementcondition : expressioncondition : expression relation expressionrelation : IGUALrelation : NOIGUALrelation : MENORQrelation : MAYORQrelation : TRUErelation : FALSEexpression : termexpression : addingOperator termexpression : expression addingOperator termexpression : DATETIME PUNTO NOWexpression : LLIZQ ID LLDERexpression : VBCRLFexpression : MODULE PROGRAMexpression : END MODULEexpression : CONSOLE PUNTO READKEY PIZQ boolean PDERexpression : DIM ID IGUAL CONSOLE PUNTO READLINE PIZQ PDERexpression : CONSOLE PUNTO WRITELINE PIZQ ID PDERaddingOperator : SUMAaddingOperator : RESTAaddingOperator : MODterm : factorterm : term multiplyingOperator factormultiplyingOperator : MULTImultiplyingOperator : DIVfactor : IDfactor : NUMEROfactor : PIZQ expression PDERboolean : BOOLEANempty :'
     
-_lr_action_items = {'$end':([0,1,],[-1,0,]),}
+_lr_action_items = {'IMPORTS':([0,],[3,]),'$end':([1,6,8,10,12,14,15,18,19,20,21,26,27,28,31,32,33,37,41,45,46,48,50,62,66,67,73,75,76,77,78,80,81,82,85,96,97,98,101,],[0,-50,-50,-5,-50,-9,-4,-50,-12,-8,-10,-1,-14,-20,-16,-17,-28,-33,-42,-47,-11,-6,-34,-35,-29,-46,-7,-13,-21,-30,-15,-43,-31,-32,-48,-2,-36,-38,-37,]),'MODULE':([2,5,6,8,10,12,14,15,18,19,20,21,27,28,29,30,31,32,33,37,39,41,45,46,48,50,51,52,54,55,56,57,58,59,60,61,62,66,67,73,75,76,77,78,79,80,81,82,85,96,97,98,101,],[4,-3,-50,-50,-5,-50,-9,-4,25,-12,-8,-10,-14,-20,25,62,-16,-17,-28,-33,25,-42,-47,-11,-6,-34,25,25,-22,-23,-24,-25,-26,-27,25,-18,-35,-29,-46,-7,-13,-21,-30,62,-19,-43,-31,-32,-48,-2,-36,-38,-37,]),'ID':([3,6,8,9,10,12,13,14,15,18,19,20,21,27,28,29,31,32,33,34,36,37,39,40,41,42,43,44,45,46,48,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,73,75,76,77,78,79,80,81,82,85,89,96,97,98,101,],[5,-50,-50,16,-5,-50,21,-9,22,27,-12,46,-10,-14,-20,27,-16,-17,-28,67,69,-33,67,72,-42,-39,-40,-41,-47,-11,-6,-34,67,67,67,-22,-23,-24,-25,-26,-27,27,-18,-35,67,-44,-45,-29,-46,-7,-13,-21,-30,-15,-19,-43,-31,-32,-48,94,-2,-36,-38,-37,]),'SUB':([4,],[7,]),'DIM':([6,8,10,12,14,15,18,19,20,21,27,28,29,31,32,33,37,39,41,45,46,48,50,51,52,54,55,56,57,58,59,60,61,62,66,67,73,75,76,77,78,79,80,81,82,85,96,97,98,101,],[9,13,-5,-50,-9,-4,40,-12,-8,-10,-14,-20,40,-16,-17,-28,-33,40,-42,-47,-11,-6,-34,40,40,-22,-23,-24,-25,-26,-27,40,-18,-35,-29,-46,-7,-13,-21,-30,-15,-19,-43,-31,-32,-48,-2,-36,-38,-37,]),'BEGIN':([6,8,10,12,14,15,18,19,20,21,27,28,29,31,32,33,37,41,45,46,48,50,60,61,62,66,67,73,75,76,77,78,79,80,81,82,85,96,97,98,101,],[-50,-50,-5,-50,-9,-4,29,-12,-8,-10,-14,-20,29,-16,-17,-28,-33,-42,-47,-11,-6,-34,29,-18,-35,-29,-46,-7,-13,-21,-30,-15,-19,-43,-31,-32,-48,-2,-36,-38,-37,]),'DATETIME':([6,8,10,12,14,15,18,19,20,21,27,28,29,31,32,33,37,39,41,45,46,48,50,51,52,54,55,56,57,58,59,60,61,62,66,67,73,75,76,77,78,79,80,81,82,85,96,97,98,101,],[-50,-50,-5,-50,-9,-4,35,-12,-8,-10,-14,-20,35,-16,-17,-28,-33,35,-42,-47,-11,-6,-34,35,35,-22,-23,-24,-25,-26,-27,35,-18,-35,-29,-46,-7,-13,-21,-30,-15,-19,-43,-31,-32,-48,-2,-36,-38,-37,]),'LLIZQ':([6,8,10,12,14,15,18,19,20,21,27,28,29,31,32,33,37,39,41,45,46,48,50,51,52,54,55,56,57,58,59,60,61,62,66,67,73,75,76,77,78,79,80,81,82,85,96,97,98,101,],[-50,-50,-5,-50,-9,-4,36,-12,-8,-10,-14,-20,36,-16,-17,-28,-33,36,-42,-47,-11,-6,-34,36,36,-22,-23,-24,-25,-26,-27,36,-18,-35,-29,-46,-7,-13,-21,-30,-15,-19,-43,-31,-32,-48,-2,-36,-38,-37,]),'VBCRLF':([6,8,10,12,14,15,18,19,20,21,27,28,29,31,32,33,37,39,41,45,46,48,50,51,52,54,55,56,57,58,59,60,61,62,66,67,73,75,76,77,78,79,80,81,82,85,96,97,98,101,],[-50,-50,-5,-50,-9,-4,37,-12,-8,-10,-14,-20,37,-16,-17,-28,-33,37,-42,-47,-11,-6,-34,37,37,-22,-23,-24,-25,-26,-27,37,-18,-35,-29,-46,-7,-13,-21,-30,-15,-19,-43,-31,-32,-48,-2,-36,-38,-37,]),'END':([6,8,10,12,14,15,18,19,20,21,27,28,29,31,32,33,37,39,41,45,46,48,50,51,52,54,55,56,57,58,59,60,61,62,66,67,73,75,76,77,78,79,80,81,82,85,96,97,98,101,],[-50,-50,-5,-50,-9,-4,30,-12,-8,-10,-14,-20,30,-16,-17,-28,-33,30,-42,-47,-11,-6,-34,30,30,-22,-23,-24,-25,-26,-27,78,-18,-35,-29,-46,-7,-13,-21,-30,-15,-19,-43,-31,-32,-48,-2,-36,-38,-37,]),'CONSOLE':([6,8,10,12,14,15,18,19,20,21,27,28,29,31,32,33,37,39,41,45,46,48,50,51,52,54,55,56,57,58,59,60,61,62,66,67,73,75,76,77,78,79,80,81,82,85,86,96,97,98,101,],[-50,-50,-5,-50,-9,-4,38,-12,-8,-10,-14,-20,38,-16,-17,-28,-33,38,-42,-47,-11,-6,-34,38,38,-22,-23,-24,-25,-26,-27,38,-18,-35,-29,-46,-7,-13,-21,-30,-15,-19,-43,-31,-32,-48,90,-2,-36,-38,-37,]),'SUMA':([6,8,10,12,14,15,18,19,20,21,27,28,29,31,32,33,37,39,41,45,46,48,50,51,52,54,55,56,57,58,59,60,61,62,66,67,71,73,75,76,77,78,79,80,81,82,85,96,97,98,101,],[-50,-50,-5,-50,-9,-4,42,-12,-8,-10,-14,42,42,-16,-17,-28,-33,42,-42,-47,-11,-6,-34,42,42,-22,-23,-24,-25,-26,-27,42,-18,-35,-29,-46,42,-7,42,42,-30,-15,-19,-43,-31,-32,-48,-2,-36,-38,-37,]),'RESTA':([6,8,10,12,14,15,18,19,20,21,27,28,29,31,32,33,37,39,41,45,46,48,50,51,52,54,55,56,57,58,59,60,61,62,66,67,71,73,75,76,77,78,79,80,81,82,85,96,97,98,101,],[-50,-50,-5,-50,-9,-4,43,-12,-8,-10,-14,43,43,-16,-17,-28,-33,43,-42,-47,-11,-6,-34,43,43,-22,-23,-24,-25,-26,-27,43,-18,-35,-29,-46,43,-7,43,43,-30,-15,-19,-43,-31,-32,-48,-2,-36,-38,-37,]),'MOD':([6,8,10,12,14,15,18,19,20,21,27,28,29,31,32,33,37,39,41,45,46,48,50,51,52,54,55,56,57,58,59,60,61,62,66,67,71,73,75,76,77,78,79,80,81,82,85,96,97,98,101,],[-50,-50,-5,-50,-9,-4,44,-12,-8,-10,-14,44,44,-16,-17,-28,-33,44,-42,-47,-11,-6,-34,44,44,-22,-23,-24,-25,-26,-27,44,-18,-35,-29,-46,44,-7,-13,44,-30,-15,-19,-43,-31,-32,-48,-2,-36,-38,-37,]),'NUMERO':([6,8,10,12,14,15,18,19,20,21,23,27,28,29,31,32,33,34,37,39,41,42,43,44,45,46,47,48,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,73,75,76,77,78,79,80,81,82,85,96,97,98,101,],[-50,-50,-5,-50,-9,-4,45,-12,-8,-10,48,-14,-20,45,-16,-17,-28,45,-33,45,-42,-39,-40,-41,-47,-11,73,-6,-34,45,45,45,-22,-23,-24,-25,-26,-27,45,-18,-35,45,-44,-45,-29,-46,-7,-13,-21,-30,-15,-19,-43,-31,-32,-48,-2,-36,-38,-37,]),'PIZQ':([6,8,10,11,12,14,15,18,19,20,21,27,28,29,31,32,33,34,37,39,41,42,43,44,45,46,48,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,73,74,75,76,77,78,79,80,81,82,83,84,85,96,97,98,99,101,],[-50,-50,-5,17,-50,-9,-4,39,-12,-8,-10,-14,-20,39,-16,-17,-28,39,-33,39,-42,-39,-40,-41,-47,-11,-6,-34,39,39,39,-22,-23,-24,-25,-26,-27,39,-18,-35,39,-44,-45,-29,-46,-7,87,-13,-21,-30,-15,-19,-43,-31,-32,88,89,-48,-2,-36,-38,100,-37,]),'MAIN':([7,],[11,]),'IGUAL':([16,22,27,28,33,37,41,45,50,62,66,67,72,77,80,81,82,85,97,98,101,],[23,47,-46,54,-28,-33,-42,-47,-34,-35,-29,-46,86,-30,-43,-31,-32,-48,-36,-38,-37,]),'ARGS':([17,],[24,]),'AS':([24,],[49,]),'PROGRAM':([25,],[50,]),'UPDATE':([27,],[51,]),'MULTI':([27,33,41,45,66,67,77,80,85,],[-46,64,-42,-47,64,-46,64,-43,-48,]),'DIV':([27,33,41,45,66,67,77,80,85,],[-46,65,-42,-47,65,-46,65,-43,-48,]),'NOIGUAL':([27,28,33,37,41,45,50,62,66,67,77,80,81,82,85,97,98,101,],[-46,55,-28,-33,-42,-47,-34,-35,-29,-46,-30,-43,-31,-32,-48,-36,-38,-37,]),'MENORQ':([27,28,33,37,41,45,50,62,66,67,77,80,81,82,85,97,98,101,],[-46,56,-28,-33,-42,-47,-34,-35,-29,-46,-30,-43,-31,-32,-48,-36,-38,-37,]),'MAYORQ':([27,28,33,37,41,45,50,62,66,67,77,80,81,82,85,97,98,101,],[-46,57,-28,-33,-42,-47,-34,-35,-29,-46,-30,-43,-31,-32,-48,-36,-38,-37,]),'TRUE':([27,28,33,37,41,45,50,62,66,67,77,80,81,82,85,97,98,101,],[-46,58,-28,-33,-42,-47,-34,-35,-29,-46,-30,-43,-31,-32,-48,-36,-38,-37,]),'FALSE':([27,28,33,37,41,45,50,62,66,67,77,80,81,82,85,97,98,101,],[-46,59,-28,-33,-42,-47,-34,-35,-29,-46,-30,-43,-31,-32,-48,-36,-38,-37,]),'PDER':([33,37,41,45,50,62,66,67,71,77,80,81,82,85,87,91,92,93,94,97,98,100,101,],[-28,-33,-42,-47,-34,-35,-29,-46,85,-30,-43,-31,-32,-48,91,96,97,-49,98,-36,-38,101,-37,]),'PUNTO':([35,38,90,],[68,70,95,]),'STRING':([49,],[74,]),'NOW':([68,],[81,]),'LLDER':([69,],[82,]),'READKEY':([70,],[83,]),'WRITELINE':([70,],[84,]),'BOOLEAN':([88,],[93,]),'READLINE':([95,],[99,]),}
 
 _lr_action = {}
 for _k, _v in _lr_action_items.items():
@@ -17,7 +17,7 @@ for _k, _v in _lr_action_items.items():
       _lr_action[_x][_k] = _y
 del _lr_action_items
 
-_lr_goto_items = {'empty':([0,],[1,]),}
+_lr_goto_items = {'module':([0,],[1,]),'imports':([0,],[2,]),'program':([4,],[6,]),'constDecl':([6,],[8,]),'empty':([6,8,12,18,29,60,],[10,14,19,32,32,32,]),'varDecl':([8,],[12,]),'constAssignmentList':([9,],[15,]),'procDecl':([12,],[18,]),'identList':([13,],[20,]),'statement':([18,29,60,],[26,61,79,]),'expression':([18,29,39,51,52,60,],[28,28,71,75,76,28,]),'condition':([18,29,60,],[31,31,31,]),'term':([18,29,34,39,51,52,53,60,],[33,33,66,33,33,33,77,33,]),'addingOperator':([18,28,29,39,51,52,60,71,75,76,],[34,53,34,34,34,34,34,53,53,53,]),'factor':([18,29,34,39,51,52,53,60,63,],[41,41,41,41,41,41,41,41,80,]),'relation':([28,],[52,]),'statementList':([29,],[60,]),'multiplyingOperator':([33,66,77,],[63,63,63,]),'boolean':([88,],[92,]),}
 
 _lr_goto = {}
 for _k, _v in _lr_goto_items.items():
@@ -26,6 +26,55 @@ for _k, _v in _lr_goto_items.items():
        _lr_goto[_x][_k] = _y
 del _lr_goto_items
 _lr_productions = [
-  ("S' -> empty","S'",1,None,None,None),
-  ('empty -> <empty>','empty',0,'p_empty','analizadorSintacticoVBALL.py',30),
+  ("S' -> module","S'",1,None,None,None),
+  ('module -> imports MODULE program constDecl varDecl procDecl statement','module',7,'p_module','analizadorSintactico.py',29),
+  ('program -> SUB MAIN PIZQ ARGS AS STRING PIZQ PDER PDER','program',9,'p_program','analizadorSintactico.py',32),
+  ('imports -> IMPORTS ID','imports',2,'p_imports','analizadorSintactico.py',38),
+  ('constDecl -> DIM constAssignmentList','constDecl',2,'p_constDecl','analizadorSintactico.py',48),
+  ('constDecl -> empty','constDecl',1,'p_constDeclEmpty','analizadorSintactico.py',53),
+  ('constAssignmentList -> ID IGUAL NUMERO','constAssignmentList',3,'p_constAssignmentList1','analizadorSintactico.py',58),
+  ('constAssignmentList -> constAssignmentList ID IGUAL NUMERO','constAssignmentList',4,'p_constAssignmentList2','analizadorSintactico.py',62),
+  ('varDecl -> DIM identList','varDecl',2,'p_varDecl1','analizadorSintactico.py',66),
+  ('varDecl -> empty','varDecl',1,'p_varDeclEmpty','analizadorSintactico.py',70),
+  ('identList -> ID','identList',1,'p_identList1','analizadorSintactico.py',74),
+  ('identList -> identList ID','identList',2,'p_identList2','analizadorSintactico.py',78),
+  ('procDecl -> empty','procDecl',1,'p_procDeclEmpty','analizadorSintactico.py',86),
+  ('statement -> ID UPDATE expression','statement',3,'p_statement1','analizadorSintactico.py',90),
+  ('statement -> ID','statement',1,'p_statement2','analizadorSintactico.py',94),
+  ('statement -> BEGIN statementList END','statement',3,'p_statement3','analizadorSintactico.py',98),
+  ('statement -> condition','statement',1,'p_statement4','analizadorSintactico.py',102),
+  ('statement -> empty','statement',1,'p_statementEmpty','analizadorSintactico.py',110),
+  ('statementList -> statement','statementList',1,'p_statementList1','analizadorSintactico.py',114),
+  ('statementList -> statementList statement','statementList',2,'p_statementList2','analizadorSintactico.py',118),
+  ('condition -> expression','condition',1,'p_condition1','analizadorSintactico.py',122),
+  ('condition -> expression relation expression','condition',3,'p_condition2','analizadorSintactico.py',126),
+  ('relation -> IGUAL','relation',1,'p_relation1','analizadorSintactico.py',130),
+  ('relation -> NOIGUAL','relation',1,'p_relation2','analizadorSintactico.py',134),
+  ('relation -> MENORQ','relation',1,'p_relation3','analizadorSintactico.py',138),
+  ('relation -> MAYORQ','relation',1,'p_relation4','analizadorSintactico.py',142),
+  ('relation -> TRUE','relation',1,'p_relation5','analizadorSintactico.py',146),
+  ('relation -> FALSE','relation',1,'p_relation6','analizadorSintactico.py',150),
+  ('expression -> term','expression',1,'p_expression1','analizadorSintactico.py',154),
+  ('expression -> addingOperator term','expression',2,'p_expression2','analizadorSintactico.py',158),
+  ('expression -> expression addingOperator term','expression',3,'p_expression3','analizadorSintactico.py',162),
+  ('expression -> DATETIME PUNTO NOW','expression',3,'p_expression4','analizadorSintactico.py',166),
+  ('expression -> LLIZQ ID LLDER','expression',3,'p_expression5','analizadorSintactico.py',169),
+  ('expression -> VBCRLF','expression',1,'p_expression6','analizadorSintactico.py',172),
+  ('expression -> MODULE PROGRAM','expression',2,'p_expression7','analizadorSintactico.py',176),
+  ('expression -> END MODULE','expression',2,'p_expression8','analizadorSintactico.py',179),
+  ('expression -> CONSOLE PUNTO READKEY PIZQ boolean PDER','expression',6,'p_expression9','analizadorSintactico.py',182),
+  ('expression -> DIM ID IGUAL CONSOLE PUNTO READLINE PIZQ PDER','expression',8,'p_expression10','analizadorSintactico.py',185),
+  ('expression -> CONSOLE PUNTO WRITELINE PIZQ ID PDER','expression',6,'p_expression11','analizadorSintactico.py',188),
+  ('addingOperator -> SUMA','addingOperator',1,'p_addingOperator1','analizadorSintactico.py',192),
+  ('addingOperator -> RESTA','addingOperator',1,'p_addingOperator2','analizadorSintactico.py',196),
+  ('addingOperator -> MOD','addingOperator',1,'p_addingOperator3','analizadorSintactico.py',200),
+  ('term -> factor','term',1,'p_term1','analizadorSintactico.py',203),
+  ('term -> term multiplyingOperator factor','term',3,'p_term2','analizadorSintactico.py',207),
+  ('multiplyingOperator -> MULTI','multiplyingOperator',1,'p_multiplyingOperator1','analizadorSintactico.py',211),
+  ('multiplyingOperator -> DIV','multiplyingOperator',1,'p_multiplyingOperator2','analizadorSintactico.py',215),
+  ('factor -> ID','factor',1,'p_factor1','analizadorSintactico.py',219),
+  ('factor -> NUMERO','factor',1,'p_factor2','analizadorSintactico.py',223),
+  ('factor -> PIZQ expression PDER','factor',3,'p_factor3','analizadorSintactico.py',227),
+  ('boolean -> BOOLEAN','boolean',1,'p_boolean','analizadorSintactico.py',234),
+  ('empty -> <empty>','empty',0,'p_empty','analizadorSintactico.py',237),
 ]

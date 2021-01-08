@@ -26,19 +26,23 @@ precedence = (
 	)
 
 def p_module(p):
-	'module : imports MODULE PROGRAM constDecl varDecl procDecl statement'	
+	'module : program'
+	#'module : imports MODULE PROGRAM constDecl varDecl procDecl statement'	
+	print ("Module")
 
 def p_program(p):
-	'program : SUB MAIN PIZQ ARGS AS STRING PIZQ PDER PDER'
+	'program : constDecl varDecl procDecl statement'
+	#'program : SUB MAIN PIZQ ARGS AS STRING PIZQ PDER PDER'
+	print ("Program")
 
 #def p_args(p):
     #'args : ARGS'
 
-def p_imports(p):
-	#'''block : constDecl varDecl procDecl statement'''
-	'imports : IMPORTS ID'
+##def p_imports(p):	
+	##'imports : IMPORTS ID'
 	#"(" ident ")"
     #print "block"	
+	#'''block : constDecl varDecl procDecl statement'''
 
 #def p_main(p):
 	
@@ -48,35 +52,49 @@ def p_constDecl(p):
 	'''constDecl : DIM constAssignmentList'''
 	#p[0] = constDecl(p[2])
 	#print "constDecl"
+	print ("Conts")
+
+def p_constDecl1(p):
+	'''constDecl : DIM ID IGUAL ID'''
+	#p[0] = constDecl(p[2])
+	#print "constDecl"
+	print ("Conts 1")
+
+def p_constDecl2(p):
+	'''constDecl : DIM ID AS ID IGUAL ID'''
+	#p[0] = constDecl(p[2])
+	#print "constDecl"
+	print ("Conts 2")
 
 def p_constDeclEmpty(p):
 	'''constDecl : empty'''
 	#p[0] = Null()
 	#print "nulo"
+	print ("ContsEmp")
 
 def p_constAssignmentList1(p):
 	'''constAssignmentList : ID IGUAL NUMERO'''
-	#print "constAssignmentList 1"
+	print ("constAssignmentList 1")
 
 def p_constAssignmentList2(p):
 	'''constAssignmentList : constAssignmentList ID IGUAL NUMERO'''
-	#print "constAssignmentList 2"
+	print ("constAssignmentList 2")
 
 def p_varDecl1(p):
 	'''varDecl : DIM identList'''
-	#print "varDecl 1"
+	print ("varDecl 1")
 
 def p_varDeclEmpty(p):
 	'''varDecl : empty'''
-	#print "nulo"
+	print ("nulo")
 
 def p_identList1(p):
 	'''identList : ID'''
-	#print "identList 1"
+	print ("identList 1")
 
 def p_identList2(p):
 	'''identList : identList ID'''
-	#print "identList 2"
+	print ("identList 2")
 
 #def p_procDecl1(p):
 	#'''procDecl : procDecl PROCEDURE ID  module '''
@@ -102,13 +120,16 @@ def p_statement4(p):
 	'''statement : condition'''
 	#print "statement 4"
 
+def p_statement5(p):
+	'statement : IMPORTS ID'
+
 #def p_statement5(p):
 #	'''statement : WHILE condition DO statement'''
 	#print "statement 5"
 
 def p_statementEmpty(p):
 	'''statement : empty'''
-	print ("A ve")
+	print ("StateEmpty")
 
 def p_statementList1(p):
 	'''statementList : statement'''
@@ -177,6 +198,7 @@ def p_expression7(p):
 
 def p_expression8(p):
 	'''expression : END MODULE'''
+	print ("EndMod")
 
 def p_expression9(p):
 	'''expression : CONSOLE PUNTO READKEY PIZQ boolean PDER'''
@@ -266,6 +288,7 @@ def buscarFicheros(directorio):
 	return files[int(numArchivo)-1]
 
 direccion ='C:/Users/Marco/Documents/test/'
+#direccion = 'C:/Users/Marco/OneDrive/Documentos/ITSVA/5°Semestre/LENGUAJES Y AUTOMATAS/Tema4/EjerciciosSintactico/Analizador/VisualBasic/pruebas'
 archivi = buscarFicheros(direccion)
 prueba = direccion+archivi
 fp = codecs.open(prueba, "r", "utf-8")

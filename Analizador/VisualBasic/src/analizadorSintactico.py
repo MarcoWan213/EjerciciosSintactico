@@ -98,30 +98,31 @@ def p_identList2(p):
 
 #def p_procDecl1(p):
 	#'''procDecl : procDecl PROCEDURE ID  module '''
-	#print "procDecl 1"
+	print ("procDecl 1")
 
 def p_procDeclEmpty(p):
 	'''procDecl : empty'''
-	#print "nulo"
+	print ("nulo")
 
 def p_statement1(p):
 	'''statement : ID UPDATE expression'''
-	#print "statement 1"
+	print ("statement 1")
 
 def p_statement2(p):
 	'''statement : ID'''
-	#print "statement 2"
+	print ("statement 2")
 
 def p_statement3(p):
 	'''statement : BEGIN statementList END'''
-	#print "statement 3"
+	print ("statement 3")
 
 def p_statement4(p):
 	'''statement : condition'''
-	#print "statement 4"
+	print ("statement 4")
 
 def p_statement5(p):
 	'statement : IMPORTS ID'
+	print ("statement 5")
 
 #def p_statement5(p):
 #	'''statement : WHILE condition DO statement'''
@@ -133,68 +134,72 @@ def p_statementEmpty(p):
 
 def p_statementList1(p):
 	'''statementList : statement'''
-	#print "statementList 1"
+	print ("statementList 1")
 
 def p_statementList2(p):
 	'''statementList : statementList statement'''
-	#print "statementList 2"
+	print ("statementList 2")
 
 def p_condition1(p):
 	'''condition : expression'''
-	#print "condition 1"
+	print ("condition 1")
 
 def p_condition2(p):
 	'''condition : expression relation expression'''
-	#print "condition 2"
+	print ("condition 2")
 
 def p_relation1(p):
 	'''relation : IGUAL'''
-	#print "relation 1"
+	print ("relation 1")
 
 def p_relation2(p):
 	'''relation : NOIGUAL'''
-	#print "relation 2"
+	print ("relation 2")
 
 def p_relation3(p):
 	'''relation : MENORQ'''
-	#print "relation 3"
+	print ("relation 3")
 
 def p_relation4(p):
 	'''relation : MAYORQ'''
-	#print "relation 4"
+	print ("relation 4")
 
 def p_relation5(p):
 	'''relation : TRUE'''
-	#print "relation 5"
+	print ("relation 5")
 
 def p_relation6(p):
 	'''relation : FALSE'''
-	#print "relation 6"
+	print ("relation 6")
 
 def p_expression1(p):
 	'''expression : term'''
-	#print "expresion 1"
+	print ("expresion 1")
 
 def p_expression2(p):
 	'''expression : addingOperator term'''
-	#print "expresion 2"
+	print ("expresion 2")
 
 def p_expression3(p):
 	'''expression : expression addingOperator term'''
-	#print "expresion 3"
+	print ("expresion 3")
 
 def p_expression4(p):
 	'''expression : DATETIME PUNTO NOW'''
+	print ("expresion 4")
 
 def p_expression5(p):
 	'''expression : LLIZQ ID LLDER'''
+	print ("expresion 5")
 
 def p_expression6(p):
 	'''expression : VBCRLF'''
+	print ("expresion 5")
 #vbCrLf
 
 def p_expression7(p):
 	'''expression : MODULE PROGRAM'''
+	print ("expresion 7")
 
 def p_expression8(p):
 	'''expression : END MODULE'''
@@ -202,52 +207,55 @@ def p_expression8(p):
 
 def p_expression9(p):
 	'''expression : CONSOLE PUNTO READKEY PIZQ boolean PDER'''
+	print ("expresion 8")
 
 def p_expression10(p):
 	'''expression : DIM ID IGUAL CONSOLE PUNTO READLINE PIZQ PDER'''
+	print ("expresion 9")
 
 def p_expression11(p):
 	'''expression : CONSOLE PUNTO WRITELINE PIZQ ID PDER'''
-
+	print ("expresion 10")
 
 def p_addingOperator1(p):
 	'''addingOperator : SUMA'''
-	#print "addingOperator 1"
+	print ("addingOperator 1")
 
 def p_addingOperator2(p):
 	'''addingOperator : RESTA'''
-	#print "addingOperator 1"
+	print ("addingOperator 1")
 
 def p_addingOperator3(p):
 	'''addingOperator : MOD'''
+	print ("addingOperator 2")
 
 def p_term1(p):
 	'''term : factor'''
-	#print "term 1"
+	print ("term 1")
 
 def p_term2(p):
 	'''term : term multiplyingOperator factor'''
-	#print "term 1"
+	print ("term 2")
 
 def p_multiplyingOperator1(p):
 	'''multiplyingOperator : MULTI'''
-	#print "multiplyingOperator 1"
+	print ("multiplyingOperator 1")
 
 def p_multiplyingOperator2(p):
 	'''multiplyingOperator : DIV'''
-	#print "multiplyingOperator 2"
+	print ("multiplyingOperator 2")
 
 def p_factor1(p):
 	'''factor : ID'''
-	#print "factor 1"
+	print ("factor 1")
 
 def p_factor2(p):
 	'''factor : NUMERO'''
-	#print "factor 1"
+	print ("factor 2")
 
 def p_factor3(p):
 	'''factor : PIZQ expression PDER'''
-	#print "factor 1"
+	print ("factor 3")
 
 #def p_readline(p):
 #    'readline : CONSOLE PUNTO READLINE PIZQ id PDER'

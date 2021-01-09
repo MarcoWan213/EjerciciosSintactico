@@ -2,7 +2,7 @@ Imports System
 
 Module Program
     Sub Main(args As String())        
-        Dim a As Integer = 10
-        Dim b As Integer = 5
+        Dim total As Integer 
+        total = ((5*2)+(2*3))Mod 3  
     End Sub
 End Module

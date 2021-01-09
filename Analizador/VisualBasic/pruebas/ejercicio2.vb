@@ -2,7 +2,7 @@ Imports System
 
 Module Program
     Sub Main(args As String())
-        Console.WriteLine(a)
-        Console.ReadKey(True)
+        Dim res As Integer 
+        res = 10 + 9
     End Sub
 End Module

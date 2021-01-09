@@ -28,102 +28,104 @@ Rule 15    statement -> ID
 Rule 16    statement -> BEGIN statementList END
 Rule 17    statement -> condition
 Rule 18    statement -> IMPORTS ID
-Rule 19    statement -> empty
-Rule 20    statementList -> statement
-Rule 21    statementList -> statementList statement
-Rule 22    condition -> expression
-Rule 23    condition -> expression relation expression
-Rule 24    relation -> IGUAL
-Rule 25    relation -> NOIGUAL
-Rule 26    relation -> MENORQ
-Rule 27    relation -> MAYORQ
-Rule 28    relation -> TRUE
-Rule 29    relation -> FALSE
-Rule 30    expression -> term
-Rule 31    expression -> addingOperator term
-Rule 32    expression -> expression addingOperator term
-Rule 33    expression -> DATETIME PUNTO NOW
-Rule 34    expression -> LLIZQ ID LLDER
-Rule 35    expression -> VBCRLF
-Rule 36    expression -> MODULE PROGRAM
-Rule 37    expression -> END MODULE
-Rule 38    expression -> CONSOLE PUNTO READKEY PIZQ boolean PDER
-Rule 39    expression -> DIM ID IGUAL CONSOLE PUNTO READLINE PIZQ PDER
-Rule 40    expression -> CONSOLE PUNTO WRITELINE PIZQ ID PDER
-Rule 41    addingOperator -> SUMA
-Rule 42    addingOperator -> RESTA
-Rule 43    addingOperator -> MOD
-Rule 44    term -> factor
-Rule 45    term -> term multiplyingOperator factor
-Rule 46    multiplyingOperator -> MULTI
-Rule 47    multiplyingOperator -> DIV
-Rule 48    factor -> ID
-Rule 49    factor -> NUMERO
-Rule 50    factor -> PIZQ expression PDER
-Rule 51    boolean -> BOOLEAN
-Rule 52    empty -> <empty>
+Rule 19    statement -> WHILE
+Rule 20    statement -> empty
+Rule 21    statementList -> statement
+Rule 22    statementList -> statementList statement
+Rule 23    condition -> expression
+Rule 24    condition -> expression relation expression
+Rule 25    relation -> IGUAL
+Rule 26    relation -> NOIGUAL
+Rule 27    relation -> MENORQ
+Rule 28    relation -> MAYORQ
+Rule 29    relation -> TRUE
+Rule 30    relation -> FALSE
+Rule 31    expression -> term
+Rule 32    expression -> addingOperator term
+Rule 33    expression -> expression addingOperator term
+Rule 34    expression -> DATETIME PUNTO NOW
+Rule 35    expression -> LLIZQ ID LLDER
+Rule 36    expression -> VBCRLF
+Rule 37    expression -> MODULE PROGRAM
+Rule 38    expression -> END MODULE
+Rule 39    expression -> CONSOLE PUNTO READKEY PIZQ boolean PDER
+Rule 40    expression -> DIM ID IGUAL CONSOLE PUNTO READLINE PIZQ PDER
+Rule 41    expression -> CONSOLE PUNTO WRITELINE PIZQ ID PDER
+Rule 42    addingOperator -> SUMA
+Rule 43    addingOperator -> RESTA
+Rule 44    addingOperator -> MOD
+Rule 45    term -> factor
+Rule 46    term -> term multiplyingOperator factor
+Rule 47    multiplyingOperator -> MULTI
+Rule 48    multiplyingOperator -> DIV
+Rule 49    factor -> ID
+Rule 50    factor -> NUMERO
+Rule 51    factor -> PIZQ expression PDER
+Rule 52    boolean -> BOOLEAN
+Rule 53    empty -> <empty>
 
 Terminals, with rules where they appear
 
 ARGS                 : 
 AS                   : 5
 BEGIN                : 16
-BOOLEAN              : 51
-CONSOLE              : 38 39 40
-DATETIME             : 33
-DIM                  : 3 4 5 9 39
-DIV                  : 47
-END                  : 16 37
-FALSE                : 29
-ID                   : 4 4 5 5 5 7 8 11 12 14 15 18 34 39 40 48
-IGUAL                : 4 5 7 8 24 39
+BOOLEAN              : 52
+CONSOLE              : 39 40 41
+DATETIME             : 34
+DIM                  : 3 4 5 9 40
+DIV                  : 48
+END                  : 16 38
+FALSE                : 30
+ID                   : 4 4 5 5 5 7 8 11 12 14 15 18 35 40 41 49
+IGUAL                : 4 5 7 8 25 40
 IMPORTS              : 18
-LLDER                : 34
-LLIZQ                : 34
+LLDER                : 35
+LLIZQ                : 35
 MAIN                 : 
-MAYORQ               : 27
-MENORQ               : 26
-MOD                  : 43
-MODULE               : 36 37
-MULTI                : 46
-NOIGUAL              : 25
-NOW                  : 33
-NUMERO               : 7 8 49
-PDER                 : 38 39 40 50
-PIZQ                 : 38 39 40 50
-PROGRAM              : 36
-PUNTO                : 33 38 39 40
-READKEY              : 38
-READLINE             : 39
-RESTA                : 42
+MAYORQ               : 28
+MENORQ               : 27
+MOD                  : 44
+MODULE               : 37 38
+MULTI                : 47
+NOIGUAL              : 26
+NOW                  : 34
+NUMERO               : 7 8 50
+PDER                 : 39 40 41 51
+PIZQ                 : 39 40 41 51
+PROGRAM              : 37
+PUNTO                : 34 39 40 41
+READKEY              : 39
+READLINE             : 40
+RESTA                : 43
 STRING               : 
 SUB                  : 
-SUMA                 : 41
-TRUE                 : 28
+SUMA                 : 42
+TRUE                 : 29
 UPDATE               : 14
-VBCRLF               : 35
-WRITELINE            : 40
+VBCRLF               : 36
+WHILE                : 19
+WRITELINE            : 41
 error                : 
 
 Nonterminals, with rules where they appear
 
-addingOperator       : 31 32
-boolean              : 38
+addingOperator       : 32 33
+boolean              : 39
 condition            : 17
 constAssignmentList  : 3 8
 constDecl            : 2
-empty                : 6 10 13 19
-expression           : 14 22 23 23 32 50
-factor               : 44 45
+empty                : 6 10 13 20
+expression           : 14 23 24 24 33 51
+factor               : 45 46
 identList            : 9 12
 module               : 0
-multiplyingOperator  : 45
+multiplyingOperator  : 46
 procDecl             : 2
 program              : 1
-relation             : 23
-statement            : 2 20 21
-statementList        : 16 21
-term                 : 30 31 32 45
+relation             : 24
+statement            : 2 21 22
+statementList        : 16 22
+term                 : 31 32 33 46
 varDecl              : 2
 
 Parsing method: LALR
@@ -137,27 +139,28 @@ state 0
     (4) constDecl -> . DIM ID IGUAL ID
     (5) constDecl -> . DIM ID AS ID IGUAL ID
     (6) constDecl -> . empty
-    (52) empty -> .
+    (53) empty -> .
 
   ! shift/reduce conflict for DIM resolved as shift
     DIM             shift and go to state 4
-    ID              reduce using rule 52 (empty -> .)
-    BEGIN           reduce using rule 52 (empty -> .)
-    IMPORTS         reduce using rule 52 (empty -> .)
-    DATETIME        reduce using rule 52 (empty -> .)
-    LLIZQ           reduce using rule 52 (empty -> .)
-    VBCRLF          reduce using rule 52 (empty -> .)
-    MODULE          reduce using rule 52 (empty -> .)
-    END             reduce using rule 52 (empty -> .)
-    CONSOLE         reduce using rule 52 (empty -> .)
-    SUMA            reduce using rule 52 (empty -> .)
-    RESTA           reduce using rule 52 (empty -> .)
-    MOD             reduce using rule 52 (empty -> .)
-    NUMERO          reduce using rule 52 (empty -> .)
-    PIZQ            reduce using rule 52 (empty -> .)
-    $end            reduce using rule 52 (empty -> .)
+    ID              reduce using rule 53 (empty -> .)
+    BEGIN           reduce using rule 53 (empty -> .)
+    IMPORTS         reduce using rule 53 (empty -> .)
+    WHILE           reduce using rule 53 (empty -> .)
+    DATETIME        reduce using rule 53 (empty -> .)
+    LLIZQ           reduce using rule 53 (empty -> .)
+    VBCRLF          reduce using rule 53 (empty -> .)
+    MODULE          reduce using rule 53 (empty -> .)
+    END             reduce using rule 53 (empty -> .)
+    CONSOLE         reduce using rule 53 (empty -> .)
+    SUMA            reduce using rule 53 (empty -> .)
+    RESTA           reduce using rule 53 (empty -> .)
+    MOD             reduce using rule 53 (empty -> .)
+    NUMERO          reduce using rule 53 (empty -> .)
+    PIZQ            reduce using rule 53 (empty -> .)
+    $end            reduce using rule 53 (empty -> .)
 
-  ! DIM             [ reduce using rule 52 (empty -> .) ]
+  ! DIM             [ reduce using rule 53 (empty -> .) ]
 
     module                         shift and go to state 1
     program                        shift and go to state 2
@@ -182,27 +185,28 @@ state 3
     (2) program -> constDecl . varDecl procDecl statement
     (9) varDecl -> . DIM identList
     (10) varDecl -> . empty
-    (52) empty -> .
+    (53) empty -> .
 
   ! shift/reduce conflict for DIM resolved as shift
     DIM             shift and go to state 7
-    ID              reduce using rule 52 (empty -> .)
-    BEGIN           reduce using rule 52 (empty -> .)
-    IMPORTS         reduce using rule 52 (empty -> .)
-    DATETIME        reduce using rule 52 (empty -> .)
-    LLIZQ           reduce using rule 52 (empty -> .)
-    VBCRLF          reduce using rule 52 (empty -> .)
-    MODULE          reduce using rule 52 (empty -> .)
-    END             reduce using rule 52 (empty -> .)
-    CONSOLE         reduce using rule 52 (empty -> .)
-    SUMA            reduce using rule 52 (empty -> .)
-    RESTA           reduce using rule 52 (empty -> .)
-    MOD             reduce using rule 52 (empty -> .)
-    NUMERO          reduce using rule 52 (empty -> .)
-    PIZQ            reduce using rule 52 (empty -> .)
-    $end            reduce using rule 52 (empty -> .)
+    ID              reduce using rule 53 (empty -> .)
+    BEGIN           reduce using rule 53 (empty -> .)
+    IMPORTS         reduce using rule 53 (empty -> .)
+    WHILE           reduce using rule 53 (empty -> .)
+    DATETIME        reduce using rule 53 (empty -> .)
+    LLIZQ           reduce using rule 53 (empty -> .)
+    VBCRLF          reduce using rule 53 (empty -> .)
+    MODULE          reduce using rule 53 (empty -> .)
+    END             reduce using rule 53 (empty -> .)
+    CONSOLE         reduce using rule 53 (empty -> .)
+    SUMA            reduce using rule 53 (empty -> .)
+    RESTA           reduce using rule 53 (empty -> .)
+    MOD             reduce using rule 53 (empty -> .)
+    NUMERO          reduce using rule 53 (empty -> .)
+    PIZQ            reduce using rule 53 (empty -> .)
+    $end            reduce using rule 53 (empty -> .)
 
-  ! DIM             [ reduce using rule 52 (empty -> .) ]
+  ! DIM             [ reduce using rule 53 (empty -> .) ]
 
     varDecl                        shift and go to state 6
     empty                          shift and go to state 8
@@ -227,6 +231,7 @@ state 5
     ID              reduce using rule 6 (constDecl -> empty .)
     BEGIN           reduce using rule 6 (constDecl -> empty .)
     IMPORTS         reduce using rule 6 (constDecl -> empty .)
+    WHILE           reduce using rule 6 (constDecl -> empty .)
     DATETIME        reduce using rule 6 (constDecl -> empty .)
     LLIZQ           reduce using rule 6 (constDecl -> empty .)
     VBCRLF          reduce using rule 6 (constDecl -> empty .)
@@ -245,24 +250,25 @@ state 6
 
     (2) program -> constDecl varDecl . procDecl statement
     (13) procDecl -> . empty
-    (52) empty -> .
+    (53) empty -> .
 
-    ID              reduce using rule 52 (empty -> .)
-    BEGIN           reduce using rule 52 (empty -> .)
-    IMPORTS         reduce using rule 52 (empty -> .)
-    DATETIME        reduce using rule 52 (empty -> .)
-    LLIZQ           reduce using rule 52 (empty -> .)
-    VBCRLF          reduce using rule 52 (empty -> .)
-    MODULE          reduce using rule 52 (empty -> .)
-    END             reduce using rule 52 (empty -> .)
-    CONSOLE         reduce using rule 52 (empty -> .)
-    DIM             reduce using rule 52 (empty -> .)
-    SUMA            reduce using rule 52 (empty -> .)
-    RESTA           reduce using rule 52 (empty -> .)
-    MOD             reduce using rule 52 (empty -> .)
-    NUMERO          reduce using rule 52 (empty -> .)
-    PIZQ            reduce using rule 52 (empty -> .)
-    $end            reduce using rule 52 (empty -> .)
+    ID              reduce using rule 53 (empty -> .)
+    BEGIN           reduce using rule 53 (empty -> .)
+    IMPORTS         reduce using rule 53 (empty -> .)
+    WHILE           reduce using rule 53 (empty -> .)
+    DATETIME        reduce using rule 53 (empty -> .)
+    LLIZQ           reduce using rule 53 (empty -> .)
+    VBCRLF          reduce using rule 53 (empty -> .)
+    MODULE          reduce using rule 53 (empty -> .)
+    END             reduce using rule 53 (empty -> .)
+    CONSOLE         reduce using rule 53 (empty -> .)
+    DIM             reduce using rule 53 (empty -> .)
+    SUMA            reduce using rule 53 (empty -> .)
+    RESTA           reduce using rule 53 (empty -> .)
+    MOD             reduce using rule 53 (empty -> .)
+    NUMERO          reduce using rule 53 (empty -> .)
+    PIZQ            reduce using rule 53 (empty -> .)
+    $end            reduce using rule 53 (empty -> .)
 
     procDecl                       shift and go to state 11
     empty                          shift and go to state 12
@@ -284,6 +290,7 @@ state 8
     ID              reduce using rule 10 (varDecl -> empty .)
     BEGIN           reduce using rule 10 (varDecl -> empty .)
     IMPORTS         reduce using rule 10 (varDecl -> empty .)
+    WHILE           reduce using rule 10 (varDecl -> empty .)
     DATETIME        reduce using rule 10 (varDecl -> empty .)
     LLIZQ           reduce using rule 10 (varDecl -> empty .)
     VBCRLF          reduce using rule 10 (varDecl -> empty .)
@@ -308,6 +315,7 @@ state 9
     DIM             reduce using rule 3 (constDecl -> DIM constAssignmentList .)
     BEGIN           reduce using rule 3 (constDecl -> DIM constAssignmentList .)
     IMPORTS         reduce using rule 3 (constDecl -> DIM constAssignmentList .)
+    WHILE           reduce using rule 3 (constDecl -> DIM constAssignmentList .)
     DATETIME        reduce using rule 3 (constDecl -> DIM constAssignmentList .)
     LLIZQ           reduce using rule 3 (constDecl -> DIM constAssignmentList .)
     VBCRLF          reduce using rule 3 (constDecl -> DIM constAssignmentList .)
@@ -343,54 +351,56 @@ state 11
     (16) statement -> . BEGIN statementList END
     (17) statement -> . condition
     (18) statement -> . IMPORTS ID
-    (19) statement -> . empty
-    (22) condition -> . expression
-    (23) condition -> . expression relation expression
-    (52) empty -> .
-    (30) expression -> . term
-    (31) expression -> . addingOperator term
-    (32) expression -> . expression addingOperator term
-    (33) expression -> . DATETIME PUNTO NOW
-    (34) expression -> . LLIZQ ID LLDER
-    (35) expression -> . VBCRLF
-    (36) expression -> . MODULE PROGRAM
-    (37) expression -> . END MODULE
-    (38) expression -> . CONSOLE PUNTO READKEY PIZQ boolean PDER
-    (39) expression -> . DIM ID IGUAL CONSOLE PUNTO READLINE PIZQ PDER
-    (40) expression -> . CONSOLE PUNTO WRITELINE PIZQ ID PDER
-    (44) term -> . factor
-    (45) term -> . term multiplyingOperator factor
-    (41) addingOperator -> . SUMA
-    (42) addingOperator -> . RESTA
-    (43) addingOperator -> . MOD
-    (48) factor -> . ID
-    (49) factor -> . NUMERO
-    (50) factor -> . PIZQ expression PDER
+    (19) statement -> . WHILE
+    (20) statement -> . empty
+    (23) condition -> . expression
+    (24) condition -> . expression relation expression
+    (53) empty -> .
+    (31) expression -> . term
+    (32) expression -> . addingOperator term
+    (33) expression -> . expression addingOperator term
+    (34) expression -> . DATETIME PUNTO NOW
+    (35) expression -> . LLIZQ ID LLDER
+    (36) expression -> . VBCRLF
+    (37) expression -> . MODULE PROGRAM
+    (38) expression -> . END MODULE
+    (39) expression -> . CONSOLE PUNTO READKEY PIZQ boolean PDER
+    (40) expression -> . DIM ID IGUAL CONSOLE PUNTO READLINE PIZQ PDER
+    (41) expression -> . CONSOLE PUNTO WRITELINE PIZQ ID PDER
+    (45) term -> . factor
+    (46) term -> . term multiplyingOperator factor
+    (42) addingOperator -> . SUMA
+    (43) addingOperator -> . RESTA
+    (44) addingOperator -> . MOD
+    (49) factor -> . ID
+    (50) factor -> . NUMERO
+    (51) factor -> . PIZQ expression PDER
 
     ID              shift and go to state 19
     BEGIN           shift and go to state 21
     IMPORTS         shift and go to state 24
-    $end            reduce using rule 52 (empty -> .)
-    DATETIME        shift and go to state 28
-    LLIZQ           shift and go to state 29
-    VBCRLF          shift and go to state 30
-    MODULE          shift and go to state 31
+    WHILE           shift and go to state 25
+    $end            reduce using rule 53 (empty -> .)
+    DATETIME        shift and go to state 29
+    LLIZQ           shift and go to state 30
+    VBCRLF          shift and go to state 31
+    MODULE          shift and go to state 32
     END             shift and go to state 22
-    CONSOLE         shift and go to state 32
-    DIM             shift and go to state 34
-    SUMA            shift and go to state 36
-    RESTA           shift and go to state 37
-    MOD             shift and go to state 38
-    NUMERO          shift and go to state 39
-    PIZQ            shift and go to state 33
+    CONSOLE         shift and go to state 33
+    DIM             shift and go to state 35
+    SUMA            shift and go to state 37
+    RESTA           shift and go to state 38
+    MOD             shift and go to state 39
+    NUMERO          shift and go to state 40
+    PIZQ            shift and go to state 34
 
     statement                      shift and go to state 18
     expression                     shift and go to state 20
     condition                      shift and go to state 23
-    empty                          shift and go to state 25
-    term                           shift and go to state 26
-    addingOperator                 shift and go to state 27
-    factor                         shift and go to state 35
+    empty                          shift and go to state 26
+    term                           shift and go to state 27
+    addingOperator                 shift and go to state 28
+    factor                         shift and go to state 36
 
 state 12
 
@@ -399,6 +409,7 @@ state 12
     ID              reduce using rule 13 (procDecl -> empty .)
     BEGIN           reduce using rule 13 (procDecl -> empty .)
     IMPORTS         reduce using rule 13 (procDecl -> empty .)
+    WHILE           reduce using rule 13 (procDecl -> empty .)
     DATETIME        reduce using rule 13 (procDecl -> empty .)
     LLIZQ           reduce using rule 13 (procDecl -> empty .)
     VBCRLF          reduce using rule 13 (procDecl -> empty .)
@@ -422,6 +433,7 @@ state 13
   ! shift/reduce conflict for ID resolved as shift
     BEGIN           reduce using rule 9 (varDecl -> DIM identList .)
     IMPORTS         reduce using rule 9 (varDecl -> DIM identList .)
+    WHILE           reduce using rule 9 (varDecl -> DIM identList .)
     DATETIME        reduce using rule 9 (varDecl -> DIM identList .)
     LLIZQ           reduce using rule 9 (varDecl -> DIM identList .)
     VBCRLF          reduce using rule 9 (varDecl -> DIM identList .)
@@ -435,7 +447,7 @@ state 13
     NUMERO          reduce using rule 9 (varDecl -> DIM identList .)
     PIZQ            reduce using rule 9 (varDecl -> DIM identList .)
     $end            reduce using rule 9 (varDecl -> DIM identList .)
-    ID              shift and go to state 40
+    ID              shift and go to state 41
 
   ! ID              [ reduce using rule 9 (varDecl -> DIM identList .) ]
 
@@ -447,6 +459,7 @@ state 14
     ID              reduce using rule 11 (identList -> ID .)
     BEGIN           reduce using rule 11 (identList -> ID .)
     IMPORTS         reduce using rule 11 (identList -> ID .)
+    WHILE           reduce using rule 11 (identList -> ID .)
     DATETIME        reduce using rule 11 (identList -> ID .)
     LLIZQ           reduce using rule 11 (identList -> ID .)
     VBCRLF          reduce using rule 11 (identList -> ID .)
@@ -466,7 +479,7 @@ state 15
 
     (8) constAssignmentList -> constAssignmentList ID . IGUAL NUMERO
 
-    IGUAL           shift and go to state 41
+    IGUAL           shift and go to state 42
 
 
 state 16
@@ -474,15 +487,15 @@ state 16
     (4) constDecl -> DIM ID IGUAL . ID
     (7) constAssignmentList -> ID IGUAL . NUMERO
 
-    ID              shift and go to state 42
-    NUMERO          shift and go to state 43
+    ID              shift and go to state 43
+    NUMERO          shift and go to state 44
 
 
 state 17
 
     (5) constDecl -> DIM ID AS . ID IGUAL ID
 
-    ID              shift and go to state 44
+    ID              shift and go to state 45
 
 
 state 18
@@ -496,7 +509,7 @@ state 19
 
     (14) statement -> ID . UPDATE expression
     (15) statement -> ID .
-    (48) factor -> ID .
+    (49) factor -> ID .
 
   ! reduce/reduce conflict for SUMA resolved using rule 15 (statement -> ID .)
   ! reduce/reduce conflict for RESTA resolved using rule 15 (statement -> ID .)
@@ -506,6 +519,7 @@ state 19
   ! reduce/reduce conflict for ID resolved using rule 15 (statement -> ID .)
   ! reduce/reduce conflict for BEGIN resolved using rule 15 (statement -> ID .)
   ! reduce/reduce conflict for IMPORTS resolved using rule 15 (statement -> ID .)
+  ! reduce/reduce conflict for WHILE resolved using rule 15 (statement -> ID .)
   ! reduce/reduce conflict for DATETIME resolved using rule 15 (statement -> ID .)
   ! reduce/reduce conflict for LLIZQ resolved using rule 15 (statement -> ID .)
   ! reduce/reduce conflict for VBCRLF resolved using rule 15 (statement -> ID .)
@@ -514,12 +528,13 @@ state 19
   ! reduce/reduce conflict for DIM resolved using rule 15 (statement -> ID .)
   ! reduce/reduce conflict for NUMERO resolved using rule 15 (statement -> ID .)
   ! reduce/reduce conflict for PIZQ resolved using rule 15 (statement -> ID .)
-    UPDATE          shift and go to state 45
+    UPDATE          shift and go to state 46
     $end            reduce using rule 15 (statement -> ID .)
     END             reduce using rule 15 (statement -> ID .)
     ID              reduce using rule 15 (statement -> ID .)
     BEGIN           reduce using rule 15 (statement -> ID .)
     IMPORTS         reduce using rule 15 (statement -> ID .)
+    WHILE           reduce using rule 15 (statement -> ID .)
     DATETIME        reduce using rule 15 (statement -> ID .)
     LLIZQ           reduce using rule 15 (statement -> ID .)
     VBCRLF          reduce using rule 15 (statement -> ID .)
@@ -531,118 +546,122 @@ state 19
     MOD             reduce using rule 15 (statement -> ID .)
     NUMERO          reduce using rule 15 (statement -> ID .)
     PIZQ            reduce using rule 15 (statement -> ID .)
-    MULTI           reduce using rule 48 (factor -> ID .)
-    DIV             reduce using rule 48 (factor -> ID .)
-    IGUAL           reduce using rule 48 (factor -> ID .)
-    NOIGUAL         reduce using rule 48 (factor -> ID .)
-    MENORQ          reduce using rule 48 (factor -> ID .)
-    MAYORQ          reduce using rule 48 (factor -> ID .)
-    TRUE            reduce using rule 48 (factor -> ID .)
-    FALSE           reduce using rule 48 (factor -> ID .)
+    MULTI           reduce using rule 49 (factor -> ID .)
+    DIV             reduce using rule 49 (factor -> ID .)
+    IGUAL           reduce using rule 49 (factor -> ID .)
+    NOIGUAL         reduce using rule 49 (factor -> ID .)
+    MENORQ          reduce using rule 49 (factor -> ID .)
+    MAYORQ          reduce using rule 49 (factor -> ID .)
+    TRUE            reduce using rule 49 (factor -> ID .)
+    FALSE           reduce using rule 49 (factor -> ID .)
 
-  ! SUMA            [ reduce using rule 48 (factor -> ID .) ]
-  ! RESTA           [ reduce using rule 48 (factor -> ID .) ]
-  ! MOD             [ reduce using rule 48 (factor -> ID .) ]
-  ! $end            [ reduce using rule 48 (factor -> ID .) ]
-  ! END             [ reduce using rule 48 (factor -> ID .) ]
-  ! ID              [ reduce using rule 48 (factor -> ID .) ]
-  ! BEGIN           [ reduce using rule 48 (factor -> ID .) ]
-  ! IMPORTS         [ reduce using rule 48 (factor -> ID .) ]
-  ! DATETIME        [ reduce using rule 48 (factor -> ID .) ]
-  ! LLIZQ           [ reduce using rule 48 (factor -> ID .) ]
-  ! VBCRLF          [ reduce using rule 48 (factor -> ID .) ]
-  ! MODULE          [ reduce using rule 48 (factor -> ID .) ]
-  ! CONSOLE         [ reduce using rule 48 (factor -> ID .) ]
-  ! DIM             [ reduce using rule 48 (factor -> ID .) ]
-  ! NUMERO          [ reduce using rule 48 (factor -> ID .) ]
-  ! PIZQ            [ reduce using rule 48 (factor -> ID .) ]
+  ! SUMA            [ reduce using rule 49 (factor -> ID .) ]
+  ! RESTA           [ reduce using rule 49 (factor -> ID .) ]
+  ! MOD             [ reduce using rule 49 (factor -> ID .) ]
+  ! $end            [ reduce using rule 49 (factor -> ID .) ]
+  ! END             [ reduce using rule 49 (factor -> ID .) ]
+  ! ID              [ reduce using rule 49 (factor -> ID .) ]
+  ! BEGIN           [ reduce using rule 49 (factor -> ID .) ]
+  ! IMPORTS         [ reduce using rule 49 (factor -> ID .) ]
+  ! WHILE           [ reduce using rule 49 (factor -> ID .) ]
+  ! DATETIME        [ reduce using rule 49 (factor -> ID .) ]
+  ! LLIZQ           [ reduce using rule 49 (factor -> ID .) ]
+  ! VBCRLF          [ reduce using rule 49 (factor -> ID .) ]
+  ! MODULE          [ reduce using rule 49 (factor -> ID .) ]
+  ! CONSOLE         [ reduce using rule 49 (factor -> ID .) ]
+  ! DIM             [ reduce using rule 49 (factor -> ID .) ]
+  ! NUMERO          [ reduce using rule 49 (factor -> ID .) ]
+  ! PIZQ            [ reduce using rule 49 (factor -> ID .) ]
 
 
 state 20
 
-    (22) condition -> expression .
-    (23) condition -> expression . relation expression
-    (32) expression -> expression . addingOperator term
-    (24) relation -> . IGUAL
-    (25) relation -> . NOIGUAL
-    (26) relation -> . MENORQ
-    (27) relation -> . MAYORQ
-    (28) relation -> . TRUE
-    (29) relation -> . FALSE
-    (41) addingOperator -> . SUMA
-    (42) addingOperator -> . RESTA
-    (43) addingOperator -> . MOD
+    (23) condition -> expression .
+    (24) condition -> expression . relation expression
+    (33) expression -> expression . addingOperator term
+    (25) relation -> . IGUAL
+    (26) relation -> . NOIGUAL
+    (27) relation -> . MENORQ
+    (28) relation -> . MAYORQ
+    (29) relation -> . TRUE
+    (30) relation -> . FALSE
+    (42) addingOperator -> . SUMA
+    (43) addingOperator -> . RESTA
+    (44) addingOperator -> . MOD
 
   ! shift/reduce conflict for SUMA resolved as shift
   ! shift/reduce conflict for RESTA resolved as shift
   ! shift/reduce conflict for MOD resolved as shift
-    $end            reduce using rule 22 (condition -> expression .)
-    END             reduce using rule 22 (condition -> expression .)
-    ID              reduce using rule 22 (condition -> expression .)
-    BEGIN           reduce using rule 22 (condition -> expression .)
-    IMPORTS         reduce using rule 22 (condition -> expression .)
-    DATETIME        reduce using rule 22 (condition -> expression .)
-    LLIZQ           reduce using rule 22 (condition -> expression .)
-    VBCRLF          reduce using rule 22 (condition -> expression .)
-    MODULE          reduce using rule 22 (condition -> expression .)
-    CONSOLE         reduce using rule 22 (condition -> expression .)
-    DIM             reduce using rule 22 (condition -> expression .)
-    NUMERO          reduce using rule 22 (condition -> expression .)
-    PIZQ            reduce using rule 22 (condition -> expression .)
-    IGUAL           shift and go to state 48
-    NOIGUAL         shift and go to state 49
-    MENORQ          shift and go to state 50
-    MAYORQ          shift and go to state 51
-    TRUE            shift and go to state 52
-    FALSE           shift and go to state 53
-    SUMA            shift and go to state 36
-    RESTA           shift and go to state 37
-    MOD             shift and go to state 38
+    $end            reduce using rule 23 (condition -> expression .)
+    END             reduce using rule 23 (condition -> expression .)
+    ID              reduce using rule 23 (condition -> expression .)
+    BEGIN           reduce using rule 23 (condition -> expression .)
+    IMPORTS         reduce using rule 23 (condition -> expression .)
+    WHILE           reduce using rule 23 (condition -> expression .)
+    DATETIME        reduce using rule 23 (condition -> expression .)
+    LLIZQ           reduce using rule 23 (condition -> expression .)
+    VBCRLF          reduce using rule 23 (condition -> expression .)
+    MODULE          reduce using rule 23 (condition -> expression .)
+    CONSOLE         reduce using rule 23 (condition -> expression .)
+    DIM             reduce using rule 23 (condition -> expression .)
+    NUMERO          reduce using rule 23 (condition -> expression .)
+    PIZQ            reduce using rule 23 (condition -> expression .)
+    IGUAL           shift and go to state 49
+    NOIGUAL         shift and go to state 50
+    MENORQ          shift and go to state 51
+    MAYORQ          shift and go to state 52
+    TRUE            shift and go to state 53
+    FALSE           shift and go to state 54
+    SUMA            shift and go to state 37
+    RESTA           shift and go to state 38
+    MOD             shift and go to state 39
 
-  ! SUMA            [ reduce using rule 22 (condition -> expression .) ]
-  ! RESTA           [ reduce using rule 22 (condition -> expression .) ]
-  ! MOD             [ reduce using rule 22 (condition -> expression .) ]
+  ! SUMA            [ reduce using rule 23 (condition -> expression .) ]
+  ! RESTA           [ reduce using rule 23 (condition -> expression .) ]
+  ! MOD             [ reduce using rule 23 (condition -> expression .) ]
 
-    relation                       shift and go to state 46
-    addingOperator                 shift and go to state 47
+    relation                       shift and go to state 47
+    addingOperator                 shift and go to state 48
 
 state 21
 
     (16) statement -> BEGIN . statementList END
-    (20) statementList -> . statement
-    (21) statementList -> . statementList statement
+    (21) statementList -> . statement
+    (22) statementList -> . statementList statement
     (14) statement -> . ID UPDATE expression
     (15) statement -> . ID
     (16) statement -> . BEGIN statementList END
     (17) statement -> . condition
     (18) statement -> . IMPORTS ID
-    (19) statement -> . empty
-    (22) condition -> . expression
-    (23) condition -> . expression relation expression
-    (52) empty -> .
-    (30) expression -> . term
-    (31) expression -> . addingOperator term
-    (32) expression -> . expression addingOperator term
-    (33) expression -> . DATETIME PUNTO NOW
-    (34) expression -> . LLIZQ ID LLDER
-    (35) expression -> . VBCRLF
-    (36) expression -> . MODULE PROGRAM
-    (37) expression -> . END MODULE
-    (38) expression -> . CONSOLE PUNTO READKEY PIZQ boolean PDER
-    (39) expression -> . DIM ID IGUAL CONSOLE PUNTO READLINE PIZQ PDER
-    (40) expression -> . CONSOLE PUNTO WRITELINE PIZQ ID PDER
-    (44) term -> . factor
-    (45) term -> . term multiplyingOperator factor
-    (41) addingOperator -> . SUMA
-    (42) addingOperator -> . RESTA
-    (43) addingOperator -> . MOD
-    (48) factor -> . ID
-    (49) factor -> . NUMERO
-    (50) factor -> . PIZQ expression PDER
+    (19) statement -> . WHILE
+    (20) statement -> . empty
+    (23) condition -> . expression
+    (24) condition -> . expression relation expression
+    (53) empty -> .
+    (31) expression -> . term
+    (32) expression -> . addingOperator term
+    (33) expression -> . expression addingOperator term
+    (34) expression -> . DATETIME PUNTO NOW
+    (35) expression -> . LLIZQ ID LLDER
+    (36) expression -> . VBCRLF
+    (37) expression -> . MODULE PROGRAM
+    (38) expression -> . END MODULE
+    (39) expression -> . CONSOLE PUNTO READKEY PIZQ boolean PDER
+    (40) expression -> . DIM ID IGUAL CONSOLE PUNTO READLINE PIZQ PDER
+    (41) expression -> . CONSOLE PUNTO WRITELINE PIZQ ID PDER
+    (45) term -> . factor
+    (46) term -> . term multiplyingOperator factor
+    (42) addingOperator -> . SUMA
+    (43) addingOperator -> . RESTA
+    (44) addingOperator -> . MOD
+    (49) factor -> . ID
+    (50) factor -> . NUMERO
+    (51) factor -> . PIZQ expression PDER
 
   ! shift/reduce conflict for ID resolved as shift
   ! shift/reduce conflict for BEGIN resolved as shift
   ! shift/reduce conflict for IMPORTS resolved as shift
+  ! shift/reduce conflict for WHILE resolved as shift
   ! shift/reduce conflict for DATETIME resolved as shift
   ! shift/reduce conflict for LLIZQ resolved as shift
   ! shift/reduce conflict for VBCRLF resolved as shift
@@ -658,49 +677,51 @@ state 21
     ID              shift and go to state 19
     BEGIN           shift and go to state 21
     IMPORTS         shift and go to state 24
-    DATETIME        shift and go to state 28
-    LLIZQ           shift and go to state 29
-    VBCRLF          shift and go to state 30
-    MODULE          shift and go to state 31
+    WHILE           shift and go to state 25
+    DATETIME        shift and go to state 29
+    LLIZQ           shift and go to state 30
+    VBCRLF          shift and go to state 31
+    MODULE          shift and go to state 32
     END             shift and go to state 22
-    CONSOLE         shift and go to state 32
-    DIM             shift and go to state 34
-    SUMA            shift and go to state 36
-    RESTA           shift and go to state 37
-    MOD             shift and go to state 38
-    NUMERO          shift and go to state 39
-    PIZQ            shift and go to state 33
+    CONSOLE         shift and go to state 33
+    DIM             shift and go to state 35
+    SUMA            shift and go to state 37
+    RESTA           shift and go to state 38
+    MOD             shift and go to state 39
+    NUMERO          shift and go to state 40
+    PIZQ            shift and go to state 34
 
-  ! END             [ reduce using rule 52 (empty -> .) ]
-  ! ID              [ reduce using rule 52 (empty -> .) ]
-  ! BEGIN           [ reduce using rule 52 (empty -> .) ]
-  ! IMPORTS         [ reduce using rule 52 (empty -> .) ]
-  ! DATETIME        [ reduce using rule 52 (empty -> .) ]
-  ! LLIZQ           [ reduce using rule 52 (empty -> .) ]
-  ! VBCRLF          [ reduce using rule 52 (empty -> .) ]
-  ! MODULE          [ reduce using rule 52 (empty -> .) ]
-  ! CONSOLE         [ reduce using rule 52 (empty -> .) ]
-  ! DIM             [ reduce using rule 52 (empty -> .) ]
-  ! SUMA            [ reduce using rule 52 (empty -> .) ]
-  ! RESTA           [ reduce using rule 52 (empty -> .) ]
-  ! MOD             [ reduce using rule 52 (empty -> .) ]
-  ! NUMERO          [ reduce using rule 52 (empty -> .) ]
-  ! PIZQ            [ reduce using rule 52 (empty -> .) ]
+  ! END             [ reduce using rule 53 (empty -> .) ]
+  ! ID              [ reduce using rule 53 (empty -> .) ]
+  ! BEGIN           [ reduce using rule 53 (empty -> .) ]
+  ! IMPORTS         [ reduce using rule 53 (empty -> .) ]
+  ! WHILE           [ reduce using rule 53 (empty -> .) ]
+  ! DATETIME        [ reduce using rule 53 (empty -> .) ]
+  ! LLIZQ           [ reduce using rule 53 (empty -> .) ]
+  ! VBCRLF          [ reduce using rule 53 (empty -> .) ]
+  ! MODULE          [ reduce using rule 53 (empty -> .) ]
+  ! CONSOLE         [ reduce using rule 53 (empty -> .) ]
+  ! DIM             [ reduce using rule 53 (empty -> .) ]
+  ! SUMA            [ reduce using rule 53 (empty -> .) ]
+  ! RESTA           [ reduce using rule 53 (empty -> .) ]
+  ! MOD             [ reduce using rule 53 (empty -> .) ]
+  ! NUMERO          [ reduce using rule 53 (empty -> .) ]
+  ! PIZQ            [ reduce using rule 53 (empty -> .) ]
 
-    statementList                  shift and go to state 54
-    statement                      shift and go to state 55
+    statementList                  shift and go to state 55
+    statement                      shift and go to state 56
     expression                     shift and go to state 20
     condition                      shift and go to state 23
-    empty                          shift and go to state 25
-    term                           shift and go to state 26
-    addingOperator                 shift and go to state 27
-    factor                         shift and go to state 35
+    empty                          shift and go to state 26
+    term                           shift and go to state 27
+    addingOperator                 shift and go to state 28
+    factor                         shift and go to state 36
 
 state 22
 
-    (37) expression -> END . MODULE
+    (38) expression -> END . MODULE
 
-    MODULE          shift and go to state 56
+    MODULE          shift and go to state 57
 
 
 state 23
@@ -712,6 +733,7 @@ state 23
     ID              reduce using rule 17 (statement -> condition .)
     BEGIN           reduce using rule 17 (statement -> condition .)
     IMPORTS         reduce using rule 17 (statement -> condition .)
+    WHILE           reduce using rule 17 (statement -> condition .)
     DATETIME        reduce using rule 17 (statement -> condition .)
     LLIZQ           reduce using rule 17 (statement -> condition .)
     VBCRLF          reduce using rule 17 (statement -> condition .)
@@ -729,285 +751,314 @@ state 24
 
     (18) statement -> IMPORTS . ID
 
-    ID              shift and go to state 57
+    ID              shift and go to state 58
 
 
 state 25
 
-    (19) statement -> empty .
+    (19) statement -> WHILE .
 
-    $end            reduce using rule 19 (statement -> empty .)
-    END             reduce using rule 19 (statement -> empty .)
-    ID              reduce using rule 19 (statement -> empty .)
-    BEGIN           reduce using rule 19 (statement -> empty .)
-    IMPORTS         reduce using rule 19 (statement -> empty .)
-    DATETIME        reduce using rule 19 (statement -> empty .)
-    LLIZQ           reduce using rule 19 (statement -> empty .)
-    VBCRLF          reduce using rule 19 (statement -> empty .)
-    MODULE          reduce using rule 19 (statement -> empty .)
-    CONSOLE         reduce using rule 19 (statement -> empty .)
-    DIM             reduce using rule 19 (statement -> empty .)
-    SUMA            reduce using rule 19 (statement -> empty .)
-    RESTA           reduce using rule 19 (statement -> empty .)
-    MOD             reduce using rule 19 (statement -> empty .)
-    NUMERO          reduce using rule 19 (statement -> empty .)
-    PIZQ            reduce using rule 19 (statement -> empty .)
+    $end            reduce using rule 19 (statement -> WHILE .)
+    END             reduce using rule 19 (statement -> WHILE .)
+    ID              reduce using rule 19 (statement -> WHILE .)
+    BEGIN           reduce using rule 19 (statement -> WHILE .)
+    IMPORTS         reduce using rule 19 (statement -> WHILE .)
+    WHILE           reduce using rule 19 (statement -> WHILE .)
+    DATETIME        reduce using rule 19 (statement -> WHILE .)
+    LLIZQ           reduce using rule 19 (statement -> WHILE .)
+    VBCRLF          reduce using rule 19 (statement -> WHILE .)
+    MODULE          reduce using rule 19 (statement -> WHILE .)
+    CONSOLE         reduce using rule 19 (statement -> WHILE .)
+    DIM             reduce using rule 19 (statement -> WHILE .)
+    SUMA            reduce using rule 19 (statement -> WHILE .)
+    RESTA           reduce using rule 19 (statement -> WHILE .)
+    MOD             reduce using rule 19 (statement -> WHILE .)
+    NUMERO          reduce using rule 19 (statement -> WHILE .)
+    PIZQ            reduce using rule 19 (statement -> WHILE .)
 
 
 state 26
 
-    (30) expression -> term .
-    (45) term -> term . multiplyingOperator factor
-    (46) multiplyingOperator -> . MULTI
-    (47) multiplyingOperator -> . DIV
+    (20) statement -> empty .
 
-    IGUAL           reduce using rule 30 (expression -> term .)
-    NOIGUAL         reduce using rule 30 (expression -> term .)
-    MENORQ          reduce using rule 30 (expression -> term .)
-    MAYORQ          reduce using rule 30 (expression -> term .)
-    TRUE            reduce using rule 30 (expression -> term .)
-    FALSE           reduce using rule 30 (expression -> term .)
-    SUMA            reduce using rule 30 (expression -> term .)
-    RESTA           reduce using rule 30 (expression -> term .)
-    MOD             reduce using rule 30 (expression -> term .)
-    $end            reduce using rule 30 (expression -> term .)
-    END             reduce using rule 30 (expression -> term .)
-    ID              reduce using rule 30 (expression -> term .)
-    BEGIN           reduce using rule 30 (expression -> term .)
-    IMPORTS         reduce using rule 30 (expression -> term .)
-    DATETIME        reduce using rule 30 (expression -> term .)
-    LLIZQ           reduce using rule 30 (expression -> term .)
-    VBCRLF          reduce using rule 30 (expression -> term .)
-    MODULE          reduce using rule 30 (expression -> term .)
-    CONSOLE         reduce using rule 30 (expression -> term .)
-    DIM             reduce using rule 30 (expression -> term .)
-    NUMERO          reduce using rule 30 (expression -> term .)
-    PIZQ            reduce using rule 30 (expression -> term .)
-    PDER            reduce using rule 30 (expression -> term .)
-    MULTI           shift and go to state 59
-    DIV             shift and go to state 60
+    $end            reduce using rule 20 (statement -> empty .)
+    END             reduce using rule 20 (statement -> empty .)
+    ID              reduce using rule 20 (statement -> empty .)
+    BEGIN           reduce using rule 20 (statement -> empty .)
+    IMPORTS         reduce using rule 20 (statement -> empty .)
+    WHILE           reduce using rule 20 (statement -> empty .)
+    DATETIME        reduce using rule 20 (statement -> empty .)
+    LLIZQ           reduce using rule 20 (statement -> empty .)
+    VBCRLF          reduce using rule 20 (statement -> empty .)
+    MODULE          reduce using rule 20 (statement -> empty .)
+    CONSOLE         reduce using rule 20 (statement -> empty .)
+    DIM             reduce using rule 20 (statement -> empty .)
+    SUMA            reduce using rule 20 (statement -> empty .)
+    RESTA           reduce using rule 20 (statement -> empty .)
+    MOD             reduce using rule 20 (statement -> empty .)
+    NUMERO          reduce using rule 20 (statement -> empty .)
+    PIZQ            reduce using rule 20 (statement -> empty .)
 
-    multiplyingOperator            shift and go to state 58
 
 state 27
 
-    (31) expression -> addingOperator . term
-    (44) term -> . factor
-    (45) term -> . term multiplyingOperator factor
-    (48) factor -> . ID
-    (49) factor -> . NUMERO
-    (50) factor -> . PIZQ expression PDER
+    (31) expression -> term .
+    (46) term -> term . multiplyingOperator factor
+    (47) multiplyingOperator -> . MULTI
+    (48) multiplyingOperator -> . DIV
 
-    ID              shift and go to state 62
-    NUMERO          shift and go to state 39
-    PIZQ            shift and go to state 33
+    IGUAL           reduce using rule 31 (expression -> term .)
+    NOIGUAL         reduce using rule 31 (expression -> term .)
+    MENORQ          reduce using rule 31 (expression -> term .)
+    MAYORQ          reduce using rule 31 (expression -> term .)
+    TRUE            reduce using rule 31 (expression -> term .)
+    FALSE           reduce using rule 31 (expression -> term .)
+    SUMA            reduce using rule 31 (expression -> term .)
+    RESTA           reduce using rule 31 (expression -> term .)
+    MOD             reduce using rule 31 (expression -> term .)
+    $end            reduce using rule 31 (expression -> term .)
+    END             reduce using rule 31 (expression -> term .)
+    ID              reduce using rule 31 (expression -> term .)
+    BEGIN           reduce using rule 31 (expression -> term .)
+    IMPORTS         reduce using rule 31 (expression -> term .)
+    WHILE           reduce using rule 31 (expression -> term .)
+    DATETIME        reduce using rule 31 (expression -> term .)
+    LLIZQ           reduce using rule 31 (expression -> term .)
+    VBCRLF          reduce using rule 31 (expression -> term .)
+    MODULE          reduce using rule 31 (expression -> term .)
+    CONSOLE         reduce using rule 31 (expression -> term .)
+    DIM             reduce using rule 31 (expression -> term .)
+    NUMERO          reduce using rule 31 (expression -> term .)
+    PIZQ            reduce using rule 31 (expression -> term .)
+    PDER            reduce using rule 31 (expression -> term .)
+    MULTI           shift and go to state 60
+    DIV             shift and go to state 61
 
-    term                           shift and go to state 61
-    factor                         shift and go to state 35
+    multiplyingOperator            shift and go to state 59
 
 state 28
 
-    (33) expression -> DATETIME . PUNTO NOW
+    (32) expression -> addingOperator . term
+    (45) term -> . factor
+    (46) term -> . term multiplyingOperator factor
+    (49) factor -> . ID
+    (50) factor -> . NUMERO
+    (51) factor -> . PIZQ expression PDER
 
-    PUNTO           shift and go to state 63
+    ID              shift and go to state 63
+    NUMERO          shift and go to state 40
+    PIZQ            shift and go to state 34
 
+    term                           shift and go to state 62
+    factor                         shift and go to state 36
 
 state 29
 
-    (34) expression -> LLIZQ . ID LLDER
+    (34) expression -> DATETIME . PUNTO NOW
 
-    ID              shift and go to state 64
+    PUNTO           shift and go to state 64
 
 
 state 30
 
-    (35) expression -> VBCRLF .
+    (35) expression -> LLIZQ . ID LLDER
 
-    IGUAL           reduce using rule 35 (expression -> VBCRLF .)
-    NOIGUAL         reduce using rule 35 (expression -> VBCRLF .)
-    MENORQ          reduce using rule 35 (expression -> VBCRLF .)
-    MAYORQ          reduce using rule 35 (expression -> VBCRLF .)
-    TRUE            reduce using rule 35 (expression -> VBCRLF .)
-    FALSE           reduce using rule 35 (expression -> VBCRLF .)
-    SUMA            reduce using rule 35 (expression -> VBCRLF .)
-    RESTA           reduce using rule 35 (expression -> VBCRLF .)
-    MOD             reduce using rule 35 (expression -> VBCRLF .)
-    $end            reduce using rule 35 (expression -> VBCRLF .)
-    END             reduce using rule 35 (expression -> VBCRLF .)
-    ID              reduce using rule 35 (expression -> VBCRLF .)
-    BEGIN           reduce using rule 35 (expression -> VBCRLF .)
-    IMPORTS         reduce using rule 35 (expression -> VBCRLF .)
-    DATETIME        reduce using rule 35 (expression -> VBCRLF .)
-    LLIZQ           reduce using rule 35 (expression -> VBCRLF .)
-    VBCRLF          reduce using rule 35 (expression -> VBCRLF .)
-    MODULE          reduce using rule 35 (expression -> VBCRLF .)
-    CONSOLE         reduce using rule 35 (expression -> VBCRLF .)
-    DIM             reduce using rule 35 (expression -> VBCRLF .)
-    NUMERO          reduce using rule 35 (expression -> VBCRLF .)
-    PIZQ            reduce using rule 35 (expression -> VBCRLF .)
-    PDER            reduce using rule 35 (expression -> VBCRLF .)
+    ID              shift and go to state 65
 
 
 state 31
 
-    (36) expression -> MODULE . PROGRAM
+    (36) expression -> VBCRLF .
 
-    PROGRAM         shift and go to state 65
+    IGUAL           reduce using rule 36 (expression -> VBCRLF .)
+    NOIGUAL         reduce using rule 36 (expression -> VBCRLF .)
+    MENORQ          reduce using rule 36 (expression -> VBCRLF .)
+    MAYORQ          reduce using rule 36 (expression -> VBCRLF .)
+    TRUE            reduce using rule 36 (expression -> VBCRLF .)
+    FALSE           reduce using rule 36 (expression -> VBCRLF .)
+    SUMA            reduce using rule 36 (expression -> VBCRLF .)
+    RESTA           reduce using rule 36 (expression -> VBCRLF .)
+    MOD             reduce using rule 36 (expression -> VBCRLF .)
+    $end            reduce using rule 36 (expression -> VBCRLF .)
+    END             reduce using rule 36 (expression -> VBCRLF .)
+    ID              reduce using rule 36 (expression -> VBCRLF .)
+    BEGIN           reduce using rule 36 (expression -> VBCRLF .)
+    IMPORTS         reduce using rule 36 (expression -> VBCRLF .)
+    WHILE           reduce using rule 36 (expression -> VBCRLF .)
+    DATETIME        reduce using rule 36 (expression -> VBCRLF .)
+    LLIZQ           reduce using rule 36 (expression -> VBCRLF .)
+    VBCRLF          reduce using rule 36 (expression -> VBCRLF .)
+    MODULE          reduce using rule 36 (expression -> VBCRLF .)
+    CONSOLE         reduce using rule 36 (expression -> VBCRLF .)
+    DIM             reduce using rule 36 (expression -> VBCRLF .)
+    NUMERO          reduce using rule 36 (expression -> VBCRLF .)
+    PIZQ            reduce using rule 36 (expression -> VBCRLF .)
+    PDER            reduce using rule 36 (expression -> VBCRLF .)
 
 
 state 32
 
-    (38) expression -> CONSOLE . PUNTO READKEY PIZQ boolean PDER
-    (40) expression -> CONSOLE . PUNTO WRITELINE PIZQ ID PDER
+    (37) expression -> MODULE . PROGRAM
 
-    PUNTO           shift and go to state 66
+    PROGRAM         shift and go to state 66
 
 
 state 33
 
-    (50) factor -> PIZQ . expression PDER
-    (30) expression -> . term
-    (31) expression -> . addingOperator term
-    (32) expression -> . expression addingOperator term
-    (33) expression -> . DATETIME PUNTO NOW
-    (34) expression -> . LLIZQ ID LLDER
-    (35) expression -> . VBCRLF
-    (36) expression -> . MODULE PROGRAM
-    (37) expression -> . END MODULE
-    (38) expression -> . CONSOLE PUNTO READKEY PIZQ boolean PDER
-    (39) expression -> . DIM ID IGUAL CONSOLE PUNTO READLINE PIZQ PDER
-    (40) expression -> . CONSOLE PUNTO WRITELINE PIZQ ID PDER
-    (44) term -> . factor
-    (45) term -> . term multiplyingOperator factor
-    (41) addingOperator -> . SUMA
-    (42) addingOperator -> . RESTA
-    (43) addingOperator -> . MOD
-    (48) factor -> . ID
-    (49) factor -> . NUMERO
-    (50) factor -> . PIZQ expression PDER
+    (39) expression -> CONSOLE . PUNTO READKEY PIZQ boolean PDER
+    (41) expression -> CONSOLE . PUNTO WRITELINE PIZQ ID PDER
 
-    DATETIME        shift and go to state 28
-    LLIZQ           shift and go to state 29
-    VBCRLF          shift and go to state 30
-    MODULE          shift and go to state 31
-    END             shift and go to state 22
-    CONSOLE         shift and go to state 32
-    DIM             shift and go to state 34
-    SUMA            shift and go to state 36
-    RESTA           shift and go to state 37
-    MOD             shift and go to state 38
-    ID              shift and go to state 62
-    NUMERO          shift and go to state 39
-    PIZQ            shift and go to state 33
+    PUNTO           shift and go to state 67
 
-    expression                     shift and go to state 67
-    term                           shift and go to state 26
-    addingOperator                 shift and go to state 27
-    factor                         shift and go to state 35
 
 state 34
 
-    (39) expression -> DIM . ID IGUAL CONSOLE PUNTO READLINE PIZQ PDER
+    (51) factor -> PIZQ . expression PDER
+    (31) expression -> . term
+    (32) expression -> . addingOperator term
+    (33) expression -> . expression addingOperator term
+    (34) expression -> . DATETIME PUNTO NOW
+    (35) expression -> . LLIZQ ID LLDER
+    (36) expression -> . VBCRLF
+    (37) expression -> . MODULE PROGRAM
+    (38) expression -> . END MODULE
+    (39) expression -> . CONSOLE PUNTO READKEY PIZQ boolean PDER
+    (40) expression -> . DIM ID IGUAL CONSOLE PUNTO READLINE PIZQ PDER
+    (41) expression -> . CONSOLE PUNTO WRITELINE PIZQ ID PDER
+    (45) term -> . factor
+    (46) term -> . term multiplyingOperator factor
+    (42) addingOperator -> . SUMA
+    (43) addingOperator -> . RESTA
+    (44) addingOperator -> . MOD
+    (49) factor -> . ID
+    (50) factor -> . NUMERO
+    (51) factor -> . PIZQ expression PDER
 
-    ID              shift and go to state 68
+    DATETIME        shift and go to state 29
+    LLIZQ           shift and go to state 30
+    VBCRLF          shift and go to state 31
+    MODULE          shift and go to state 32
+    END             shift and go to state 22
+    CONSOLE         shift and go to state 33
+    DIM             shift and go to state 35
+    SUMA            shift and go to state 37
+    RESTA           shift and go to state 38
+    MOD             shift and go to state 39
+    ID              shift and go to state 63
+    NUMERO          shift and go to state 40
+    PIZQ            shift and go to state 34
 
+    expression                     shift and go to state 68
+    term                           shift and go to state 27
+    addingOperator                 shift and go to state 28
+    factor                         shift and go to state 36
 
 state 35
 
-    (44) term -> factor .
+    (40) expression -> DIM . ID IGUAL CONSOLE PUNTO READLINE PIZQ PDER
 
-    MULTI           reduce using rule 44 (term -> factor .)
-    DIV             reduce using rule 44 (term -> factor .)
-    IGUAL           reduce using rule 44 (term -> factor .)
-    NOIGUAL         reduce using rule 44 (term -> factor .)
-    MENORQ          reduce using rule 44 (term -> factor .)
-    MAYORQ          reduce using rule 44 (term -> factor .)
-    TRUE            reduce using rule 44 (term -> factor .)
-    FALSE           reduce using rule 44 (term -> factor .)
-    SUMA            reduce using rule 44 (term -> factor .)
-    RESTA           reduce using rule 44 (term -> factor .)
-    MOD             reduce using rule 44 (term -> factor .)
-    $end            reduce using rule 44 (term -> factor .)
-    END             reduce using rule 44 (term -> factor .)
-    ID              reduce using rule 44 (term -> factor .)
-    BEGIN           reduce using rule 44 (term -> factor .)
-    IMPORTS         reduce using rule 44 (term -> factor .)
-    DATETIME        reduce using rule 44 (term -> factor .)
-    LLIZQ           reduce using rule 44 (term -> factor .)
-    VBCRLF          reduce using rule 44 (term -> factor .)
-    MODULE          reduce using rule 44 (term -> factor .)
-    CONSOLE         reduce using rule 44 (term -> factor .)
-    DIM             reduce using rule 44 (term -> factor .)
-    NUMERO          reduce using rule 44 (term -> factor .)
-    PIZQ            reduce using rule 44 (term -> factor .)
-    PDER            reduce using rule 44 (term -> factor .)
+    ID              shift and go to state 69
 
 
 state 36
 
-    (41) addingOperator -> SUMA .
+    (45) term -> factor .
 
-    ID              reduce using rule 41 (addingOperator -> SUMA .)
-    NUMERO          reduce using rule 41 (addingOperator -> SUMA .)
-    PIZQ            reduce using rule 41 (addingOperator -> SUMA .)
+    MULTI           reduce using rule 45 (term -> factor .)
+    DIV             reduce using rule 45 (term -> factor .)
+    IGUAL           reduce using rule 45 (term -> factor .)
+    NOIGUAL         reduce using rule 45 (term -> factor .)
+    MENORQ          reduce using rule 45 (term -> factor .)
+    MAYORQ          reduce using rule 45 (term -> factor .)
+    TRUE            reduce using rule 45 (term -> factor .)
+    FALSE           reduce using rule 45 (term -> factor .)
+    SUMA            reduce using rule 45 (term -> factor .)
+    RESTA           reduce using rule 45 (term -> factor .)
+    MOD             reduce using rule 45 (term -> factor .)
+    $end            reduce using rule 45 (term -> factor .)
+    END             reduce using rule 45 (term -> factor .)
+    ID              reduce using rule 45 (term -> factor .)
+    BEGIN           reduce using rule 45 (term -> factor .)
+    IMPORTS         reduce using rule 45 (term -> factor .)
+    WHILE           reduce using rule 45 (term -> factor .)
+    DATETIME        reduce using rule 45 (term -> factor .)
+    LLIZQ           reduce using rule 45 (term -> factor .)
+    VBCRLF          reduce using rule 45 (term -> factor .)
+    MODULE          reduce using rule 45 (term -> factor .)
+    CONSOLE         reduce using rule 45 (term -> factor .)
+    DIM             reduce using rule 45 (term -> factor .)
+    NUMERO          reduce using rule 45 (term -> factor .)
+    PIZQ            reduce using rule 45 (term -> factor .)
+    PDER            reduce using rule 45 (term -> factor .)
 
 
 state 37
 
-    (42) addingOperator -> RESTA .
+    (42) addingOperator -> SUMA .
 
-    ID              reduce using rule 42 (addingOperator -> RESTA .)
-    NUMERO          reduce using rule 42 (addingOperator -> RESTA .)
-    PIZQ            reduce using rule 42 (addingOperator -> RESTA .)
+    ID              reduce using rule 42 (addingOperator -> SUMA .)
+    NUMERO          reduce using rule 42 (addingOperator -> SUMA .)
+    PIZQ            reduce using rule 42 (addingOperator -> SUMA .)
 
 
 state 38
 
-    (43) addingOperator -> MOD .
+    (43) addingOperator -> RESTA .
 
-    ID              reduce using rule 43 (addingOperator -> MOD .)
-    NUMERO          reduce using rule 43 (addingOperator -> MOD .)
-    PIZQ            reduce using rule 43 (addingOperator -> MOD .)
+    ID              reduce using rule 43 (addingOperator -> RESTA .)
+    NUMERO          reduce using rule 43 (addingOperator -> RESTA .)
+    PIZQ            reduce using rule 43 (addingOperator -> RESTA .)
 
 
 state 39
 
-    (49) factor -> NUMERO .
+    (44) addingOperator -> MOD .
 
-    MULTI           reduce using rule 49 (factor -> NUMERO .)
-    DIV             reduce using rule 49 (factor -> NUMERO .)
-    IGUAL           reduce using rule 49 (factor -> NUMERO .)
-    NOIGUAL         reduce using rule 49 (factor -> NUMERO .)
-    MENORQ          reduce using rule 49 (factor -> NUMERO .)
-    MAYORQ          reduce using rule 49 (factor -> NUMERO .)
-    TRUE            reduce using rule 49 (factor -> NUMERO .)
-    FALSE           reduce using rule 49 (factor -> NUMERO .)
-    SUMA            reduce using rule 49 (factor -> NUMERO .)
-    RESTA           reduce using rule 49 (factor -> NUMERO .)
-    MOD             reduce using rule 49 (factor -> NUMERO .)
-    $end            reduce using rule 49 (factor -> NUMERO .)
-    END             reduce using rule 49 (factor -> NUMERO .)
-    ID              reduce using rule 49 (factor -> NUMERO .)
-    BEGIN           reduce using rule 49 (factor -> NUMERO .)
-    IMPORTS         reduce using rule 49 (factor -> NUMERO .)
-    DATETIME        reduce using rule 49 (factor -> NUMERO .)
-    LLIZQ           reduce using rule 49 (factor -> NUMERO .)
-    VBCRLF          reduce using rule 49 (factor -> NUMERO .)
-    MODULE          reduce using rule 49 (factor -> NUMERO .)
-    CONSOLE         reduce using rule 49 (factor -> NUMERO .)
-    DIM             reduce using rule 49 (factor -> NUMERO .)
-    NUMERO          reduce using rule 49 (factor -> NUMERO .)
-    PIZQ            reduce using rule 49 (factor -> NUMERO .)
-    PDER            reduce using rule 49 (factor -> NUMERO .)
+    ID              reduce using rule 44 (addingOperator -> MOD .)
+    NUMERO          reduce using rule 44 (addingOperator -> MOD .)
+    PIZQ            reduce using rule 44 (addingOperator -> MOD .)
 
 
 state 40
+
+    (50) factor -> NUMERO .
+
+    MULTI           reduce using rule 50 (factor -> NUMERO .)
+    DIV             reduce using rule 50 (factor -> NUMERO .)
+    IGUAL           reduce using rule 50 (factor -> NUMERO .)
+    NOIGUAL         reduce using rule 50 (factor -> NUMERO .)
+    MENORQ          reduce using rule 50 (factor -> NUMERO .)
+    MAYORQ          reduce using rule 50 (factor -> NUMERO .)
+    TRUE            reduce using rule 50 (factor -> NUMERO .)
+    FALSE           reduce using rule 50 (factor -> NUMERO .)
+    SUMA            reduce using rule 50 (factor -> NUMERO .)
+    RESTA           reduce using rule 50 (factor -> NUMERO .)
+    MOD             reduce using rule 50 (factor -> NUMERO .)
+    $end            reduce using rule 50 (factor -> NUMERO .)
+    END             reduce using rule 50 (factor -> NUMERO .)
+    ID              reduce using rule 50 (factor -> NUMERO .)
+    BEGIN           reduce using rule 50 (factor -> NUMERO .)
+    IMPORTS         reduce using rule 50 (factor -> NUMERO .)
+    WHILE           reduce using rule 50 (factor -> NUMERO .)
+    DATETIME        reduce using rule 50 (factor -> NUMERO .)
+    LLIZQ           reduce using rule 50 (factor -> NUMERO .)
+    VBCRLF          reduce using rule 50 (factor -> NUMERO .)
+    MODULE          reduce using rule 50 (factor -> NUMERO .)
+    CONSOLE         reduce using rule 50 (factor -> NUMERO .)
+    DIM             reduce using rule 50 (factor -> NUMERO .)
+    NUMERO          reduce using rule 50 (factor -> NUMERO .)
+    PIZQ            reduce using rule 50 (factor -> NUMERO .)
+    PDER            reduce using rule 50 (factor -> NUMERO .)
+
+
+state 41
 
     (12) identList -> identList ID .
 
     ID              reduce using rule 12 (identList -> identList ID .)
     BEGIN           reduce using rule 12 (identList -> identList ID .)
     IMPORTS         reduce using rule 12 (identList -> identList ID .)
+    WHILE           reduce using rule 12 (identList -> identList ID .)
     DATETIME        reduce using rule 12 (identList -> identList ID .)
     LLIZQ           reduce using rule 12 (identList -> identList ID .)
     VBCRLF          reduce using rule 12 (identList -> identList ID .)
@@ -1023,14 +1074,14 @@ state 40
     $end            reduce using rule 12 (identList -> identList ID .)
 
 
-state 41
+state 42
 
     (8) constAssignmentList -> constAssignmentList ID IGUAL . NUMERO
 
-    NUMERO          shift and go to state 69
+    NUMERO          shift and go to state 70
 
 
-state 42
+state 43
 
     (4) constDecl -> DIM ID IGUAL ID .
 
@@ -1038,6 +1089,7 @@ state 42
     ID              reduce using rule 4 (constDecl -> DIM ID IGUAL ID .)
     BEGIN           reduce using rule 4 (constDecl -> DIM ID IGUAL ID .)
     IMPORTS         reduce using rule 4 (constDecl -> DIM ID IGUAL ID .)
+    WHILE           reduce using rule 4 (constDecl -> DIM ID IGUAL ID .)
     DATETIME        reduce using rule 4 (constDecl -> DIM ID IGUAL ID .)
     LLIZQ           reduce using rule 4 (constDecl -> DIM ID IGUAL ID .)
     VBCRLF          reduce using rule 4 (constDecl -> DIM ID IGUAL ID .)
@@ -1052,7 +1104,7 @@ state 42
     $end            reduce using rule 4 (constDecl -> DIM ID IGUAL ID .)
 
 
-state 43
+state 44
 
     (7) constAssignmentList -> ID IGUAL NUMERO .
 
@@ -1060,6 +1112,7 @@ state 43
     DIM             reduce using rule 7 (constAssignmentList -> ID IGUAL NUMERO .)
     BEGIN           reduce using rule 7 (constAssignmentList -> ID IGUAL NUMERO .)
     IMPORTS         reduce using rule 7 (constAssignmentList -> ID IGUAL NUMERO .)
+    WHILE           reduce using rule 7 (constAssignmentList -> ID IGUAL NUMERO .)
     DATETIME        reduce using rule 7 (constAssignmentList -> ID IGUAL NUMERO .)
     LLIZQ           reduce using rule 7 (constAssignmentList -> ID IGUAL NUMERO .)
     VBCRLF          reduce using rule 7 (constAssignmentList -> ID IGUAL NUMERO .)
@@ -1074,264 +1127,266 @@ state 43
     $end            reduce using rule 7 (constAssignmentList -> ID IGUAL NUMERO .)
 
 
-state 44
+state 45
 
     (5) constDecl -> DIM ID AS ID . IGUAL ID
 
-    IGUAL           shift and go to state 70
+    IGUAL           shift and go to state 71
 
-
-state 45
-
-    (14) statement -> ID UPDATE . expression
-    (30) expression -> . term
-    (31) expression -> . addingOperator term
-    (32) expression -> . expression addingOperator term
-    (33) expression -> . DATETIME PUNTO NOW
-    (34) expression -> . LLIZQ ID LLDER
-    (35) expression -> . VBCRLF
-    (36) expression -> . MODULE PROGRAM
-    (37) expression -> . END MODULE
-    (38) expression -> . CONSOLE PUNTO READKEY PIZQ boolean PDER
-    (39) expression -> . DIM ID IGUAL CONSOLE PUNTO READLINE PIZQ PDER
-    (40) expression -> . CONSOLE PUNTO WRITELINE PIZQ ID PDER
-    (44) term -> . factor
-    (45) term -> . term multiplyingOperator factor
-    (41) addingOperator -> . SUMA
-    (42) addingOperator -> . RESTA
-    (43) addingOperator -> . MOD
-    (48) factor -> . ID
-    (49) factor -> . NUMERO
-    (50) factor -> . PIZQ expression PDER
-
-    DATETIME        shift and go to state 28
-    LLIZQ           shift and go to state 29
-    VBCRLF          shift and go to state 30
-    MODULE          shift and go to state 31
-    END             shift and go to state 22
-    CONSOLE         shift and go to state 32
-    DIM             shift and go to state 34
-    SUMA            shift and go to state 36
-    RESTA           shift and go to state 37
-    MOD             shift and go to state 38
-    ID              shift and go to state 62
-    NUMERO          shift and go to state 39
-    PIZQ            shift and go to state 33
-
-    expression                     shift and go to state 71
-    term                           shift and go to state 26
-    addingOperator                 shift and go to state 27
-    factor                         shift and go to state 35
 
 state 46
 
-    (23) condition -> expression relation . expression
-    (30) expression -> . term
-    (31) expression -> . addingOperator term
-    (32) expression -> . expression addingOperator term
-    (33) expression -> . DATETIME PUNTO NOW
-    (34) expression -> . LLIZQ ID LLDER
-    (35) expression -> . VBCRLF
-    (36) expression -> . MODULE PROGRAM
-    (37) expression -> . END MODULE
-    (38) expression -> . CONSOLE PUNTO READKEY PIZQ boolean PDER
-    (39) expression -> . DIM ID IGUAL CONSOLE PUNTO READLINE PIZQ PDER
-    (40) expression -> . CONSOLE PUNTO WRITELINE PIZQ ID PDER
-    (44) term -> . factor
-    (45) term -> . term multiplyingOperator factor
-    (41) addingOperator -> . SUMA
-    (42) addingOperator -> . RESTA
-    (43) addingOperator -> . MOD
-    (48) factor -> . ID
-    (49) factor -> . NUMERO
-    (50) factor -> . PIZQ expression PDER
+    (14) statement -> ID UPDATE . expression
+    (31) expression -> . term
+    (32) expression -> . addingOperator term
+    (33) expression -> . expression addingOperator term
+    (34) expression -> . DATETIME PUNTO NOW
+    (35) expression -> . LLIZQ ID LLDER
+    (36) expression -> . VBCRLF
+    (37) expression -> . MODULE PROGRAM
+    (38) expression -> . END MODULE
+    (39) expression -> . CONSOLE PUNTO READKEY PIZQ boolean PDER
+    (40) expression -> . DIM ID IGUAL CONSOLE PUNTO READLINE PIZQ PDER
+    (41) expression -> . CONSOLE PUNTO WRITELINE PIZQ ID PDER
+    (45) term -> . factor
+    (46) term -> . term multiplyingOperator factor
+    (42) addingOperator -> . SUMA
+    (43) addingOperator -> . RESTA
+    (44) addingOperator -> . MOD
+    (49) factor -> . ID
+    (50) factor -> . NUMERO
+    (51) factor -> . PIZQ expression PDER
 
-    DATETIME        shift and go to state 28
-    LLIZQ           shift and go to state 29
-    VBCRLF          shift and go to state 30
-    MODULE          shift and go to state 31
+    DATETIME        shift and go to state 29
+    LLIZQ           shift and go to state 30
+    VBCRLF          shift and go to state 31
+    MODULE          shift and go to state 32
     END             shift and go to state 22
-    CONSOLE         shift and go to state 32
-    DIM             shift and go to state 34
-    SUMA            shift and go to state 36
-    RESTA           shift and go to state 37
-    MOD             shift and go to state 38
-    ID              shift and go to state 62
-    NUMERO          shift and go to state 39
-    PIZQ            shift and go to state 33
+    CONSOLE         shift and go to state 33
+    DIM             shift and go to state 35
+    SUMA            shift and go to state 37
+    RESTA           shift and go to state 38
+    MOD             shift and go to state 39
+    ID              shift and go to state 63
+    NUMERO          shift and go to state 40
+    PIZQ            shift and go to state 34
 
     expression                     shift and go to state 72
-    term                           shift and go to state 26
-    addingOperator                 shift and go to state 27
-    factor                         shift and go to state 35
+    term                           shift and go to state 27
+    addingOperator                 shift and go to state 28
+    factor                         shift and go to state 36
 
 state 47
 
-    (32) expression -> expression addingOperator . term
-    (44) term -> . factor
-    (45) term -> . term multiplyingOperator factor
-    (48) factor -> . ID
-    (49) factor -> . NUMERO
-    (50) factor -> . PIZQ expression PDER
+    (24) condition -> expression relation . expression
+    (31) expression -> . term
+    (32) expression -> . addingOperator term
+    (33) expression -> . expression addingOperator term
+    (34) expression -> . DATETIME PUNTO NOW
+    (35) expression -> . LLIZQ ID LLDER
+    (36) expression -> . VBCRLF
+    (37) expression -> . MODULE PROGRAM
+    (38) expression -> . END MODULE
+    (39) expression -> . CONSOLE PUNTO READKEY PIZQ boolean PDER
+    (40) expression -> . DIM ID IGUAL CONSOLE PUNTO READLINE PIZQ PDER
+    (41) expression -> . CONSOLE PUNTO WRITELINE PIZQ ID PDER
+    (45) term -> . factor
+    (46) term -> . term multiplyingOperator factor
+    (42) addingOperator -> . SUMA
+    (43) addingOperator -> . RESTA
+    (44) addingOperator -> . MOD
+    (49) factor -> . ID
+    (50) factor -> . NUMERO
+    (51) factor -> . PIZQ expression PDER
 
-    ID              shift and go to state 62
-    NUMERO          shift and go to state 39
-    PIZQ            shift and go to state 33
+    DATETIME        shift and go to state 29
+    LLIZQ           shift and go to state 30
+    VBCRLF          shift and go to state 31
+    MODULE          shift and go to state 32
+    END             shift and go to state 22
+    CONSOLE         shift and go to state 33
+    DIM             shift and go to state 35
+    SUMA            shift and go to state 37
+    RESTA           shift and go to state 38
+    MOD             shift and go to state 39
+    ID              shift and go to state 63
+    NUMERO          shift and go to state 40
+    PIZQ            shift and go to state 34
 
-    term                           shift and go to state 73
-    factor                         shift and go to state 35
+    expression                     shift and go to state 73
+    term                           shift and go to state 27
+    addingOperator                 shift and go to state 28
+    factor                         shift and go to state 36
 
 state 48
 
-    (24) relation -> IGUAL .
+    (33) expression -> expression addingOperator . term
+    (45) term -> . factor
+    (46) term -> . term multiplyingOperator factor
+    (49) factor -> . ID
+    (50) factor -> . NUMERO
+    (51) factor -> . PIZQ expression PDER
 
-    DATETIME        reduce using rule 24 (relation -> IGUAL .)
-    LLIZQ           reduce using rule 24 (relation -> IGUAL .)
-    VBCRLF          reduce using rule 24 (relation -> IGUAL .)
-    MODULE          reduce using rule 24 (relation -> IGUAL .)
-    END             reduce using rule 24 (relation -> IGUAL .)
-    CONSOLE         reduce using rule 24 (relation -> IGUAL .)
-    DIM             reduce using rule 24 (relation -> IGUAL .)
-    SUMA            reduce using rule 24 (relation -> IGUAL .)
-    RESTA           reduce using rule 24 (relation -> IGUAL .)
-    MOD             reduce using rule 24 (relation -> IGUAL .)
-    ID              reduce using rule 24 (relation -> IGUAL .)
-    NUMERO          reduce using rule 24 (relation -> IGUAL .)
-    PIZQ            reduce using rule 24 (relation -> IGUAL .)
+    ID              shift and go to state 63
+    NUMERO          shift and go to state 40
+    PIZQ            shift and go to state 34
 
+    term                           shift and go to state 74
+    factor                         shift and go to state 36
 
 state 49
 
-    (25) relation -> NOIGUAL .
+    (25) relation -> IGUAL .
 
-    DATETIME        reduce using rule 25 (relation -> NOIGUAL .)
-    LLIZQ           reduce using rule 25 (relation -> NOIGUAL .)
-    VBCRLF          reduce using rule 25 (relation -> NOIGUAL .)
-    MODULE          reduce using rule 25 (relation -> NOIGUAL .)
-    END             reduce using rule 25 (relation -> NOIGUAL .)
-    CONSOLE         reduce using rule 25 (relation -> NOIGUAL .)
-    DIM             reduce using rule 25 (relation -> NOIGUAL .)
-    SUMA            reduce using rule 25 (relation -> NOIGUAL .)
-    RESTA           reduce using rule 25 (relation -> NOIGUAL .)
-    MOD             reduce using rule 25 (relation -> NOIGUAL .)
-    ID              reduce using rule 25 (relation -> NOIGUAL .)
-    NUMERO          reduce using rule 25 (relation -> NOIGUAL .)
-    PIZQ            reduce using rule 25 (relation -> NOIGUAL .)
+    DATETIME        reduce using rule 25 (relation -> IGUAL .)
+    LLIZQ           reduce using rule 25 (relation -> IGUAL .)
+    VBCRLF          reduce using rule 25 (relation -> IGUAL .)
+    MODULE          reduce using rule 25 (relation -> IGUAL .)
+    END             reduce using rule 25 (relation -> IGUAL .)
+    CONSOLE         reduce using rule 25 (relation -> IGUAL .)
+    DIM             reduce using rule 25 (relation -> IGUAL .)
+    SUMA            reduce using rule 25 (relation -> IGUAL .)
+    RESTA           reduce using rule 25 (relation -> IGUAL .)
+    MOD             reduce using rule 25 (relation -> IGUAL .)
+    ID              reduce using rule 25 (relation -> IGUAL .)
+    NUMERO          reduce using rule 25 (relation -> IGUAL .)
+    PIZQ            reduce using rule 25 (relation -> IGUAL .)
 
 
 state 50
 
-    (26) relation -> MENORQ .
+    (26) relation -> NOIGUAL .
 
-    DATETIME        reduce using rule 26 (relation -> MENORQ .)
-    LLIZQ           reduce using rule 26 (relation -> MENORQ .)
-    VBCRLF          reduce using rule 26 (relation -> MENORQ .)
-    MODULE          reduce using rule 26 (relation -> MENORQ .)
-    END             reduce using rule 26 (relation -> MENORQ .)
-    CONSOLE         reduce using rule 26 (relation -> MENORQ .)
-    DIM             reduce using rule 26 (relation -> MENORQ .)
-    SUMA            reduce using rule 26 (relation -> MENORQ .)
-    RESTA           reduce using rule 26 (relation -> MENORQ .)
-    MOD             reduce using rule 26 (relation -> MENORQ .)
-    ID              reduce using rule 26 (relation -> MENORQ .)
-    NUMERO          reduce using rule 26 (relation -> MENORQ .)
-    PIZQ            reduce using rule 26 (relation -> MENORQ .)
+    DATETIME        reduce using rule 26 (relation -> NOIGUAL .)
+    LLIZQ           reduce using rule 26 (relation -> NOIGUAL .)
+    VBCRLF          reduce using rule 26 (relation -> NOIGUAL .)
+    MODULE          reduce using rule 26 (relation -> NOIGUAL .)
+    END             reduce using rule 26 (relation -> NOIGUAL .)
+    CONSOLE         reduce using rule 26 (relation -> NOIGUAL .)
+    DIM             reduce using rule 26 (relation -> NOIGUAL .)
+    SUMA            reduce using rule 26 (relation -> NOIGUAL .)
+    RESTA           reduce using rule 26 (relation -> NOIGUAL .)
+    MOD             reduce using rule 26 (relation -> NOIGUAL .)
+    ID              reduce using rule 26 (relation -> NOIGUAL .)
+    NUMERO          reduce using rule 26 (relation -> NOIGUAL .)
+    PIZQ            reduce using rule 26 (relation -> NOIGUAL .)
 
 
 state 51
 
-    (27) relation -> MAYORQ .
+    (27) relation -> MENORQ .
 
-    DATETIME        reduce using rule 27 (relation -> MAYORQ .)
-    LLIZQ           reduce using rule 27 (relation -> MAYORQ .)
-    VBCRLF          reduce using rule 27 (relation -> MAYORQ .)
-    MODULE          reduce using rule 27 (relation -> MAYORQ .)
-    END             reduce using rule 27 (relation -> MAYORQ .)
-    CONSOLE         reduce using rule 27 (relation -> MAYORQ .)
-    DIM             reduce using rule 27 (relation -> MAYORQ .)
-    SUMA            reduce using rule 27 (relation -> MAYORQ .)
-    RESTA           reduce using rule 27 (relation -> MAYORQ .)
-    MOD             reduce using rule 27 (relation -> MAYORQ .)
-    ID              reduce using rule 27 (relation -> MAYORQ .)
-    NUMERO          reduce using rule 27 (relation -> MAYORQ .)
-    PIZQ            reduce using rule 27 (relation -> MAYORQ .)
+    DATETIME        reduce using rule 27 (relation -> MENORQ .)
+    LLIZQ           reduce using rule 27 (relation -> MENORQ .)
+    VBCRLF          reduce using rule 27 (relation -> MENORQ .)
+    MODULE          reduce using rule 27 (relation -> MENORQ .)
+    END             reduce using rule 27 (relation -> MENORQ .)
+    CONSOLE         reduce using rule 27 (relation -> MENORQ .)
+    DIM             reduce using rule 27 (relation -> MENORQ .)
+    SUMA            reduce using rule 27 (relation -> MENORQ .)
+    RESTA           reduce using rule 27 (relation -> MENORQ .)
+    MOD             reduce using rule 27 (relation -> MENORQ .)
+    ID              reduce using rule 27 (relation -> MENORQ .)
+    NUMERO          reduce using rule 27 (relation -> MENORQ .)
+    PIZQ            reduce using rule 27 (relation -> MENORQ .)
 
 
 state 52
 
-    (28) relation -> TRUE .
+    (28) relation -> MAYORQ .
 
-    DATETIME        reduce using rule 28 (relation -> TRUE .)
-    LLIZQ           reduce using rule 28 (relation -> TRUE .)
-    VBCRLF          reduce using rule 28 (relation -> TRUE .)
-    MODULE          reduce using rule 28 (relation -> TRUE .)
-    END             reduce using rule 28 (relation -> TRUE .)
-    CONSOLE         reduce using rule 28 (relation -> TRUE .)
-    DIM             reduce using rule 28 (relation -> TRUE .)
-    SUMA            reduce using rule 28 (relation -> TRUE .)
-    RESTA           reduce using rule 28 (relation -> TRUE .)
-    MOD             reduce using rule 28 (relation -> TRUE .)
-    ID              reduce using rule 28 (relation -> TRUE .)
-    NUMERO          reduce using rule 28 (relation -> TRUE .)
-    PIZQ            reduce using rule 28 (relation -> TRUE .)
+    DATETIME        reduce using rule 28 (relation -> MAYORQ .)
+    LLIZQ           reduce using rule 28 (relation -> MAYORQ .)
+    VBCRLF          reduce using rule 28 (relation -> MAYORQ .)
+    MODULE          reduce using rule 28 (relation -> MAYORQ .)
+    END             reduce using rule 28 (relation -> MAYORQ .)
+    CONSOLE         reduce using rule 28 (relation -> MAYORQ .)
+    DIM             reduce using rule 28 (relation -> MAYORQ .)
+    SUMA            reduce using rule 28 (relation -> MAYORQ .)
+    RESTA           reduce using rule 28 (relation -> MAYORQ .)
+    MOD             reduce using rule 28 (relation -> MAYORQ .)
+    ID              reduce using rule 28 (relation -> MAYORQ .)
+    NUMERO          reduce using rule 28 (relation -> MAYORQ .)
+    PIZQ            reduce using rule 28 (relation -> MAYORQ .)
 
 
 state 53
 
-    (29) relation -> FALSE .
+    (29) relation -> TRUE .
 
-    DATETIME        reduce using rule 29 (relation -> FALSE .)
-    LLIZQ           reduce using rule 29 (relation -> FALSE .)
-    VBCRLF          reduce using rule 29 (relation -> FALSE .)
-    MODULE          reduce using rule 29 (relation -> FALSE .)
-    END             reduce using rule 29 (relation -> FALSE .)
-    CONSOLE         reduce using rule 29 (relation -> FALSE .)
-    DIM             reduce using rule 29 (relation -> FALSE .)
-    SUMA            reduce using rule 29 (relation -> FALSE .)
-    RESTA           reduce using rule 29 (relation -> FALSE .)
-    MOD             reduce using rule 29 (relation -> FALSE .)
-    ID              reduce using rule 29 (relation -> FALSE .)
-    NUMERO          reduce using rule 29 (relation -> FALSE .)
-    PIZQ            reduce using rule 29 (relation -> FALSE .)
+    DATETIME        reduce using rule 29 (relation -> TRUE .)
+    LLIZQ           reduce using rule 29 (relation -> TRUE .)
+    VBCRLF          reduce using rule 29 (relation -> TRUE .)
+    MODULE          reduce using rule 29 (relation -> TRUE .)
+    END             reduce using rule 29 (relation -> TRUE .)
+    CONSOLE         reduce using rule 29 (relation -> TRUE .)
+    DIM             reduce using rule 29 (relation -> TRUE .)
+    SUMA            reduce using rule 29 (relation -> TRUE .)
+    RESTA           reduce using rule 29 (relation -> TRUE .)
+    MOD             reduce using rule 29 (relation -> TRUE .)
+    ID              reduce using rule 29 (relation -> TRUE .)
+    NUMERO          reduce using rule 29 (relation -> TRUE .)
+    PIZQ            reduce using rule 29 (relation -> TRUE .)
 
 
 state 54
 
+    (30) relation -> FALSE .
+
+    DATETIME        reduce using rule 30 (relation -> FALSE .)
+    LLIZQ           reduce using rule 30 (relation -> FALSE .)
+    VBCRLF          reduce using rule 30 (relation -> FALSE .)
+    MODULE          reduce using rule 30 (relation -> FALSE .)
+    END             reduce using rule 30 (relation -> FALSE .)
+    CONSOLE         reduce using rule 30 (relation -> FALSE .)
+    DIM             reduce using rule 30 (relation -> FALSE .)
+    SUMA            reduce using rule 30 (relation -> FALSE .)
+    RESTA           reduce using rule 30 (relation -> FALSE .)
+    MOD             reduce using rule 30 (relation -> FALSE .)
+    ID              reduce using rule 30 (relation -> FALSE .)
+    NUMERO          reduce using rule 30 (relation -> FALSE .)
+    PIZQ            reduce using rule 30 (relation -> FALSE .)
+
+
+state 55
+
     (16) statement -> BEGIN statementList . END
-    (21) statementList -> statementList . statement
+    (22) statementList -> statementList . statement
     (14) statement -> . ID UPDATE expression
     (15) statement -> . ID
     (16) statement -> . BEGIN statementList END
     (17) statement -> . condition
     (18) statement -> . IMPORTS ID
-    (19) statement -> . empty
-    (22) condition -> . expression
-    (23) condition -> . expression relation expression
-    (52) empty -> .
-    (30) expression -> . term
-    (31) expression -> . addingOperator term
-    (32) expression -> . expression addingOperator term
-    (33) expression -> . DATETIME PUNTO NOW
-    (34) expression -> . LLIZQ ID LLDER
-    (35) expression -> . VBCRLF
-    (36) expression -> . MODULE PROGRAM
-    (37) expression -> . END MODULE
-    (38) expression -> . CONSOLE PUNTO READKEY PIZQ boolean PDER
-    (39) expression -> . DIM ID IGUAL CONSOLE PUNTO READLINE PIZQ PDER
-    (40) expression -> . CONSOLE PUNTO WRITELINE PIZQ ID PDER
-    (44) term -> . factor
-    (45) term -> . term multiplyingOperator factor
-    (41) addingOperator -> . SUMA
-    (42) addingOperator -> . RESTA
-    (43) addingOperator -> . MOD
-    (48) factor -> . ID
-    (49) factor -> . NUMERO
-    (50) factor -> . PIZQ expression PDER
+    (19) statement -> . WHILE
+    (20) statement -> . empty
+    (23) condition -> . expression
+    (24) condition -> . expression relation expression
+    (53) empty -> .
+    (31) expression -> . term
+    (32) expression -> . addingOperator term
+    (33) expression -> . expression addingOperator term
+    (34) expression -> . DATETIME PUNTO NOW
+    (35) expression -> . LLIZQ ID LLDER
+    (36) expression -> . VBCRLF
+    (37) expression -> . MODULE PROGRAM
+    (38) expression -> . END MODULE
+    (39) expression -> . CONSOLE PUNTO READKEY PIZQ boolean PDER
+    (40) expression -> . DIM ID IGUAL CONSOLE PUNTO READLINE PIZQ PDER
+    (41) expression -> . CONSOLE PUNTO WRITELINE PIZQ ID PDER
+    (45) term -> . factor
+    (46) term -> . term multiplyingOperator factor
+    (42) addingOperator -> . SUMA
+    (43) addingOperator -> . RESTA
+    (44) addingOperator -> . MOD
+    (49) factor -> . ID
+    (50) factor -> . NUMERO
+    (51) factor -> . PIZQ expression PDER
 
   ! shift/reduce conflict for END resolved as shift
   ! shift/reduce conflict for ID resolved as shift
   ! shift/reduce conflict for BEGIN resolved as shift
   ! shift/reduce conflict for IMPORTS resolved as shift
+  ! shift/reduce conflict for WHILE resolved as shift
   ! shift/reduce conflict for DATETIME resolved as shift
   ! shift/reduce conflict for LLIZQ resolved as shift
   ! shift/reduce conflict for VBCRLF resolved as shift
@@ -1343,97 +1398,101 @@ state 54
   ! shift/reduce conflict for MOD resolved as shift
   ! shift/reduce conflict for NUMERO resolved as shift
   ! shift/reduce conflict for PIZQ resolved as shift
-    END             shift and go to state 74
+    END             shift and go to state 75
     ID              shift and go to state 19
     BEGIN           shift and go to state 21
     IMPORTS         shift and go to state 24
-    DATETIME        shift and go to state 28
-    LLIZQ           shift and go to state 29
-    VBCRLF          shift and go to state 30
-    MODULE          shift and go to state 31
-    CONSOLE         shift and go to state 32
-    DIM             shift and go to state 34
-    SUMA            shift and go to state 36
-    RESTA           shift and go to state 37
-    MOD             shift and go to state 38
-    NUMERO          shift and go to state 39
-    PIZQ            shift and go to state 33
+    WHILE           shift and go to state 25
+    DATETIME        shift and go to state 29
+    LLIZQ           shift and go to state 30
+    VBCRLF          shift and go to state 31
+    MODULE          shift and go to state 32
+    CONSOLE         shift and go to state 33
+    DIM             shift and go to state 35
+    SUMA            shift and go to state 37
+    RESTA           shift and go to state 38
+    MOD             shift and go to state 39
+    NUMERO          shift and go to state 40
+    PIZQ            shift and go to state 34
 
-  ! END             [ reduce using rule 52 (empty -> .) ]
-  ! ID              [ reduce using rule 52 (empty -> .) ]
-  ! BEGIN           [ reduce using rule 52 (empty -> .) ]
-  ! IMPORTS         [ reduce using rule 52 (empty -> .) ]
-  ! DATETIME        [ reduce using rule 52 (empty -> .) ]
-  ! LLIZQ           [ reduce using rule 52 (empty -> .) ]
-  ! VBCRLF          [ reduce using rule 52 (empty -> .) ]
-  ! MODULE          [ reduce using rule 52 (empty -> .) ]
-  ! CONSOLE         [ reduce using rule 52 (empty -> .) ]
-  ! DIM             [ reduce using rule 52 (empty -> .) ]
-  ! SUMA            [ reduce using rule 52 (empty -> .) ]
-  ! RESTA           [ reduce using rule 52 (empty -> .) ]
-  ! MOD             [ reduce using rule 52 (empty -> .) ]
-  ! NUMERO          [ reduce using rule 52 (empty -> .) ]
-  ! PIZQ            [ reduce using rule 52 (empty -> .) ]
+  ! END             [ reduce using rule 53 (empty -> .) ]
+  ! ID              [ reduce using rule 53 (empty -> .) ]
+  ! BEGIN           [ reduce using rule 53 (empty -> .) ]
+  ! IMPORTS         [ reduce using rule 53 (empty -> .) ]
+  ! WHILE           [ reduce using rule 53 (empty -> .) ]
+  ! DATETIME        [ reduce using rule 53 (empty -> .) ]
+  ! LLIZQ           [ reduce using rule 53 (empty -> .) ]
+  ! VBCRLF          [ reduce using rule 53 (empty -> .) ]
+  ! MODULE          [ reduce using rule 53 (empty -> .) ]
+  ! CONSOLE         [ reduce using rule 53 (empty -> .) ]
+  ! DIM             [ reduce using rule 53 (empty -> .) ]
+  ! SUMA            [ reduce using rule 53 (empty -> .) ]
+  ! RESTA           [ reduce using rule 53 (empty -> .) ]
+  ! MOD             [ reduce using rule 53 (empty -> .) ]
+  ! NUMERO          [ reduce using rule 53 (empty -> .) ]
+  ! PIZQ            [ reduce using rule 53 (empty -> .) ]
 
-    statement                      shift and go to state 75
+    statement                      shift and go to state 76
     expression                     shift and go to state 20
     condition                      shift and go to state 23
-    empty                          shift and go to state 25
-    term                           shift and go to state 26
-    addingOperator                 shift and go to state 27
-    factor                         shift and go to state 35
-
-state 55
-
-    (20) statementList -> statement .
-
-    END             reduce using rule 20 (statementList -> statement .)
-    ID              reduce using rule 20 (statementList -> statement .)
-    BEGIN           reduce using rule 20 (statementList -> statement .)
-    IMPORTS         reduce using rule 20 (statementList -> statement .)
-    DATETIME        reduce using rule 20 (statementList -> statement .)
-    LLIZQ           reduce using rule 20 (statementList -> statement .)
-    VBCRLF          reduce using rule 20 (statementList -> statement .)
-    MODULE          reduce using rule 20 (statementList -> statement .)
-    CONSOLE         reduce using rule 20 (statementList -> statement .)
-    DIM             reduce using rule 20 (statementList -> statement .)
-    SUMA            reduce using rule 20 (statementList -> statement .)
-    RESTA           reduce using rule 20 (statementList -> statement .)
-    MOD             reduce using rule 20 (statementList -> statement .)
-    NUMERO          reduce using rule 20 (statementList -> statement .)
-    PIZQ            reduce using rule 20 (statementList -> statement .)
-
+    empty                          shift and go to state 26
+    term                           shift and go to state 27
+    addingOperator                 shift and go to state 28
+    factor                         shift and go to state 36
 
 state 56
 
-    (37) expression -> END MODULE .
+    (21) statementList -> statement .
 
-    IGUAL           reduce using rule 37 (expression -> END MODULE .)
-    NOIGUAL         reduce using rule 37 (expression -> END MODULE .)
-    MENORQ          reduce using rule 37 (expression -> END MODULE .)
-    MAYORQ          reduce using rule 37 (expression -> END MODULE .)
-    TRUE            reduce using rule 37 (expression -> END MODULE .)
-    FALSE           reduce using rule 37 (expression -> END MODULE .)
-    SUMA            reduce using rule 37 (expression -> END MODULE .)
-    RESTA           reduce using rule 37 (expression -> END MODULE .)
-    MOD             reduce using rule 37 (expression -> END MODULE .)
-    $end            reduce using rule 37 (expression -> END MODULE .)
-    END             reduce using rule 37 (expression -> END MODULE .)
-    ID              reduce using rule 37 (expression -> END MODULE .)
-    BEGIN           reduce using rule 37 (expression -> END MODULE .)
-    IMPORTS         reduce using rule 37 (expression -> END MODULE .)
-    DATETIME        reduce using rule 37 (expression -> END MODULE .)
-    LLIZQ           reduce using rule 37 (expression -> END MODULE .)
-    VBCRLF          reduce using rule 37 (expression -> END MODULE .)
-    MODULE          reduce using rule 37 (expression -> END MODULE .)
-    CONSOLE         reduce using rule 37 (expression -> END MODULE .)
-    DIM             reduce using rule 37 (expression -> END MODULE .)
-    NUMERO          reduce using rule 37 (expression -> END MODULE .)
-    PIZQ            reduce using rule 37 (expression -> END MODULE .)
-    PDER            reduce using rule 37 (expression -> END MODULE .)
+    END             reduce using rule 21 (statementList -> statement .)
+    ID              reduce using rule 21 (statementList -> statement .)
+    BEGIN           reduce using rule 21 (statementList -> statement .)
+    IMPORTS         reduce using rule 21 (statementList -> statement .)
+    WHILE           reduce using rule 21 (statementList -> statement .)
+    DATETIME        reduce using rule 21 (statementList -> statement .)
+    LLIZQ           reduce using rule 21 (statementList -> statement .)
+    VBCRLF          reduce using rule 21 (statementList -> statement .)
+    MODULE          reduce using rule 21 (statementList -> statement .)
+    CONSOLE         reduce using rule 21 (statementList -> statement .)
+    DIM             reduce using rule 21 (statementList -> statement .)
+    SUMA            reduce using rule 21 (statementList -> statement .)
+    RESTA           reduce using rule 21 (statementList -> statement .)
+    MOD             reduce using rule 21 (statementList -> statement .)
+    NUMERO          reduce using rule 21 (statementList -> statement .)
+    PIZQ            reduce using rule 21 (statementList -> statement .)
 
 
 state 57
+
+    (38) expression -> END MODULE .
+
+    IGUAL           reduce using rule 38 (expression -> END MODULE .)
+    NOIGUAL         reduce using rule 38 (expression -> END MODULE .)
+    MENORQ          reduce using rule 38 (expression -> END MODULE .)
+    MAYORQ          reduce using rule 38 (expression -> END MODULE .)
+    TRUE            reduce using rule 38 (expression -> END MODULE .)
+    FALSE           reduce using rule 38 (expression -> END MODULE .)
+    SUMA            reduce using rule 38 (expression -> END MODULE .)
+    RESTA           reduce using rule 38 (expression -> END MODULE .)
+    MOD             reduce using rule 38 (expression -> END MODULE .)
+    $end            reduce using rule 38 (expression -> END MODULE .)
+    END             reduce using rule 38 (expression -> END MODULE .)
+    ID              reduce using rule 38 (expression -> END MODULE .)
+    BEGIN           reduce using rule 38 (expression -> END MODULE .)
+    IMPORTS         reduce using rule 38 (expression -> END MODULE .)
+    WHILE           reduce using rule 38 (expression -> END MODULE .)
+    DATETIME        reduce using rule 38 (expression -> END MODULE .)
+    LLIZQ           reduce using rule 38 (expression -> END MODULE .)
+    VBCRLF          reduce using rule 38 (expression -> END MODULE .)
+    MODULE          reduce using rule 38 (expression -> END MODULE .)
+    CONSOLE         reduce using rule 38 (expression -> END MODULE .)
+    DIM             reduce using rule 38 (expression -> END MODULE .)
+    NUMERO          reduce using rule 38 (expression -> END MODULE .)
+    PIZQ            reduce using rule 38 (expression -> END MODULE .)
+    PDER            reduce using rule 38 (expression -> END MODULE .)
+
+
+state 58
 
     (18) statement -> IMPORTS ID .
 
@@ -1442,6 +1501,7 @@ state 57
     ID              reduce using rule 18 (statement -> IMPORTS ID .)
     BEGIN           reduce using rule 18 (statement -> IMPORTS ID .)
     IMPORTS         reduce using rule 18 (statement -> IMPORTS ID .)
+    WHILE           reduce using rule 18 (statement -> IMPORTS ID .)
     DATETIME        reduce using rule 18 (statement -> IMPORTS ID .)
     LLIZQ           reduce using rule 18 (statement -> IMPORTS ID .)
     VBCRLF          reduce using rule 18 (statement -> IMPORTS ID .)
@@ -1455,178 +1515,181 @@ state 57
     PIZQ            reduce using rule 18 (statement -> IMPORTS ID .)
 
 
-state 58
-
-    (45) term -> term multiplyingOperator . factor
-    (48) factor -> . ID
-    (49) factor -> . NUMERO
-    (50) factor -> . PIZQ expression PDER
-
-    ID              shift and go to state 62
-    NUMERO          shift and go to state 39
-    PIZQ            shift and go to state 33
-
-    factor                         shift and go to state 76
-
 state 59
 
-    (46) multiplyingOperator -> MULTI .
+    (46) term -> term multiplyingOperator . factor
+    (49) factor -> . ID
+    (50) factor -> . NUMERO
+    (51) factor -> . PIZQ expression PDER
 
-    ID              reduce using rule 46 (multiplyingOperator -> MULTI .)
-    NUMERO          reduce using rule 46 (multiplyingOperator -> MULTI .)
-    PIZQ            reduce using rule 46 (multiplyingOperator -> MULTI .)
+    ID              shift and go to state 63
+    NUMERO          shift and go to state 40
+    PIZQ            shift and go to state 34
 
+    factor                         shift and go to state 77
 
 state 60
 
-    (47) multiplyingOperator -> DIV .
+    (47) multiplyingOperator -> MULTI .
 
-    ID              reduce using rule 47 (multiplyingOperator -> DIV .)
-    NUMERO          reduce using rule 47 (multiplyingOperator -> DIV .)
-    PIZQ            reduce using rule 47 (multiplyingOperator -> DIV .)
+    ID              reduce using rule 47 (multiplyingOperator -> MULTI .)
+    NUMERO          reduce using rule 47 (multiplyingOperator -> MULTI .)
+    PIZQ            reduce using rule 47 (multiplyingOperator -> MULTI .)
 
 
 state 61
 
-    (31) expression -> addingOperator term .
-    (45) term -> term . multiplyingOperator factor
-    (46) multiplyingOperator -> . MULTI
-    (47) multiplyingOperator -> . DIV
+    (48) multiplyingOperator -> DIV .
 
-    IGUAL           reduce using rule 31 (expression -> addingOperator term .)
-    NOIGUAL         reduce using rule 31 (expression -> addingOperator term .)
-    MENORQ          reduce using rule 31 (expression -> addingOperator term .)
-    MAYORQ          reduce using rule 31 (expression -> addingOperator term .)
-    TRUE            reduce using rule 31 (expression -> addingOperator term .)
-    FALSE           reduce using rule 31 (expression -> addingOperator term .)
-    SUMA            reduce using rule 31 (expression -> addingOperator term .)
-    RESTA           reduce using rule 31 (expression -> addingOperator term .)
-    MOD             reduce using rule 31 (expression -> addingOperator term .)
-    $end            reduce using rule 31 (expression -> addingOperator term .)
-    END             reduce using rule 31 (expression -> addingOperator term .)
-    ID              reduce using rule 31 (expression -> addingOperator term .)
-    BEGIN           reduce using rule 31 (expression -> addingOperator term .)
-    IMPORTS         reduce using rule 31 (expression -> addingOperator term .)
-    DATETIME        reduce using rule 31 (expression -> addingOperator term .)
-    LLIZQ           reduce using rule 31 (expression -> addingOperator term .)
-    VBCRLF          reduce using rule 31 (expression -> addingOperator term .)
-    MODULE          reduce using rule 31 (expression -> addingOperator term .)
-    CONSOLE         reduce using rule 31 (expression -> addingOperator term .)
-    DIM             reduce using rule 31 (expression -> addingOperator term .)
-    NUMERO          reduce using rule 31 (expression -> addingOperator term .)
-    PIZQ            reduce using rule 31 (expression -> addingOperator term .)
-    PDER            reduce using rule 31 (expression -> addingOperator term .)
-    MULTI           shift and go to state 59
-    DIV             shift and go to state 60
+    ID              reduce using rule 48 (multiplyingOperator -> DIV .)
+    NUMERO          reduce using rule 48 (multiplyingOperator -> DIV .)
+    PIZQ            reduce using rule 48 (multiplyingOperator -> DIV .)
 
-    multiplyingOperator            shift and go to state 58
 
 state 62
 
-    (48) factor -> ID .
+    (32) expression -> addingOperator term .
+    (46) term -> term . multiplyingOperator factor
+    (47) multiplyingOperator -> . MULTI
+    (48) multiplyingOperator -> . DIV
 
-    MULTI           reduce using rule 48 (factor -> ID .)
-    DIV             reduce using rule 48 (factor -> ID .)
-    IGUAL           reduce using rule 48 (factor -> ID .)
-    NOIGUAL         reduce using rule 48 (factor -> ID .)
-    MENORQ          reduce using rule 48 (factor -> ID .)
-    MAYORQ          reduce using rule 48 (factor -> ID .)
-    TRUE            reduce using rule 48 (factor -> ID .)
-    FALSE           reduce using rule 48 (factor -> ID .)
-    SUMA            reduce using rule 48 (factor -> ID .)
-    RESTA           reduce using rule 48 (factor -> ID .)
-    MOD             reduce using rule 48 (factor -> ID .)
-    $end            reduce using rule 48 (factor -> ID .)
-    END             reduce using rule 48 (factor -> ID .)
-    ID              reduce using rule 48 (factor -> ID .)
-    BEGIN           reduce using rule 48 (factor -> ID .)
-    IMPORTS         reduce using rule 48 (factor -> ID .)
-    DATETIME        reduce using rule 48 (factor -> ID .)
-    LLIZQ           reduce using rule 48 (factor -> ID .)
-    VBCRLF          reduce using rule 48 (factor -> ID .)
-    MODULE          reduce using rule 48 (factor -> ID .)
-    CONSOLE         reduce using rule 48 (factor -> ID .)
-    DIM             reduce using rule 48 (factor -> ID .)
-    NUMERO          reduce using rule 48 (factor -> ID .)
-    PIZQ            reduce using rule 48 (factor -> ID .)
-    PDER            reduce using rule 48 (factor -> ID .)
+    IGUAL           reduce using rule 32 (expression -> addingOperator term .)
+    NOIGUAL         reduce using rule 32 (expression -> addingOperator term .)
+    MENORQ          reduce using rule 32 (expression -> addingOperator term .)
+    MAYORQ          reduce using rule 32 (expression -> addingOperator term .)
+    TRUE            reduce using rule 32 (expression -> addingOperator term .)
+    FALSE           reduce using rule 32 (expression -> addingOperator term .)
+    SUMA            reduce using rule 32 (expression -> addingOperator term .)
+    RESTA           reduce using rule 32 (expression -> addingOperator term .)
+    MOD             reduce using rule 32 (expression -> addingOperator term .)
+    $end            reduce using rule 32 (expression -> addingOperator term .)
+    END             reduce using rule 32 (expression -> addingOperator term .)
+    ID              reduce using rule 32 (expression -> addingOperator term .)
+    BEGIN           reduce using rule 32 (expression -> addingOperator term .)
+    IMPORTS         reduce using rule 32 (expression -> addingOperator term .)
+    WHILE           reduce using rule 32 (expression -> addingOperator term .)
+    DATETIME        reduce using rule 32 (expression -> addingOperator term .)
+    LLIZQ           reduce using rule 32 (expression -> addingOperator term .)
+    VBCRLF          reduce using rule 32 (expression -> addingOperator term .)
+    MODULE          reduce using rule 32 (expression -> addingOperator term .)
+    CONSOLE         reduce using rule 32 (expression -> addingOperator term .)
+    DIM             reduce using rule 32 (expression -> addingOperator term .)
+    NUMERO          reduce using rule 32 (expression -> addingOperator term .)
+    PIZQ            reduce using rule 32 (expression -> addingOperator term .)
+    PDER            reduce using rule 32 (expression -> addingOperator term .)
+    MULTI           shift and go to state 60
+    DIV             shift and go to state 61
 
+    multiplyingOperator            shift and go to state 59
 
 state 63
 
-    (33) expression -> DATETIME PUNTO . NOW
+    (49) factor -> ID .
 
-    NOW             shift and go to state 77
+    MULTI           reduce using rule 49 (factor -> ID .)
+    DIV             reduce using rule 49 (factor -> ID .)
+    IGUAL           reduce using rule 49 (factor -> ID .)
+    NOIGUAL         reduce using rule 49 (factor -> ID .)
+    MENORQ          reduce using rule 49 (factor -> ID .)
+    MAYORQ          reduce using rule 49 (factor -> ID .)
+    TRUE            reduce using rule 49 (factor -> ID .)
+    FALSE           reduce using rule 49 (factor -> ID .)
+    SUMA            reduce using rule 49 (factor -> ID .)
+    RESTA           reduce using rule 49 (factor -> ID .)
+    MOD             reduce using rule 49 (factor -> ID .)
+    $end            reduce using rule 49 (factor -> ID .)
+    END             reduce using rule 49 (factor -> ID .)
+    ID              reduce using rule 49 (factor -> ID .)
+    BEGIN           reduce using rule 49 (factor -> ID .)
+    IMPORTS         reduce using rule 49 (factor -> ID .)
+    WHILE           reduce using rule 49 (factor -> ID .)
+    DATETIME        reduce using rule 49 (factor -> ID .)
+    LLIZQ           reduce using rule 49 (factor -> ID .)
+    VBCRLF          reduce using rule 49 (factor -> ID .)
+    MODULE          reduce using rule 49 (factor -> ID .)
+    CONSOLE         reduce using rule 49 (factor -> ID .)
+    DIM             reduce using rule 49 (factor -> ID .)
+    NUMERO          reduce using rule 49 (factor -> ID .)
+    PIZQ            reduce using rule 49 (factor -> ID .)
+    PDER            reduce using rule 49 (factor -> ID .)
 
 
 state 64
 
-    (34) expression -> LLIZQ ID . LLDER
+    (34) expression -> DATETIME PUNTO . NOW
 
-    LLDER           shift and go to state 78
+    NOW             shift and go to state 78
 
 
 state 65
 
-    (36) expression -> MODULE PROGRAM .
+    (35) expression -> LLIZQ ID . LLDER
 
-    IGUAL           reduce using rule 36 (expression -> MODULE PROGRAM .)
-    NOIGUAL         reduce using rule 36 (expression -> MODULE PROGRAM .)
-    MENORQ          reduce using rule 36 (expression -> MODULE PROGRAM .)
-    MAYORQ          reduce using rule 36 (expression -> MODULE PROGRAM .)
-    TRUE            reduce using rule 36 (expression -> MODULE PROGRAM .)
-    FALSE           reduce using rule 36 (expression -> MODULE PROGRAM .)
-    SUMA            reduce using rule 36 (expression -> MODULE PROGRAM .)
-    RESTA           reduce using rule 36 (expression -> MODULE PROGRAM .)
-    MOD             reduce using rule 36 (expression -> MODULE PROGRAM .)
-    $end            reduce using rule 36 (expression -> MODULE PROGRAM .)
-    END             reduce using rule 36 (expression -> MODULE PROGRAM .)
-    ID              reduce using rule 36 (expression -> MODULE PROGRAM .)
-    BEGIN           reduce using rule 36 (expression -> MODULE PROGRAM .)
-    IMPORTS         reduce using rule 36 (expression -> MODULE PROGRAM .)
-    DATETIME        reduce using rule 36 (expression -> MODULE PROGRAM .)
-    LLIZQ           reduce using rule 36 (expression -> MODULE PROGRAM .)
-    VBCRLF          reduce using rule 36 (expression -> MODULE PROGRAM .)
-    MODULE          reduce using rule 36 (expression -> MODULE PROGRAM .)
-    CONSOLE         reduce using rule 36 (expression -> MODULE PROGRAM .)
-    DIM             reduce using rule 36 (expression -> MODULE PROGRAM .)
-    NUMERO          reduce using rule 36 (expression -> MODULE PROGRAM .)
-    PIZQ            reduce using rule 36 (expression -> MODULE PROGRAM .)
-    PDER            reduce using rule 36 (expression -> MODULE PROGRAM .)
+    LLDER           shift and go to state 79
 
 
 state 66
 
-    (38) expression -> CONSOLE PUNTO . READKEY PIZQ boolean PDER
-    (40) expression -> CONSOLE PUNTO . WRITELINE PIZQ ID PDER
+    (37) expression -> MODULE PROGRAM .
 
-    READKEY         shift and go to state 79
-    WRITELINE       shift and go to state 80
+    IGUAL           reduce using rule 37 (expression -> MODULE PROGRAM .)
+    NOIGUAL         reduce using rule 37 (expression -> MODULE PROGRAM .)
+    MENORQ          reduce using rule 37 (expression -> MODULE PROGRAM .)
+    MAYORQ          reduce using rule 37 (expression -> MODULE PROGRAM .)
+    TRUE            reduce using rule 37 (expression -> MODULE PROGRAM .)
+    FALSE           reduce using rule 37 (expression -> MODULE PROGRAM .)
+    SUMA            reduce using rule 37 (expression -> MODULE PROGRAM .)
+    RESTA           reduce using rule 37 (expression -> MODULE PROGRAM .)
+    MOD             reduce using rule 37 (expression -> MODULE PROGRAM .)
+    $end            reduce using rule 37 (expression -> MODULE PROGRAM .)
+    END             reduce using rule 37 (expression -> MODULE PROGRAM .)
+    ID              reduce using rule 37 (expression -> MODULE PROGRAM .)
+    BEGIN           reduce using rule 37 (expression -> MODULE PROGRAM .)
+    IMPORTS         reduce using rule 37 (expression -> MODULE PROGRAM .)
+    WHILE           reduce using rule 37 (expression -> MODULE PROGRAM .)
+    DATETIME        reduce using rule 37 (expression -> MODULE PROGRAM .)
+    LLIZQ           reduce using rule 37 (expression -> MODULE PROGRAM .)
+    VBCRLF          reduce using rule 37 (expression -> MODULE PROGRAM .)
+    MODULE          reduce using rule 37 (expression -> MODULE PROGRAM .)
+    CONSOLE         reduce using rule 37 (expression -> MODULE PROGRAM .)
+    DIM             reduce using rule 37 (expression -> MODULE PROGRAM .)
+    NUMERO          reduce using rule 37 (expression -> MODULE PROGRAM .)
+    PIZQ            reduce using rule 37 (expression -> MODULE PROGRAM .)
+    PDER            reduce using rule 37 (expression -> MODULE PROGRAM .)
 
 
 state 67
 
-    (50) factor -> PIZQ expression . PDER
-    (32) expression -> expression . addingOperator term
-    (41) addingOperator -> . SUMA
-    (42) addingOperator -> . RESTA
-    (43) addingOperator -> . MOD
+    (39) expression -> CONSOLE PUNTO . READKEY PIZQ boolean PDER
+    (41) expression -> CONSOLE PUNTO . WRITELINE PIZQ ID PDER
 
-    PDER            shift and go to state 81
-    SUMA            shift and go to state 36
-    RESTA           shift and go to state 37
-    MOD             shift and go to state 38
+    READKEY         shift and go to state 80
+    WRITELINE       shift and go to state 81
 
-    addingOperator                 shift and go to state 47
 
 state 68
 
-    (39) expression -> DIM ID . IGUAL CONSOLE PUNTO READLINE PIZQ PDER
+    (51) factor -> PIZQ expression . PDER
+    (33) expression -> expression . addingOperator term
+    (42) addingOperator -> . SUMA
+    (43) addingOperator -> . RESTA
+    (44) addingOperator -> . MOD
 
-    IGUAL           shift and go to state 82
+    PDER            shift and go to state 82
+    SUMA            shift and go to state 37
+    RESTA           shift and go to state 38
+    MOD             shift and go to state 39
 
+    addingOperator                 shift and go to state 48
 
 state 69
+
+    (40) expression -> DIM ID . IGUAL CONSOLE PUNTO READLINE PIZQ PDER
+
+    IGUAL           shift and go to state 83
+
+
+state 70
 
     (8) constAssignmentList -> constAssignmentList ID IGUAL NUMERO .
 
@@ -1634,6 +1697,7 @@ state 69
     DIM             reduce using rule 8 (constAssignmentList -> constAssignmentList ID IGUAL NUMERO .)
     BEGIN           reduce using rule 8 (constAssignmentList -> constAssignmentList ID IGUAL NUMERO .)
     IMPORTS         reduce using rule 8 (constAssignmentList -> constAssignmentList ID IGUAL NUMERO .)
+    WHILE           reduce using rule 8 (constAssignmentList -> constAssignmentList ID IGUAL NUMERO .)
     DATETIME        reduce using rule 8 (constAssignmentList -> constAssignmentList ID IGUAL NUMERO .)
     LLIZQ           reduce using rule 8 (constAssignmentList -> constAssignmentList ID IGUAL NUMERO .)
     VBCRLF          reduce using rule 8 (constAssignmentList -> constAssignmentList ID IGUAL NUMERO .)
@@ -1648,26 +1712,27 @@ state 69
     $end            reduce using rule 8 (constAssignmentList -> constAssignmentList ID IGUAL NUMERO .)
 
 
-state 70
+state 71
 
     (5) constDecl -> DIM ID AS ID IGUAL . ID
 
-    ID              shift and go to state 83
+    ID              shift and go to state 84
 
 
-state 71
+state 72
 
     (14) statement -> ID UPDATE expression .
-    (32) expression -> expression . addingOperator term
-    (41) addingOperator -> . SUMA
-    (42) addingOperator -> . RESTA
-    (43) addingOperator -> . MOD
+    (33) expression -> expression . addingOperator term
+    (42) addingOperator -> . SUMA
+    (43) addingOperator -> . RESTA
+    (44) addingOperator -> . MOD
 
     $end            reduce using rule 14 (statement -> ID UPDATE expression .)
     END             reduce using rule 14 (statement -> ID UPDATE expression .)
     ID              reduce using rule 14 (statement -> ID UPDATE expression .)
     BEGIN           reduce using rule 14 (statement -> ID UPDATE expression .)
     IMPORTS         reduce using rule 14 (statement -> ID UPDATE expression .)
+    WHILE           reduce using rule 14 (statement -> ID UPDATE expression .)
     DATETIME        reduce using rule 14 (statement -> ID UPDATE expression .)
     LLIZQ           reduce using rule 14 (statement -> ID UPDATE expression .)
     VBCRLF          reduce using rule 14 (statement -> ID UPDATE expression .)
@@ -1677,88 +1742,90 @@ state 71
     MOD             reduce using rule 14 (statement -> ID UPDATE expression .)
     NUMERO          reduce using rule 14 (statement -> ID UPDATE expression .)
     PIZQ            reduce using rule 14 (statement -> ID UPDATE expression .)
-    SUMA            shift and go to state 36
-    RESTA           shift and go to state 37
+    SUMA            shift and go to state 37
+    RESTA           shift and go to state 38
 
   ! SUMA            [ reduce using rule 14 (statement -> ID UPDATE expression .) ]
   ! RESTA           [ reduce using rule 14 (statement -> ID UPDATE expression .) ]
-  ! MOD             [ shift and go to state 38 ]
+  ! MOD             [ shift and go to state 39 ]
 
-    addingOperator                 shift and go to state 47
+    addingOperator                 shift and go to state 48
 
-state 72
+state 73
 
-    (23) condition -> expression relation expression .
-    (32) expression -> expression . addingOperator term
-    (41) addingOperator -> . SUMA
-    (42) addingOperator -> . RESTA
-    (43) addingOperator -> . MOD
+    (24) condition -> expression relation expression .
+    (33) expression -> expression . addingOperator term
+    (42) addingOperator -> . SUMA
+    (43) addingOperator -> . RESTA
+    (44) addingOperator -> . MOD
 
   ! shift/reduce conflict for SUMA resolved as shift
   ! shift/reduce conflict for RESTA resolved as shift
   ! shift/reduce conflict for MOD resolved as shift
-    $end            reduce using rule 23 (condition -> expression relation expression .)
-    END             reduce using rule 23 (condition -> expression relation expression .)
-    ID              reduce using rule 23 (condition -> expression relation expression .)
-    BEGIN           reduce using rule 23 (condition -> expression relation expression .)
-    IMPORTS         reduce using rule 23 (condition -> expression relation expression .)
-    DATETIME        reduce using rule 23 (condition -> expression relation expression .)
-    LLIZQ           reduce using rule 23 (condition -> expression relation expression .)
-    VBCRLF          reduce using rule 23 (condition -> expression relation expression .)
-    MODULE          reduce using rule 23 (condition -> expression relation expression .)
-    CONSOLE         reduce using rule 23 (condition -> expression relation expression .)
-    DIM             reduce using rule 23 (condition -> expression relation expression .)
-    NUMERO          reduce using rule 23 (condition -> expression relation expression .)
-    PIZQ            reduce using rule 23 (condition -> expression relation expression .)
-    SUMA            shift and go to state 36
-    RESTA           shift and go to state 37
-    MOD             shift and go to state 38
+    $end            reduce using rule 24 (condition -> expression relation expression .)
+    END             reduce using rule 24 (condition -> expression relation expression .)
+    ID              reduce using rule 24 (condition -> expression relation expression .)
+    BEGIN           reduce using rule 24 (condition -> expression relation expression .)
+    IMPORTS         reduce using rule 24 (condition -> expression relation expression .)
+    WHILE           reduce using rule 24 (condition -> expression relation expression .)
+    DATETIME        reduce using rule 24 (condition -> expression relation expression .)
+    LLIZQ           reduce using rule 24 (condition -> expression relation expression .)
+    VBCRLF          reduce using rule 24 (condition -> expression relation expression .)
+    MODULE          reduce using rule 24 (condition -> expression relation expression .)
+    CONSOLE         reduce using rule 24 (condition -> expression relation expression .)
+    DIM             reduce using rule 24 (condition -> expression relation expression .)
+    NUMERO          reduce using rule 24 (condition -> expression relation expression .)
+    PIZQ            reduce using rule 24 (condition -> expression relation expression .)
+    SUMA            shift and go to state 37
+    RESTA           shift and go to state 38
+    MOD             shift and go to state 39
 
-  ! SUMA            [ reduce using rule 23 (condition -> expression relation expression .) ]
-  ! RESTA           [ reduce using rule 23 (condition -> expression relation expression .) ]
-  ! MOD             [ reduce using rule 23 (condition -> expression relation expression .) ]
+  ! SUMA            [ reduce using rule 24 (condition -> expression relation expression .) ]
+  ! RESTA           [ reduce using rule 24 (condition -> expression relation expression .) ]
+  ! MOD             [ reduce using rule 24 (condition -> expression relation expression .) ]
 
-    addingOperator                 shift and go to state 47
-
-state 73
-
-    (32) expression -> expression addingOperator term .
-    (45) term -> term . multiplyingOperator factor
-    (46) multiplyingOperator -> . MULTI
-    (47) multiplyingOperator -> . DIV
-
-    IGUAL           reduce using rule 32 (expression -> expression addingOperator term .)
-    NOIGUAL         reduce using rule 32 (expression -> expression addingOperator term .)
-    MENORQ          reduce using rule 32 (expression -> expression addingOperator term .)
-    MAYORQ          reduce using rule 32 (expression -> expression addingOperator term .)
-    TRUE            reduce using rule 32 (expression -> expression addingOperator term .)
-    FALSE           reduce using rule 32 (expression -> expression addingOperator term .)
-    SUMA            reduce using rule 32 (expression -> expression addingOperator term .)
-    RESTA           reduce using rule 32 (expression -> expression addingOperator term .)
-    MOD             reduce using rule 32 (expression -> expression addingOperator term .)
-    $end            reduce using rule 32 (expression -> expression addingOperator term .)
-    END             reduce using rule 32 (expression -> expression addingOperator term .)
-    ID              reduce using rule 32 (expression -> expression addingOperator term .)
-    BEGIN           reduce using rule 32 (expression -> expression addingOperator term .)
-    IMPORTS         reduce using rule 32 (expression -> expression addingOperator term .)
-    DATETIME        reduce using rule 32 (expression -> expression addingOperator term .)
-    LLIZQ           reduce using rule 32 (expression -> expression addingOperator term .)
-    VBCRLF          reduce using rule 32 (expression -> expression addingOperator term .)
-    MODULE          reduce using rule 32 (expression -> expression addingOperator term .)
-    CONSOLE         reduce using rule 32 (expression -> expression addingOperator term .)
-    DIM             reduce using rule 32 (expression -> expression addingOperator term .)
-    NUMERO          reduce using rule 32 (expression -> expression addingOperator term .)
-    PIZQ            reduce using rule 32 (expression -> expression addingOperator term .)
-    PDER            reduce using rule 32 (expression -> expression addingOperator term .)
-    MULTI           shift and go to state 59
-    DIV             shift and go to state 60
-
-    multiplyingOperator            shift and go to state 58
+    addingOperator                 shift and go to state 48
 
 state 74
 
+    (33) expression -> expression addingOperator term .
+    (46) term -> term . multiplyingOperator factor
+    (47) multiplyingOperator -> . MULTI
+    (48) multiplyingOperator -> . DIV
+
+    IGUAL           reduce using rule 33 (expression -> expression addingOperator term .)
+    NOIGUAL         reduce using rule 33 (expression -> expression addingOperator term .)
+    MENORQ          reduce using rule 33 (expression -> expression addingOperator term .)
+    MAYORQ          reduce using rule 33 (expression -> expression addingOperator term .)
+    TRUE            reduce using rule 33 (expression -> expression addingOperator term .)
+    FALSE           reduce using rule 33 (expression -> expression addingOperator term .)
+    SUMA            reduce using rule 33 (expression -> expression addingOperator term .)
+    RESTA           reduce using rule 33 (expression -> expression addingOperator term .)
+    MOD             reduce using rule 33 (expression -> expression addingOperator term .)
+    $end            reduce using rule 33 (expression -> expression addingOperator term .)
+    END             reduce using rule 33 (expression -> expression addingOperator term .)
+    ID              reduce using rule 33 (expression -> expression addingOperator term .)
+    BEGIN           reduce using rule 33 (expression -> expression addingOperator term .)
+    IMPORTS         reduce using rule 33 (expression -> expression addingOperator term .)
+    WHILE           reduce using rule 33 (expression -> expression addingOperator term .)
+    DATETIME        reduce using rule 33 (expression -> expression addingOperator term .)
+    LLIZQ           reduce using rule 33 (expression -> expression addingOperator term .)
+    VBCRLF          reduce using rule 33 (expression -> expression addingOperator term .)
+    MODULE          reduce using rule 33 (expression -> expression addingOperator term .)
+    CONSOLE         reduce using rule 33 (expression -> expression addingOperator term .)
+    DIM             reduce using rule 33 (expression -> expression addingOperator term .)
+    NUMERO          reduce using rule 33 (expression -> expression addingOperator term .)
+    PIZQ            reduce using rule 33 (expression -> expression addingOperator term .)
+    PDER            reduce using rule 33 (expression -> expression addingOperator term .)
+    MULTI           shift and go to state 60
+    DIV             shift and go to state 61
+
+    multiplyingOperator            shift and go to state 59
+
+state 75
+
     (16) statement -> BEGIN statementList END .
-    (37) expression -> END . MODULE
+    (38) expression -> END . MODULE
 
   ! shift/reduce conflict for MODULE resolved as shift
     $end            reduce using rule 16 (statement -> BEGIN statementList END .)
@@ -1766,6 +1833,7 @@ state 74
     ID              reduce using rule 16 (statement -> BEGIN statementList END .)
     BEGIN           reduce using rule 16 (statement -> BEGIN statementList END .)
     IMPORTS         reduce using rule 16 (statement -> BEGIN statementList END .)
+    WHILE           reduce using rule 16 (statement -> BEGIN statementList END .)
     DATETIME        reduce using rule 16 (statement -> BEGIN statementList END .)
     LLIZQ           reduce using rule 16 (statement -> BEGIN statementList END .)
     VBCRLF          reduce using rule 16 (statement -> BEGIN statementList END .)
@@ -1776,174 +1844,179 @@ state 74
     MOD             reduce using rule 16 (statement -> BEGIN statementList END .)
     NUMERO          reduce using rule 16 (statement -> BEGIN statementList END .)
     PIZQ            reduce using rule 16 (statement -> BEGIN statementList END .)
-    MODULE          shift and go to state 56
+    MODULE          shift and go to state 57
 
   ! MODULE          [ reduce using rule 16 (statement -> BEGIN statementList END .) ]
 
 
-state 75
-
-    (21) statementList -> statementList statement .
-
-    END             reduce using rule 21 (statementList -> statementList statement .)
-    ID              reduce using rule 21 (statementList -> statementList statement .)
-    BEGIN           reduce using rule 21 (statementList -> statementList statement .)
-    IMPORTS         reduce using rule 21 (statementList -> statementList statement .)
-    DATETIME        reduce using rule 21 (statementList -> statementList statement .)
-    LLIZQ           reduce using rule 21 (statementList -> statementList statement .)
-    VBCRLF          reduce using rule 21 (statementList -> statementList statement .)
-    MODULE          reduce using rule 21 (statementList -> statementList statement .)
-    CONSOLE         reduce using rule 21 (statementList -> statementList statement .)
-    DIM             reduce using rule 21 (statementList -> statementList statement .)
-    SUMA            reduce using rule 21 (statementList -> statementList statement .)
-    RESTA           reduce using rule 21 (statementList -> statementList statement .)
-    MOD             reduce using rule 21 (statementList -> statementList statement .)
-    NUMERO          reduce using rule 21 (statementList -> statementList statement .)
-    PIZQ            reduce using rule 21 (statementList -> statementList statement .)
-
-
 state 76
 
-    (45) term -> term multiplyingOperator factor .
+    (22) statementList -> statementList statement .
 
-    MULTI           reduce using rule 45 (term -> term multiplyingOperator factor .)
-    DIV             reduce using rule 45 (term -> term multiplyingOperator factor .)
-    IGUAL           reduce using rule 45 (term -> term multiplyingOperator factor .)
-    NOIGUAL         reduce using rule 45 (term -> term multiplyingOperator factor .)
-    MENORQ          reduce using rule 45 (term -> term multiplyingOperator factor .)
-    MAYORQ          reduce using rule 45 (term -> term multiplyingOperator factor .)
-    TRUE            reduce using rule 45 (term -> term multiplyingOperator factor .)
-    FALSE           reduce using rule 45 (term -> term multiplyingOperator factor .)
-    SUMA            reduce using rule 45 (term -> term multiplyingOperator factor .)
-    RESTA           reduce using rule 45 (term -> term multiplyingOperator factor .)
-    MOD             reduce using rule 45 (term -> term multiplyingOperator factor .)
-    $end            reduce using rule 45 (term -> term multiplyingOperator factor .)
-    END             reduce using rule 45 (term -> term multiplyingOperator factor .)
-    ID              reduce using rule 45 (term -> term multiplyingOperator factor .)
-    BEGIN           reduce using rule 45 (term -> term multiplyingOperator factor .)
-    IMPORTS         reduce using rule 45 (term -> term multiplyingOperator factor .)
-    DATETIME        reduce using rule 45 (term -> term multiplyingOperator factor .)
-    LLIZQ           reduce using rule 45 (term -> term multiplyingOperator factor .)
-    VBCRLF          reduce using rule 45 (term -> term multiplyingOperator factor .)
-    MODULE          reduce using rule 45 (term -> term multiplyingOperator factor .)
-    CONSOLE         reduce using rule 45 (term -> term multiplyingOperator factor .)
-    DIM             reduce using rule 45 (term -> term multiplyingOperator factor .)
-    NUMERO          reduce using rule 45 (term -> term multiplyingOperator factor .)
-    PIZQ            reduce using rule 45 (term -> term multiplyingOperator factor .)
-    PDER            reduce using rule 45 (term -> term multiplyingOperator factor .)
+    END             reduce using rule 22 (statementList -> statementList statement .)
+    ID              reduce using rule 22 (statementList -> statementList statement .)
+    BEGIN           reduce using rule 22 (statementList -> statementList statement .)
+    IMPORTS         reduce using rule 22 (statementList -> statementList statement .)
+    WHILE           reduce using rule 22 (statementList -> statementList statement .)
+    DATETIME        reduce using rule 22 (statementList -> statementList statement .)
+    LLIZQ           reduce using rule 22 (statementList -> statementList statement .)
+    VBCRLF          reduce using rule 22 (statementList -> statementList statement .)
+    MODULE          reduce using rule 22 (statementList -> statementList statement .)
+    CONSOLE         reduce using rule 22 (statementList -> statementList statement .)
+    DIM             reduce using rule 22 (statementList -> statementList statement .)
+    SUMA            reduce using rule 22 (statementList -> statementList statement .)
+    RESTA           reduce using rule 22 (statementList -> statementList statement .)
+    MOD             reduce using rule 22 (statementList -> statementList statement .)
+    NUMERO          reduce using rule 22 (statementList -> statementList statement .)
+    PIZQ            reduce using rule 22 (statementList -> statementList statement .)
 
 
 state 77
 
-    (33) expression -> DATETIME PUNTO NOW .
+    (46) term -> term multiplyingOperator factor .
 
-    IGUAL           reduce using rule 33 (expression -> DATETIME PUNTO NOW .)
-    NOIGUAL         reduce using rule 33 (expression -> DATETIME PUNTO NOW .)
-    MENORQ          reduce using rule 33 (expression -> DATETIME PUNTO NOW .)
-    MAYORQ          reduce using rule 33 (expression -> DATETIME PUNTO NOW .)
-    TRUE            reduce using rule 33 (expression -> DATETIME PUNTO NOW .)
-    FALSE           reduce using rule 33 (expression -> DATETIME PUNTO NOW .)
-    SUMA            reduce using rule 33 (expression -> DATETIME PUNTO NOW .)
-    RESTA           reduce using rule 33 (expression -> DATETIME PUNTO NOW .)
-    MOD             reduce using rule 33 (expression -> DATETIME PUNTO NOW .)
-    $end            reduce using rule 33 (expression -> DATETIME PUNTO NOW .)
-    END             reduce using rule 33 (expression -> DATETIME PUNTO NOW .)
-    ID              reduce using rule 33 (expression -> DATETIME PUNTO NOW .)
-    BEGIN           reduce using rule 33 (expression -> DATETIME PUNTO NOW .)
-    IMPORTS         reduce using rule 33 (expression -> DATETIME PUNTO NOW .)
-    DATETIME        reduce using rule 33 (expression -> DATETIME PUNTO NOW .)
-    LLIZQ           reduce using rule 33 (expression -> DATETIME PUNTO NOW .)
-    VBCRLF          reduce using rule 33 (expression -> DATETIME PUNTO NOW .)
-    MODULE          reduce using rule 33 (expression -> DATETIME PUNTO NOW .)
-    CONSOLE         reduce using rule 33 (expression -> DATETIME PUNTO NOW .)
-    DIM             reduce using rule 33 (expression -> DATETIME PUNTO NOW .)
-    NUMERO          reduce using rule 33 (expression -> DATETIME PUNTO NOW .)
-    PIZQ            reduce using rule 33 (expression -> DATETIME PUNTO NOW .)
-    PDER            reduce using rule 33 (expression -> DATETIME PUNTO NOW .)
+    MULTI           reduce using rule 46 (term -> term multiplyingOperator factor .)
+    DIV             reduce using rule 46 (term -> term multiplyingOperator factor .)
+    IGUAL           reduce using rule 46 (term -> term multiplyingOperator factor .)
+    NOIGUAL         reduce using rule 46 (term -> term multiplyingOperator factor .)
+    MENORQ          reduce using rule 46 (term -> term multiplyingOperator factor .)
+    MAYORQ          reduce using rule 46 (term -> term multiplyingOperator factor .)
+    TRUE            reduce using rule 46 (term -> term multiplyingOperator factor .)
+    FALSE           reduce using rule 46 (term -> term multiplyingOperator factor .)
+    SUMA            reduce using rule 46 (term -> term multiplyingOperator factor .)
+    RESTA           reduce using rule 46 (term -> term multiplyingOperator factor .)
+    MOD             reduce using rule 46 (term -> term multiplyingOperator factor .)
+    $end            reduce using rule 46 (term -> term multiplyingOperator factor .)
+    END             reduce using rule 46 (term -> term multiplyingOperator factor .)
+    ID              reduce using rule 46 (term -> term multiplyingOperator factor .)
+    BEGIN           reduce using rule 46 (term -> term multiplyingOperator factor .)
+    IMPORTS         reduce using rule 46 (term -> term multiplyingOperator factor .)
+    WHILE           reduce using rule 46 (term -> term multiplyingOperator factor .)
+    DATETIME        reduce using rule 46 (term -> term multiplyingOperator factor .)
+    LLIZQ           reduce using rule 46 (term -> term multiplyingOperator factor .)
+    VBCRLF          reduce using rule 46 (term -> term multiplyingOperator factor .)
+    MODULE          reduce using rule 46 (term -> term multiplyingOperator factor .)
+    CONSOLE         reduce using rule 46 (term -> term multiplyingOperator factor .)
+    DIM             reduce using rule 46 (term -> term multiplyingOperator factor .)
+    NUMERO          reduce using rule 46 (term -> term multiplyingOperator factor .)
+    PIZQ            reduce using rule 46 (term -> term multiplyingOperator factor .)
+    PDER            reduce using rule 46 (term -> term multiplyingOperator factor .)
 
 
 state 78
 
-    (34) expression -> LLIZQ ID LLDER .
+    (34) expression -> DATETIME PUNTO NOW .
 
-    IGUAL           reduce using rule 34 (expression -> LLIZQ ID LLDER .)
-    NOIGUAL         reduce using rule 34 (expression -> LLIZQ ID LLDER .)
-    MENORQ          reduce using rule 34 (expression -> LLIZQ ID LLDER .)
-    MAYORQ          reduce using rule 34 (expression -> LLIZQ ID LLDER .)
-    TRUE            reduce using rule 34 (expression -> LLIZQ ID LLDER .)
-    FALSE           reduce using rule 34 (expression -> LLIZQ ID LLDER .)
-    SUMA            reduce using rule 34 (expression -> LLIZQ ID LLDER .)
-    RESTA           reduce using rule 34 (expression -> LLIZQ ID LLDER .)
-    MOD             reduce using rule 34 (expression -> LLIZQ ID LLDER .)
-    $end            reduce using rule 34 (expression -> LLIZQ ID LLDER .)
-    END             reduce using rule 34 (expression -> LLIZQ ID LLDER .)
-    ID              reduce using rule 34 (expression -> LLIZQ ID LLDER .)
-    BEGIN           reduce using rule 34 (expression -> LLIZQ ID LLDER .)
-    IMPORTS         reduce using rule 34 (expression -> LLIZQ ID LLDER .)
-    DATETIME        reduce using rule 34 (expression -> LLIZQ ID LLDER .)
-    LLIZQ           reduce using rule 34 (expression -> LLIZQ ID LLDER .)
-    VBCRLF          reduce using rule 34 (expression -> LLIZQ ID LLDER .)
-    MODULE          reduce using rule 34 (expression -> LLIZQ ID LLDER .)
-    CONSOLE         reduce using rule 34 (expression -> LLIZQ ID LLDER .)
-    DIM             reduce using rule 34 (expression -> LLIZQ ID LLDER .)
-    NUMERO          reduce using rule 34 (expression -> LLIZQ ID LLDER .)
-    PIZQ            reduce using rule 34 (expression -> LLIZQ ID LLDER .)
-    PDER            reduce using rule 34 (expression -> LLIZQ ID LLDER .)
+    IGUAL           reduce using rule 34 (expression -> DATETIME PUNTO NOW .)
+    NOIGUAL         reduce using rule 34 (expression -> DATETIME PUNTO NOW .)
+    MENORQ          reduce using rule 34 (expression -> DATETIME PUNTO NOW .)
+    MAYORQ          reduce using rule 34 (expression -> DATETIME PUNTO NOW .)
+    TRUE            reduce using rule 34 (expression -> DATETIME PUNTO NOW .)
+    FALSE           reduce using rule 34 (expression -> DATETIME PUNTO NOW .)
+    SUMA            reduce using rule 34 (expression -> DATETIME PUNTO NOW .)
+    RESTA           reduce using rule 34 (expression -> DATETIME PUNTO NOW .)
+    MOD             reduce using rule 34 (expression -> DATETIME PUNTO NOW .)
+    $end            reduce using rule 34 (expression -> DATETIME PUNTO NOW .)
+    END             reduce using rule 34 (expression -> DATETIME PUNTO NOW .)
+    ID              reduce using rule 34 (expression -> DATETIME PUNTO NOW .)
+    BEGIN           reduce using rule 34 (expression -> DATETIME PUNTO NOW .)
+    IMPORTS         reduce using rule 34 (expression -> DATETIME PUNTO NOW .)
+    WHILE           reduce using rule 34 (expression -> DATETIME PUNTO NOW .)
+    DATETIME        reduce using rule 34 (expression -> DATETIME PUNTO NOW .)
+    LLIZQ           reduce using rule 34 (expression -> DATETIME PUNTO NOW .)
+    VBCRLF          reduce using rule 34 (expression -> DATETIME PUNTO NOW .)
+    MODULE          reduce using rule 34 (expression -> DATETIME PUNTO NOW .)
+    CONSOLE         reduce using rule 34 (expression -> DATETIME PUNTO NOW .)
+    DIM             reduce using rule 34 (expression -> DATETIME PUNTO NOW .)
+    NUMERO          reduce using rule 34 (expression -> DATETIME PUNTO NOW .)
+    PIZQ            reduce using rule 34 (expression -> DATETIME PUNTO NOW .)
+    PDER            reduce using rule 34 (expression -> DATETIME PUNTO NOW .)
 
 
 state 79
 
-    (38) expression -> CONSOLE PUNTO READKEY . PIZQ boolean PDER
+    (35) expression -> LLIZQ ID LLDER .
 
-    PIZQ            shift and go to state 84
+    IGUAL           reduce using rule 35 (expression -> LLIZQ ID LLDER .)
+    NOIGUAL         reduce using rule 35 (expression -> LLIZQ ID LLDER .)
+    MENORQ          reduce using rule 35 (expression -> LLIZQ ID LLDER .)
+    MAYORQ          reduce using rule 35 (expression -> LLIZQ ID LLDER .)
+    TRUE            reduce using rule 35 (expression -> LLIZQ ID LLDER .)
+    FALSE           reduce using rule 35 (expression -> LLIZQ ID LLDER .)
+    SUMA            reduce using rule 35 (expression -> LLIZQ ID LLDER .)
+    RESTA           reduce using rule 35 (expression -> LLIZQ ID LLDER .)
+    MOD             reduce using rule 35 (expression -> LLIZQ ID LLDER .)
+    $end            reduce using rule 35 (expression -> LLIZQ ID LLDER .)
+    END             reduce using rule 35 (expression -> LLIZQ ID LLDER .)
+    ID              reduce using rule 35 (expression -> LLIZQ ID LLDER .)
+    BEGIN           reduce using rule 35 (expression -> LLIZQ ID LLDER .)
+    IMPORTS         reduce using rule 35 (expression -> LLIZQ ID LLDER .)
+    WHILE           reduce using rule 35 (expression -> LLIZQ ID LLDER .)
+    DATETIME        reduce using rule 35 (expression -> LLIZQ ID LLDER .)
+    LLIZQ           reduce using rule 35 (expression -> LLIZQ ID LLDER .)
+    VBCRLF          reduce using rule 35 (expression -> LLIZQ ID LLDER .)
+    MODULE          reduce using rule 35 (expression -> LLIZQ ID LLDER .)
+    CONSOLE         reduce using rule 35 (expression -> LLIZQ ID LLDER .)
+    DIM             reduce using rule 35 (expression -> LLIZQ ID LLDER .)
+    NUMERO          reduce using rule 35 (expression -> LLIZQ ID LLDER .)
+    PIZQ            reduce using rule 35 (expression -> LLIZQ ID LLDER .)
+    PDER            reduce using rule 35 (expression -> LLIZQ ID LLDER .)
 
 
 state 80
 
-    (40) expression -> CONSOLE PUNTO WRITELINE . PIZQ ID PDER
+    (39) expression -> CONSOLE PUNTO READKEY . PIZQ boolean PDER
 
     PIZQ            shift and go to state 85
 
 
 state 81
 
-    (50) factor -> PIZQ expression PDER .
+    (41) expression -> CONSOLE PUNTO WRITELINE . PIZQ ID PDER
 
-    MULTI           reduce using rule 50 (factor -> PIZQ expression PDER .)
-    DIV             reduce using rule 50 (factor -> PIZQ expression PDER .)
-    IGUAL           reduce using rule 50 (factor -> PIZQ expression PDER .)
-    NOIGUAL         reduce using rule 50 (factor -> PIZQ expression PDER .)
-    MENORQ          reduce using rule 50 (factor -> PIZQ expression PDER .)
-    MAYORQ          reduce using rule 50 (factor -> PIZQ expression PDER .)
-    TRUE            reduce using rule 50 (factor -> PIZQ expression PDER .)
-    FALSE           reduce using rule 50 (factor -> PIZQ expression PDER .)
-    SUMA            reduce using rule 50 (factor -> PIZQ expression PDER .)
-    RESTA           reduce using rule 50 (factor -> PIZQ expression PDER .)
-    MOD             reduce using rule 50 (factor -> PIZQ expression PDER .)
-    $end            reduce using rule 50 (factor -> PIZQ expression PDER .)
-    END             reduce using rule 50 (factor -> PIZQ expression PDER .)
-    ID              reduce using rule 50 (factor -> PIZQ expression PDER .)
-    BEGIN           reduce using rule 50 (factor -> PIZQ expression PDER .)
-    IMPORTS         reduce using rule 50 (factor -> PIZQ expression PDER .)
-    DATETIME        reduce using rule 50 (factor -> PIZQ expression PDER .)
-    LLIZQ           reduce using rule 50 (factor -> PIZQ expression PDER .)
-    VBCRLF          reduce using rule 50 (factor -> PIZQ expression PDER .)
-    MODULE          reduce using rule 50 (factor -> PIZQ expression PDER .)
-    CONSOLE         reduce using rule 50 (factor -> PIZQ expression PDER .)
-    DIM             reduce using rule 50 (factor -> PIZQ expression PDER .)
-    NUMERO          reduce using rule 50 (factor -> PIZQ expression PDER .)
-    PIZQ            reduce using rule 50 (factor -> PIZQ expression PDER .)
-    PDER            reduce using rule 50 (factor -> PIZQ expression PDER .)
+    PIZQ            shift and go to state 86
 
 
 state 82
 
-    (39) expression -> DIM ID IGUAL . CONSOLE PUNTO READLINE PIZQ PDER
+    (51) factor -> PIZQ expression PDER .
 
-    CONSOLE         shift and go to state 86
+    MULTI           reduce using rule 51 (factor -> PIZQ expression PDER .)
+    DIV             reduce using rule 51 (factor -> PIZQ expression PDER .)
+    IGUAL           reduce using rule 51 (factor -> PIZQ expression PDER .)
+    NOIGUAL         reduce using rule 51 (factor -> PIZQ expression PDER .)
+    MENORQ          reduce using rule 51 (factor -> PIZQ expression PDER .)
+    MAYORQ          reduce using rule 51 (factor -> PIZQ expression PDER .)
+    TRUE            reduce using rule 51 (factor -> PIZQ expression PDER .)
+    FALSE           reduce using rule 51 (factor -> PIZQ expression PDER .)
+    SUMA            reduce using rule 51 (factor -> PIZQ expression PDER .)
+    RESTA           reduce using rule 51 (factor -> PIZQ expression PDER .)
+    MOD             reduce using rule 51 (factor -> PIZQ expression PDER .)
+    $end            reduce using rule 51 (factor -> PIZQ expression PDER .)
+    END             reduce using rule 51 (factor -> PIZQ expression PDER .)
+    ID              reduce using rule 51 (factor -> PIZQ expression PDER .)
+    BEGIN           reduce using rule 51 (factor -> PIZQ expression PDER .)
+    IMPORTS         reduce using rule 51 (factor -> PIZQ expression PDER .)
+    WHILE           reduce using rule 51 (factor -> PIZQ expression PDER .)
+    DATETIME        reduce using rule 51 (factor -> PIZQ expression PDER .)
+    LLIZQ           reduce using rule 51 (factor -> PIZQ expression PDER .)
+    VBCRLF          reduce using rule 51 (factor -> PIZQ expression PDER .)
+    MODULE          reduce using rule 51 (factor -> PIZQ expression PDER .)
+    CONSOLE         reduce using rule 51 (factor -> PIZQ expression PDER .)
+    DIM             reduce using rule 51 (factor -> PIZQ expression PDER .)
+    NUMERO          reduce using rule 51 (factor -> PIZQ expression PDER .)
+    PIZQ            reduce using rule 51 (factor -> PIZQ expression PDER .)
+    PDER            reduce using rule 51 (factor -> PIZQ expression PDER .)
 
 
 state 83
+
+    (40) expression -> DIM ID IGUAL . CONSOLE PUNTO READLINE PIZQ PDER
+
+    CONSOLE         shift and go to state 87
+
+
+state 84
 
     (5) constDecl -> DIM ID AS ID IGUAL ID .
 
@@ -1951,6 +2024,7 @@ state 83
     ID              reduce using rule 5 (constDecl -> DIM ID AS ID IGUAL ID .)
     BEGIN           reduce using rule 5 (constDecl -> DIM ID AS ID IGUAL ID .)
     IMPORTS         reduce using rule 5 (constDecl -> DIM ID AS ID IGUAL ID .)
+    WHILE           reduce using rule 5 (constDecl -> DIM ID AS ID IGUAL ID .)
     DATETIME        reduce using rule 5 (constDecl -> DIM ID AS ID IGUAL ID .)
     LLIZQ           reduce using rule 5 (constDecl -> DIM ID AS ID IGUAL ID .)
     VBCRLF          reduce using rule 5 (constDecl -> DIM ID AS ID IGUAL ID .)
@@ -1965,156 +2039,159 @@ state 83
     $end            reduce using rule 5 (constDecl -> DIM ID AS ID IGUAL ID .)
 
 
-state 84
-
-    (38) expression -> CONSOLE PUNTO READKEY PIZQ . boolean PDER
-    (51) boolean -> . BOOLEAN
-
-    BOOLEAN         shift and go to state 88
-
-    boolean                        shift and go to state 87
-
 state 85
 
-    (40) expression -> CONSOLE PUNTO WRITELINE PIZQ . ID PDER
+    (39) expression -> CONSOLE PUNTO READKEY PIZQ . boolean PDER
+    (52) boolean -> . BOOLEAN
 
-    ID              shift and go to state 89
+    BOOLEAN         shift and go to state 89
 
+    boolean                        shift and go to state 88
 
 state 86
 
-    (39) expression -> DIM ID IGUAL CONSOLE . PUNTO READLINE PIZQ PDER
+    (41) expression -> CONSOLE PUNTO WRITELINE PIZQ . ID PDER
 
-    PUNTO           shift and go to state 90
+    ID              shift and go to state 90
 
 
 state 87
 
-    (38) expression -> CONSOLE PUNTO READKEY PIZQ boolean . PDER
+    (40) expression -> DIM ID IGUAL CONSOLE . PUNTO READLINE PIZQ PDER
 
-    PDER            shift and go to state 91
+    PUNTO           shift and go to state 91
 
 
 state 88
 
-    (51) boolean -> BOOLEAN .
-
-    PDER            reduce using rule 51 (boolean -> BOOLEAN .)
-
-
-state 89
-
-    (40) expression -> CONSOLE PUNTO WRITELINE PIZQ ID . PDER
+    (39) expression -> CONSOLE PUNTO READKEY PIZQ boolean . PDER
 
     PDER            shift and go to state 92
 
 
+state 89
+
+    (52) boolean -> BOOLEAN .
+
+    PDER            reduce using rule 52 (boolean -> BOOLEAN .)
+
+
 state 90
 
-    (39) expression -> DIM ID IGUAL CONSOLE PUNTO . READLINE PIZQ PDER
+    (41) expression -> CONSOLE PUNTO WRITELINE PIZQ ID . PDER
 
-    READLINE        shift and go to state 93
+    PDER            shift and go to state 93
 
 
 state 91
 
-    (38) expression -> CONSOLE PUNTO READKEY PIZQ boolean PDER .
+    (40) expression -> DIM ID IGUAL CONSOLE PUNTO . READLINE PIZQ PDER
 
-    IGUAL           reduce using rule 38 (expression -> CONSOLE PUNTO READKEY PIZQ boolean PDER .)
-    NOIGUAL         reduce using rule 38 (expression -> CONSOLE PUNTO READKEY PIZQ boolean PDER .)
-    MENORQ          reduce using rule 38 (expression -> CONSOLE PUNTO READKEY PIZQ boolean PDER .)
-    MAYORQ          reduce using rule 38 (expression -> CONSOLE PUNTO READKEY PIZQ boolean PDER .)
-    TRUE            reduce using rule 38 (expression -> CONSOLE PUNTO READKEY PIZQ boolean PDER .)
-    FALSE           reduce using rule 38 (expression -> CONSOLE PUNTO READKEY PIZQ boolean PDER .)
-    SUMA            reduce using rule 38 (expression -> CONSOLE PUNTO READKEY PIZQ boolean PDER .)
-    RESTA           reduce using rule 38 (expression -> CONSOLE PUNTO READKEY PIZQ boolean PDER .)
-    MOD             reduce using rule 38 (expression -> CONSOLE PUNTO READKEY PIZQ boolean PDER .)
-    $end            reduce using rule 38 (expression -> CONSOLE PUNTO READKEY PIZQ boolean PDER .)
-    END             reduce using rule 38 (expression -> CONSOLE PUNTO READKEY PIZQ boolean PDER .)
-    ID              reduce using rule 38 (expression -> CONSOLE PUNTO READKEY PIZQ boolean PDER .)
-    BEGIN           reduce using rule 38 (expression -> CONSOLE PUNTO READKEY PIZQ boolean PDER .)
-    IMPORTS         reduce using rule 38 (expression -> CONSOLE PUNTO READKEY PIZQ boolean PDER .)
-    DATETIME        reduce using rule 38 (expression -> CONSOLE PUNTO READKEY PIZQ boolean PDER .)
-    LLIZQ           reduce using rule 38 (expression -> CONSOLE PUNTO READKEY PIZQ boolean PDER .)
-    VBCRLF          reduce using rule 38 (expression -> CONSOLE PUNTO READKEY PIZQ boolean PDER .)
-    MODULE          reduce using rule 38 (expression -> CONSOLE PUNTO READKEY PIZQ boolean PDER .)
-    CONSOLE         reduce using rule 38 (expression -> CONSOLE PUNTO READKEY PIZQ boolean PDER .)
-    DIM             reduce using rule 38 (expression -> CONSOLE PUNTO READKEY PIZQ boolean PDER .)
-    NUMERO          reduce using rule 38 (expression -> CONSOLE PUNTO READKEY PIZQ boolean PDER .)
-    PIZQ            reduce using rule 38 (expression -> CONSOLE PUNTO READKEY PIZQ boolean PDER .)
-    PDER            reduce using rule 38 (expression -> CONSOLE PUNTO READKEY PIZQ boolean PDER .)
+    READLINE        shift and go to state 94
 
 
 state 92
 
-    (40) expression -> CONSOLE PUNTO WRITELINE PIZQ ID PDER .
+    (39) expression -> CONSOLE PUNTO READKEY PIZQ boolean PDER .
 
-    IGUAL           reduce using rule 40 (expression -> CONSOLE PUNTO WRITELINE PIZQ ID PDER .)
-    NOIGUAL         reduce using rule 40 (expression -> CONSOLE PUNTO WRITELINE PIZQ ID PDER .)
-    MENORQ          reduce using rule 40 (expression -> CONSOLE PUNTO WRITELINE PIZQ ID PDER .)
-    MAYORQ          reduce using rule 40 (expression -> CONSOLE PUNTO WRITELINE PIZQ ID PDER .)
-    TRUE            reduce using rule 40 (expression -> CONSOLE PUNTO WRITELINE PIZQ ID PDER .)
-    FALSE           reduce using rule 40 (expression -> CONSOLE PUNTO WRITELINE PIZQ ID PDER .)
-    SUMA            reduce using rule 40 (expression -> CONSOLE PUNTO WRITELINE PIZQ ID PDER .)
-    RESTA           reduce using rule 40 (expression -> CONSOLE PUNTO WRITELINE PIZQ ID PDER .)
-    MOD             reduce using rule 40 (expression -> CONSOLE PUNTO WRITELINE PIZQ ID PDER .)
-    $end            reduce using rule 40 (expression -> CONSOLE PUNTO WRITELINE PIZQ ID PDER .)
-    END             reduce using rule 40 (expression -> CONSOLE PUNTO WRITELINE PIZQ ID PDER .)
-    ID              reduce using rule 40 (expression -> CONSOLE PUNTO WRITELINE PIZQ ID PDER .)
-    BEGIN           reduce using rule 40 (expression -> CONSOLE PUNTO WRITELINE PIZQ ID PDER .)
-    IMPORTS         reduce using rule 40 (expression -> CONSOLE PUNTO WRITELINE PIZQ ID PDER .)
-    DATETIME        reduce using rule 40 (expression -> CONSOLE PUNTO WRITELINE PIZQ ID PDER .)
-    LLIZQ           reduce using rule 40 (expression -> CONSOLE PUNTO WRITELINE PIZQ ID PDER .)
-    VBCRLF          reduce using rule 40 (expression -> CONSOLE PUNTO WRITELINE PIZQ ID PDER .)
-    MODULE          reduce using rule 40 (expression -> CONSOLE PUNTO WRITELINE PIZQ ID PDER .)
-    CONSOLE         reduce using rule 40 (expression -> CONSOLE PUNTO WRITELINE PIZQ ID PDER .)
-    DIM             reduce using rule 40 (expression -> CONSOLE PUNTO WRITELINE PIZQ ID PDER .)
-    NUMERO          reduce using rule 40 (expression -> CONSOLE PUNTO WRITELINE PIZQ ID PDER .)
-    PIZQ            reduce using rule 40 (expression -> CONSOLE PUNTO WRITELINE PIZQ ID PDER .)
-    PDER            reduce using rule 40 (expression -> CONSOLE PUNTO WRITELINE PIZQ ID PDER .)
+    IGUAL           reduce using rule 39 (expression -> CONSOLE PUNTO READKEY PIZQ boolean PDER .)
+    NOIGUAL         reduce using rule 39 (expression -> CONSOLE PUNTO READKEY PIZQ boolean PDER .)
+    MENORQ          reduce using rule 39 (expression -> CONSOLE PUNTO READKEY PIZQ boolean PDER .)
+    MAYORQ          reduce using rule 39 (expression -> CONSOLE PUNTO READKEY PIZQ boolean PDER .)
+    TRUE            reduce using rule 39 (expression -> CONSOLE PUNTO READKEY PIZQ boolean PDER .)
+    FALSE           reduce using rule 39 (expression -> CONSOLE PUNTO READKEY PIZQ boolean PDER .)
+    SUMA            reduce using rule 39 (expression -> CONSOLE PUNTO READKEY PIZQ boolean PDER .)
+    RESTA           reduce using rule 39 (expression -> CONSOLE PUNTO READKEY PIZQ boolean PDER .)
+    MOD             reduce using rule 39 (expression -> CONSOLE PUNTO READKEY PIZQ boolean PDER .)
+    $end            reduce using rule 39 (expression -> CONSOLE PUNTO READKEY PIZQ boolean PDER .)
+    END             reduce using rule 39 (expression -> CONSOLE PUNTO READKEY PIZQ boolean PDER .)
+    ID              reduce using rule 39 (expression -> CONSOLE PUNTO READKEY PIZQ boolean PDER .)
+    BEGIN           reduce using rule 39 (expression -> CONSOLE PUNTO READKEY PIZQ boolean PDER .)
+    IMPORTS         reduce using rule 39 (expression -> CONSOLE PUNTO READKEY PIZQ boolean PDER .)
+    WHILE           reduce using rule 39 (expression -> CONSOLE PUNTO READKEY PIZQ boolean PDER .)
+    DATETIME        reduce using rule 39 (expression -> CONSOLE PUNTO READKEY PIZQ boolean PDER .)
+    LLIZQ           reduce using rule 39 (expression -> CONSOLE PUNTO READKEY PIZQ boolean PDER .)
+    VBCRLF          reduce using rule 39 (expression -> CONSOLE PUNTO READKEY PIZQ boolean PDER .)
+    MODULE          reduce using rule 39 (expression -> CONSOLE PUNTO READKEY PIZQ boolean PDER .)
+    CONSOLE         reduce using rule 39 (expression -> CONSOLE PUNTO READKEY PIZQ boolean PDER .)
+    DIM             reduce using rule 39 (expression -> CONSOLE PUNTO READKEY PIZQ boolean PDER .)
+    NUMERO          reduce using rule 39 (expression -> CONSOLE PUNTO READKEY PIZQ boolean PDER .)
+    PIZQ            reduce using rule 39 (expression -> CONSOLE PUNTO READKEY PIZQ boolean PDER .)
+    PDER            reduce using rule 39 (expression -> CONSOLE PUNTO READKEY PIZQ boolean PDER .)
 
 
 state 93
 
-    (39) expression -> DIM ID IGUAL CONSOLE PUNTO READLINE . PIZQ PDER
+    (41) expression -> CONSOLE PUNTO WRITELINE PIZQ ID PDER .
 
-    PIZQ            shift and go to state 94
+    IGUAL           reduce using rule 41 (expression -> CONSOLE PUNTO WRITELINE PIZQ ID PDER .)
+    NOIGUAL         reduce using rule 41 (expression -> CONSOLE PUNTO WRITELINE PIZQ ID PDER .)
+    MENORQ          reduce using rule 41 (expression -> CONSOLE PUNTO WRITELINE PIZQ ID PDER .)
+    MAYORQ          reduce using rule 41 (expression -> CONSOLE PUNTO WRITELINE PIZQ ID PDER .)
+    TRUE            reduce using rule 41 (expression -> CONSOLE PUNTO WRITELINE PIZQ ID PDER .)
+    FALSE           reduce using rule 41 (expression -> CONSOLE PUNTO WRITELINE PIZQ ID PDER .)
+    SUMA            reduce using rule 41 (expression -> CONSOLE PUNTO WRITELINE PIZQ ID PDER .)
+    RESTA           reduce using rule 41 (expression -> CONSOLE PUNTO WRITELINE PIZQ ID PDER .)
+    MOD             reduce using rule 41 (expression -> CONSOLE PUNTO WRITELINE PIZQ ID PDER .)
+    $end            reduce using rule 41 (expression -> CONSOLE PUNTO WRITELINE PIZQ ID PDER .)
+    END             reduce using rule 41 (expression -> CONSOLE PUNTO WRITELINE PIZQ ID PDER .)
+    ID              reduce using rule 41 (expression -> CONSOLE PUNTO WRITELINE PIZQ ID PDER .)
+    BEGIN           reduce using rule 41 (expression -> CONSOLE PUNTO WRITELINE PIZQ ID PDER .)
+    IMPORTS         reduce using rule 41 (expression -> CONSOLE PUNTO WRITELINE PIZQ ID PDER .)
+    WHILE           reduce using rule 41 (expression -> CONSOLE PUNTO WRITELINE PIZQ ID PDER .)
+    DATETIME        reduce using rule 41 (expression -> CONSOLE PUNTO WRITELINE PIZQ ID PDER .)
+    LLIZQ           reduce using rule 41 (expression -> CONSOLE PUNTO WRITELINE PIZQ ID PDER .)
+    VBCRLF          reduce using rule 41 (expression -> CONSOLE PUNTO WRITELINE PIZQ ID PDER .)
+    MODULE          reduce using rule 41 (expression -> CONSOLE PUNTO WRITELINE PIZQ ID PDER .)
+    CONSOLE         reduce using rule 41 (expression -> CONSOLE PUNTO WRITELINE PIZQ ID PDER .)
+    DIM             reduce using rule 41 (expression -> CONSOLE PUNTO WRITELINE PIZQ ID PDER .)
+    NUMERO          reduce using rule 41 (expression -> CONSOLE PUNTO WRITELINE PIZQ ID PDER .)
+    PIZQ            reduce using rule 41 (expression -> CONSOLE PUNTO WRITELINE PIZQ ID PDER .)
+    PDER            reduce using rule 41 (expression -> CONSOLE PUNTO WRITELINE PIZQ ID PDER .)
 
 
 state 94
 
-    (39) expression -> DIM ID IGUAL CONSOLE PUNTO READLINE PIZQ . PDER
+    (40) expression -> DIM ID IGUAL CONSOLE PUNTO READLINE . PIZQ PDER
 
-    PDER            shift and go to state 95
+    PIZQ            shift and go to state 95
 
 
 state 95
 
-    (39) expression -> DIM ID IGUAL CONSOLE PUNTO READLINE PIZQ PDER .
+    (40) expression -> DIM ID IGUAL CONSOLE PUNTO READLINE PIZQ . PDER
 
-    IGUAL           reduce using rule 39 (expression -> DIM ID IGUAL CONSOLE PUNTO READLINE PIZQ PDER .)
-    NOIGUAL         reduce using rule 39 (expression -> DIM ID IGUAL CONSOLE PUNTO READLINE PIZQ PDER .)
-    MENORQ          reduce using rule 39 (expression -> DIM ID IGUAL CONSOLE PUNTO READLINE PIZQ PDER .)
-    MAYORQ          reduce using rule 39 (expression -> DIM ID IGUAL CONSOLE PUNTO READLINE PIZQ PDER .)
-    TRUE            reduce using rule 39 (expression -> DIM ID IGUAL CONSOLE PUNTO READLINE PIZQ PDER .)
-    FALSE           reduce using rule 39 (expression -> DIM ID IGUAL CONSOLE PUNTO READLINE PIZQ PDER .)
-    SUMA            reduce using rule 39 (expression -> DIM ID IGUAL CONSOLE PUNTO READLINE PIZQ PDER .)
-    RESTA           reduce using rule 39 (expression -> DIM ID IGUAL CONSOLE PUNTO READLINE PIZQ PDER .)
-    MOD             reduce using rule 39 (expression -> DIM ID IGUAL CONSOLE PUNTO READLINE PIZQ PDER .)
-    $end            reduce using rule 39 (expression -> DIM ID IGUAL CONSOLE PUNTO READLINE PIZQ PDER .)
-    END             reduce using rule 39 (expression -> DIM ID IGUAL CONSOLE PUNTO READLINE PIZQ PDER .)
-    ID              reduce using rule 39 (expression -> DIM ID IGUAL CONSOLE PUNTO READLINE PIZQ PDER .)
-    BEGIN           reduce using rule 39 (expression -> DIM ID IGUAL CONSOLE PUNTO READLINE PIZQ PDER .)
-    IMPORTS         reduce using rule 39 (expression -> DIM ID IGUAL CONSOLE PUNTO READLINE PIZQ PDER .)
-    DATETIME        reduce using rule 39 (expression -> DIM ID IGUAL CONSOLE PUNTO READLINE PIZQ PDER .)
-    LLIZQ           reduce using rule 39 (expression -> DIM ID IGUAL CONSOLE PUNTO READLINE PIZQ PDER .)
-    VBCRLF          reduce using rule 39 (expression -> DIM ID IGUAL CONSOLE PUNTO READLINE PIZQ PDER .)
-    MODULE          reduce using rule 39 (expression -> DIM ID IGUAL CONSOLE PUNTO READLINE PIZQ PDER .)
-    CONSOLE         reduce using rule 39 (expression -> DIM ID IGUAL CONSOLE PUNTO READLINE PIZQ PDER .)
-    DIM             reduce using rule 39 (expression -> DIM ID IGUAL CONSOLE PUNTO READLINE PIZQ PDER .)
-    NUMERO          reduce using rule 39 (expression -> DIM ID IGUAL CONSOLE PUNTO READLINE PIZQ PDER .)
-    PIZQ            reduce using rule 39 (expression -> DIM ID IGUAL CONSOLE PUNTO READLINE PIZQ PDER .)
-    PDER            reduce using rule 39 (expression -> DIM ID IGUAL CONSOLE PUNTO READLINE PIZQ PDER .)
+    PDER            shift and go to state 96
+
+
+state 96
+
+    (40) expression -> DIM ID IGUAL CONSOLE PUNTO READLINE PIZQ PDER .
+
+    IGUAL           reduce using rule 40 (expression -> DIM ID IGUAL CONSOLE PUNTO READLINE PIZQ PDER .)
+    NOIGUAL         reduce using rule 40 (expression -> DIM ID IGUAL CONSOLE PUNTO READLINE PIZQ PDER .)
+    MENORQ          reduce using rule 40 (expression -> DIM ID IGUAL CONSOLE PUNTO READLINE PIZQ PDER .)
+    MAYORQ          reduce using rule 40 (expression -> DIM ID IGUAL CONSOLE PUNTO READLINE PIZQ PDER .)
+    TRUE            reduce using rule 40 (expression -> DIM ID IGUAL CONSOLE PUNTO READLINE PIZQ PDER .)
+    FALSE           reduce using rule 40 (expression -> DIM ID IGUAL CONSOLE PUNTO READLINE PIZQ PDER .)
+    SUMA            reduce using rule 40 (expression -> DIM ID IGUAL CONSOLE PUNTO READLINE PIZQ PDER .)
+    RESTA           reduce using rule 40 (expression -> DIM ID IGUAL CONSOLE PUNTO READLINE PIZQ PDER .)
+    MOD             reduce using rule 40 (expression -> DIM ID IGUAL CONSOLE PUNTO READLINE PIZQ PDER .)
+    $end            reduce using rule 40 (expression -> DIM ID IGUAL CONSOLE PUNTO READLINE PIZQ PDER .)
+    END             reduce using rule 40 (expression -> DIM ID IGUAL CONSOLE PUNTO READLINE PIZQ PDER .)
+    ID              reduce using rule 40 (expression -> DIM ID IGUAL CONSOLE PUNTO READLINE PIZQ PDER .)
+    BEGIN           reduce using rule 40 (expression -> DIM ID IGUAL CONSOLE PUNTO READLINE PIZQ PDER .)
+    IMPORTS         reduce using rule 40 (expression -> DIM ID IGUAL CONSOLE PUNTO READLINE PIZQ PDER .)
+    WHILE           reduce using rule 40 (expression -> DIM ID IGUAL CONSOLE PUNTO READLINE PIZQ PDER .)
+    DATETIME        reduce using rule 40 (expression -> DIM ID IGUAL CONSOLE PUNTO READLINE PIZQ PDER .)
+    LLIZQ           reduce using rule 40 (expression -> DIM ID IGUAL CONSOLE PUNTO READLINE PIZQ PDER .)
+    VBCRLF          reduce using rule 40 (expression -> DIM ID IGUAL CONSOLE PUNTO READLINE PIZQ PDER .)
+    MODULE          reduce using rule 40 (expression -> DIM ID IGUAL CONSOLE PUNTO READLINE PIZQ PDER .)
+    CONSOLE         reduce using rule 40 (expression -> DIM ID IGUAL CONSOLE PUNTO READLINE PIZQ PDER .)
+    DIM             reduce using rule 40 (expression -> DIM ID IGUAL CONSOLE PUNTO READLINE PIZQ PDER .)
+    NUMERO          reduce using rule 40 (expression -> DIM ID IGUAL CONSOLE PUNTO READLINE PIZQ PDER .)
+    PIZQ            reduce using rule 40 (expression -> DIM ID IGUAL CONSOLE PUNTO READLINE PIZQ PDER .)
+    PDER            reduce using rule 40 (expression -> DIM ID IGUAL CONSOLE PUNTO READLINE PIZQ PDER .)
 
 WARNING: 
 WARNING: Conflicts:
@@ -2129,6 +2206,7 @@ WARNING: shift/reduce conflict for MOD in state 20 resolved as shift
 WARNING: shift/reduce conflict for ID in state 21 resolved as shift
 WARNING: shift/reduce conflict for BEGIN in state 21 resolved as shift
 WARNING: shift/reduce conflict for IMPORTS in state 21 resolved as shift
+WARNING: shift/reduce conflict for WHILE in state 21 resolved as shift
 WARNING: shift/reduce conflict for DATETIME in state 21 resolved as shift
 WARNING: shift/reduce conflict for LLIZQ in state 21 resolved as shift
 WARNING: shift/reduce conflict for VBCRLF in state 21 resolved as shift
@@ -2141,24 +2219,25 @@ WARNING: shift/reduce conflict for RESTA in state 21 resolved as shift
 WARNING: shift/reduce conflict for MOD in state 21 resolved as shift
 WARNING: shift/reduce conflict for NUMERO in state 21 resolved as shift
 WARNING: shift/reduce conflict for PIZQ in state 21 resolved as shift
-WARNING: shift/reduce conflict for END in state 54 resolved as shift
-WARNING: shift/reduce conflict for ID in state 54 resolved as shift
-WARNING: shift/reduce conflict for BEGIN in state 54 resolved as shift
-WARNING: shift/reduce conflict for IMPORTS in state 54 resolved as shift
-WARNING: shift/reduce conflict for DATETIME in state 54 resolved as shift
-WARNING: shift/reduce conflict for LLIZQ in state 54 resolved as shift
-WARNING: shift/reduce conflict for VBCRLF in state 54 resolved as shift
-WARNING: shift/reduce conflict for MODULE in state 54 resolved as shift
-WARNING: shift/reduce conflict for CONSOLE in state 54 resolved as shift
-WARNING: shift/reduce conflict for DIM in state 54 resolved as shift
-WARNING: shift/reduce conflict for SUMA in state 54 resolved as shift
-WARNING: shift/reduce conflict for RESTA in state 54 resolved as shift
-WARNING: shift/reduce conflict for MOD in state 54 resolved as shift
-WARNING: shift/reduce conflict for NUMERO in state 54 resolved as shift
-WARNING: shift/reduce conflict for PIZQ in state 54 resolved as shift
-WARNING: shift/reduce conflict for SUMA in state 72 resolved as shift
-WARNING: shift/reduce conflict for RESTA in state 72 resolved as shift
-WARNING: shift/reduce conflict for MOD in state 72 resolved as shift
-WARNING: shift/reduce conflict for MODULE in state 74 resolved as shift
+WARNING: shift/reduce conflict for END in state 55 resolved as shift
+WARNING: shift/reduce conflict for ID in state 55 resolved as shift
+WARNING: shift/reduce conflict for BEGIN in state 55 resolved as shift
+WARNING: shift/reduce conflict for IMPORTS in state 55 resolved as shift
+WARNING: shift/reduce conflict for WHILE in state 55 resolved as shift
+WARNING: shift/reduce conflict for DATETIME in state 55 resolved as shift
+WARNING: shift/reduce conflict for LLIZQ in state 55 resolved as shift
+WARNING: shift/reduce conflict for VBCRLF in state 55 resolved as shift
+WARNING: shift/reduce conflict for MODULE in state 55 resolved as shift
+WARNING: shift/reduce conflict for CONSOLE in state 55 resolved as shift
+WARNING: shift/reduce conflict for DIM in state 55 resolved as shift
+WARNING: shift/reduce conflict for SUMA in state 55 resolved as shift
+WARNING: shift/reduce conflict for RESTA in state 55 resolved as shift
+WARNING: shift/reduce conflict for MOD in state 55 resolved as shift
+WARNING: shift/reduce conflict for NUMERO in state 55 resolved as shift
+WARNING: shift/reduce conflict for PIZQ in state 55 resolved as shift
+WARNING: shift/reduce conflict for SUMA in state 73 resolved as shift
+WARNING: shift/reduce conflict for RESTA in state 73 resolved as shift
+WARNING: shift/reduce conflict for MOD in state 73 resolved as shift
+WARNING: shift/reduce conflict for MODULE in state 75 resolved as shift
 WARNING: reduce/reduce conflict in state 19 resolved using rule (statement -> ID)
 WARNING: rejected rule (factor -> ID) in state 19

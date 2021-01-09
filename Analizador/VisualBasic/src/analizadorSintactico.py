@@ -17,7 +17,7 @@ precedence = (
 	('left','MENORQ','MAYORQ'),
 	('left','SUMA','RESTA'),
 	('left','MULTI','DIV'),
-	#('right','ODD'),
+	('right','WHILE'),
 	('right','PUNTO'),
 	('left','PIZQ','PDER'),
 	('left','LLIZQ','LLDER'),
@@ -124,9 +124,9 @@ def p_statement5(p):
 	'statement : IMPORTS ID'
 	print ("statement 5")
 
-#def p_statement5(p):
-#	'''statement : WHILE condition DO statement'''
-	#print "statement 5"
+def p_statement6(p):
+	'''statement : WHILE'''
+	print ("statement 6")
 
 def p_statementEmpty(p):
 	'''statement : empty'''
@@ -219,15 +219,15 @@ def p_expression11(p):
 
 def p_addingOperator1(p):
 	'''addingOperator : SUMA'''
-	print ("addingOperator 1")
+	print ("addingOperator 1 ")
 
 def p_addingOperator2(p):
 	'''addingOperator : RESTA'''
-	print ("addingOperator 1")
+	print ("addingOperator 2")
 
 def p_addingOperator3(p):
 	'''addingOperator : MOD'''
-	print ("addingOperator 2")
+	print ("addingOperator 3")
 
 def p_term1(p):
 	'''term : factor'''
@@ -295,7 +295,8 @@ def buscarFicheros(directorio):
 
 	return files[int(numArchivo)-1]
 
-direccion ='C:/Users/Marco/Documents/test/'
+#direccion ='C:/Users/Marco/Documents/test/'
+direccion = 'C:/Users/Marco/OneDrive/Documentos/ITSVA/5°Semestre/LENGUAJES Y AUTOMATAS/Tema4/EjerciciosSintactico/Analizador/VisualBasic/pruebas/'
 #direccion = 'C:/Users/Marco/OneDrive/Documentos/ITSVA/5°Semestre/LENGUAJES Y AUTOMATAS/Tema4/EjerciciosSintactico/Analizador/VisualBasic/pruebas'
 archivi = buscarFicheros(direccion)
 prueba = direccion+archivi

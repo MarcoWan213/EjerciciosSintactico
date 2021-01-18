@@ -6,47 +6,28 @@ from analizador import tokens
 from sys import stdin
 
 precedence = (	
-	('right','ID','MODULE', 'IMPORTS'),
-	#('right','PROCEDURE'),
-	#('right','VAR'),
+	('right','ID','MODULE', 'IMPORTS'),	
 	('right','IGUAL'),
-	('right','UPDATE'),
-    #('right','ARGS'),
+	('right','UPDATE'),    
 	('right','NUMERO'),
 	('left','NOIGUAL'),
 	('left','MENORQ','MAYORQ'),
 	('left','SUMA','RESTA'),
-	('left','MULTI','DIV'),
+	('left','MULTI','DIV'), 
 	('right','WHILE'),
 	('right','PUNTO'),
 	('left','PIZQ','PDER'),
 	('left','LLIZQ','LLDER'),
-	#'a','x','SUMA','RESTA','DIV','MULTI','MENORQ','MAYORQ','IGUAL','NOIGUAL',
-	#'PIZQ','PDER','LLIZQ','LLDER','PUNTO','UPDATE'
 	)
 
 def p_module(p):
-	'module : program'
-	#'module : imports MODULE PROGRAM constDecl varDecl procDecl statement'	
+	'module : program'				
 	print ("Module")
 
 def p_program(p):
-	'program : constDecl varDecl procDecl statement'
-	#'program : SUB MAIN PIZQ ARGS AS STRING PIZQ PDER PDER'
+	'program : constDecl varDecl procDecl statement'	
 	print ("Program")
 
-#def p_args(p):
-    #'args : ARGS'
-
-##def p_imports(p):	
-	##'imports : IMPORTS ID'
-	#"(" ident ")"
-    #print "block"	
-	#'''block : constDecl varDecl procDecl statement'''
-
-#def p_main(p):
-	
-#Sub Main(args As String())
 
 def p_constDecl(p):
 	'''constDecl : DIM constAssignmentList'''
@@ -80,9 +61,14 @@ def p_constAssignmentList2(p):
 	'''constAssignmentList : constAssignmentList ID IGUAL NUMERO'''
 	print ("constAssignmentList 2")
 
-def p_varDecl1(p):
-	'''varDecl : DIM identList'''
-	print ("varDecl 1")
+#def p_varDecl1(p):
+#	'''varDecl : DIM identList'''
+#	print ("varDecl 1")
+
+def p_varDecl2(p):
+	'''varDecl : DIM NUMERO AS ID IGUAL ID'''
+	print ("varDecl DIM SAME")
+	
 
 def p_varDeclEmpty(p):
 	'''varDecl : empty'''
@@ -94,7 +80,7 @@ def p_identList1(p):
 
 def p_identList2(p):
 	'''identList : identList ID'''
-	print ("identList 2")
+	print ("identList 2") 
 
 #def p_procDecl1(p):
 	#'''procDecl : procDecl PROCEDURE ID  module '''
@@ -127,6 +113,10 @@ def p_statement5(p):
 def p_statement6(p):
 	'''statement : WHILE'''
 	print ("statement 6")
+
+def p_statement7(p):
+	'''statement : MODULE PROGRAM'''
+	print ("statement 7")
 
 def p_statementEmpty(p):
 	'''statement : empty'''
@@ -216,6 +206,14 @@ def p_expression10(p):
 def p_expression11(p):
 	'''expression : CONSOLE PUNTO WRITELINE PIZQ ID PDER'''
 	print ("expresion 10")
+
+def p_expression12(p):
+	'''expression : END SUB'''
+	print ("expresion 12 SUBend")
+
+#def p_expression13(p):
+#	'''expression : DIM NUMERO AS ID IGUAL ID'''
+#	print ("expresion DIM")
 
 def p_addingOperator1(p):
 	'''addingOperator : SUMA'''

@@ -293,8 +293,8 @@ def buscarFicheros(directorio):
 
 	return files[int(numArchivo)-1]
 
-#direccion ='C:/Users/Marco/Documents/test/'
-direccion = 'C:/Users/Marco/OneDrive/Documentos/ITSVA/5°Semestre/LENGUAJES Y AUTOMATAS/Tema4/EjerciciosSintactico/Analizador/VisualBasic/pruebas/'
+direccion ='C:/Users/Marco/Documents/test/'
+#direccion = 'C:/Users/Marco/OneDrive/Documentos/ITSVA/5°Semestre/LENGUAJES Y AUTOMATAS/Tema4/EjerciciosSintactico/Analizador/VisualBasic/pruebas/'
 #direccion = 'C:/Users/Marco/OneDrive/Documentos/ITSVA/5°Semestre/LENGUAJES Y AUTOMATAS/Tema4/EjerciciosSintactico/Analizador/VisualBasic/pruebas'
 archivi = buscarFicheros(direccion)
 prueba = direccion+archivi
